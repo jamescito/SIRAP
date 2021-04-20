@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class EditorialController extends Controller
 {
@@ -14,7 +16,9 @@ class EditorialController extends Controller
     public function index()
     {
         //
-        return view('Editorial.index');
+        $editorial=DB::select('select * from editorials');
+        return view('Editoriales.index',['Editoriales' => $editorial]);
+     
     }
 
     /**
@@ -25,6 +29,7 @@ class EditorialController extends Controller
     public function create()
     {
         //
+        return view('Editoriales.create');
     }
 
     /**
@@ -36,6 +41,12 @@ class EditorialController extends Controller
     public function store(Request $request)
     {
         //
+        $codigo=$request->get('codigo');
+        $editorial=$request->get('editorial');
+        $pais=$request->get('pais');
+        $correo=$request->get('correo');
+        DB::Insert('insert into autors(codigo, editorial, pais, correo) values (?, ?, ?, ?)',[$codigo,$editorial,$pais, $correo]);
+        return redirect('/Editoriales');
     }
 
     /**
