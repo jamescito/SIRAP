@@ -18,6 +18,7 @@ class CreateAutoresTable extends Migration
             $table->string('id',50);
             $table->string('nombre',40);
             $table->string('apellido',40);
+            $table->date('fecha_nacimiento');
             $table->string('nacionalidad',50);
             $table->primary('id');
             $table->timestamps();
