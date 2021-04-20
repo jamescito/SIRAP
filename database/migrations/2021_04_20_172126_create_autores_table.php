@@ -14,14 +14,14 @@ class CreateAutoresTable extends Migration
     public function up()
     {
         Schema::create('autores', function (Blueprint $table) {
-            
-            $table->string('id',50);
+            $table->string('codigo',50);
             $table->string('nombre',40);
             $table->string('apellido',40);
             $table->date('fecha_nacimiento');
             $table->string('nacionalidad',50);
-            $table->primary('id');
+            $table->primary('codigo');
             $table->timestamps();
+
         });
     }
 
