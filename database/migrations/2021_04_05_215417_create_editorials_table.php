@@ -17,7 +17,7 @@ class CreateEditorialsTable extends Migration
             $table->id();
             $table->string('codigo',20);
             $table->string('editorial',40);
-            $table->string('nacionalidad',40);
+            $table->string('pais',40);
             $table->string('correo',50);
             $table->timestamps();
         });
