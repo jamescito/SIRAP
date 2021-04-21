@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\autores;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -15,7 +16,7 @@ class AutorController extends Controller
     public function index()
     {
         //
-        $autores=DB::select('select * from autors');
+        $autores=DB::select('select * from autores');
         return view('autores.index',['autores' => $autores]);
     }
 
@@ -42,8 +43,9 @@ class AutorController extends Controller
         $codigo=$request->get('codigo');
         $nombre=$request->get('nombre');
         $apellido=$request->get('apellido');
+        $fecha=$request->get('fecha_nacimiento');
         $nacionalidad=$request->get('nacionalidad');
-        DB::Insert('insert into autors(codigo, nombre, apellido, nacionalidad) values (?, ?, ?, ?)',[$codigo,$nombre,$apellido, $nacionalidad]);
+        DB::Insert('insert into autores (codigo, nombre, apellido, fecha_nacimiento, nacionalidad) values (?, ?, ?, ?, ?)',[$codigo,$nombre,$apellido,$fecha,$nacionalidad]);
         return redirect('/autores');
     }
 
@@ -53,9 +55,10 @@ class AutorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($codigo)
     {
-        //
+        $autores= autores::where($codigo);
+        return view('autores.edit')->with('autores',$autores);
     }
 
     /**
@@ -64,9 +67,12 @@ class AutorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($codigo)
     {
         //
+        $autores= autores::where($codigo);
+        return view('autores.edit')->with('autores',$autores);
+        return redirect('/autores');
     }
 
     /**
@@ -76,9 +82,16 @@ class AutorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $codigo)
     {
         //
+        $autores= autores::where('codigo',$codigo)->get();
+        $autores->$nombre=$request->get('nombre');
+        $autores->$apellido=$request->get('apellido');
+        $autores->$fecha=$request->get('fecha_nacimiento');
+        $autores->$nacionalidad=$request->get('nacionalidad');
+        $autores->save();
+        return redirect('/autores');
     }
 
     /**
