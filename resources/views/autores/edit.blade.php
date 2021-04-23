@@ -10,7 +10,7 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
             <div class="flex flex-col">
             
-            <form action="\autores/{{$autor->codigo}}" class="w-full max-w-lg" method="post">
+            <form action="\autores/{{ $autor->codigo}}" class="w-full max-w-lg" method="post">
             @csrf()
             <div class="flex items-center py-2">
                 <div class="w-full px-3">

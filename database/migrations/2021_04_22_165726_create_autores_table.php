@@ -14,14 +14,18 @@ class CreateAutoresTable extends Migration
     public function up()
     {
         Schema::create('autores', function (Blueprint $table) {
-            $table->string('codigo',50);
+            $table->engine = 'MyISAM';
+            $table->string('codigo', 50);
+            $table->unsignedInteger('id');
+            $table->primary(['codigo', 'id']);
             $table->string('nombre',40);
             $table->string('apellido',40);
             $table->date('fecha_nacimiento');
             $table->string('nacionalidad',50);
-            $table->primary('codigo');
             $table->timestamps();
-
+        });
+        Schema::table('autores', function (Blueprint $table) {
+            $table->integer('id', true, true)->change();
         });
     }
 

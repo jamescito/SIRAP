@@ -23,6 +23,7 @@ Route::resource('Carreras','App\Http\Controllers\CarreraController');
 Route::resource('Estudiantes','App\Http\Controllers\EstudianteController');
 Route::resource('Libros','App\Http\Controllers\LibroController');
 
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');

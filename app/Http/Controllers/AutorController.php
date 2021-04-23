@@ -55,10 +55,10 @@ class AutorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($codigo)
+    public function show()
     {
-        $autores= autores::where($codigo);
-        return view('autores.edit')->with('autores',$autores);
+        // $autores= autores::where($codigo);
+        // return view('autores.edit')->with('autores',$autores);
     }
 
     /**
@@ -67,11 +67,11 @@ class AutorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($codigo)
+    public function edit($id)
     {
         //
-        $autores= autores::where($codigo);
-        return view('autores.edit')->with('autores',$autores);
+        $autor= autores::where('codigo', $id)->get();
+        return view('autores.edit')->with('autor',$autor);
         return redirect('/autores');
     }
 
@@ -82,10 +82,10 @@ class AutorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $codigo)
+    public function update(Request $request, $id)
     {
         //
-        $autores= autores::where('codigo',$codigo)->get();
+        $autores= autores::where('codigo', $id)->get();
         $autores->$nombre=$request->get('nombre');
         $autores->$apellido=$request->get('apellido');
         $autores->$fecha=$request->get('fecha_nacimiento');
