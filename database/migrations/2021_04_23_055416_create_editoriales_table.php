@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAutoresTable extends Migration
+class CreateEditorialesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,14 @@ class CreateAutoresTable extends Migration
      */
     public function up()
     {
-        Schema::create('autores', function (Blueprint $table) {
+        Schema::create('editoriales', function (Blueprint $table) {
             $table->id();
-            $table->string('codigo', 50)->unique();;
-            $table->string('nombre',40);
-            $table->string('apellido',40);
-            $table->date('fecha_nacimiento');
-            $table->string('nacionalidad',50);
-            
+            $table->string('codigoEditorial',50)->unique();
+            $table->string('editorial',50);
+            $table->string('pais',50);
+            $table->string('correo',50);
         });
-     
+       
     }
 
     /**
@@ -32,6 +30,6 @@ class CreateAutoresTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('autores');
+        Schema::dropIfExists('editoriales');
     }
 }
