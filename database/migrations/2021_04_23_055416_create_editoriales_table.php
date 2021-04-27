@@ -19,6 +19,7 @@ class CreateEditorialesTable extends Migration
             $table->string('editorial',50);
             $table->string('pais',50);
             $table->string('correo',50);
+            $table->timestamps();
         });
        
     }

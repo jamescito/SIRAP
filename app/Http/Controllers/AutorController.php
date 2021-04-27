@@ -85,11 +85,12 @@ class AutorController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $autores= autores::where('codigo', $id)->get();
-        $autores->$nombre=$request->get('nombre');
-        $autores->$apellido=$request->get('apellido');
-        $autores->$fecha=$request->get('fecha_nacimiento');
-        $autores->$nacionalidad=$request->get('nacionalidad');
+        $autores= autores::find($id);
+        $autores->codigo=$request->get('codigo');
+        $autores->nombre=$request->get('nombre');
+        $autores->apellido=$request->get('apellido');
+        $autores->fecha_nacimiento=$request->get('fecha_nacimiento');
+        $autores->nacionalidad=$request->get('nacionalidad');
         $autores->save();
         return redirect('/autores');
     }

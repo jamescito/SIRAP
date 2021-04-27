@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Editar Registros') }}
+            {{ __('Editar Autores') }}
         </h2>
     </x-slot>
 
@@ -10,13 +10,14 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
             <div class="flex flex-col">
             
-            <form action="\autores/{{ $autor->codigo}}" class="w-full max-w-lg" method="post">
+            <form action="\autores/{{ $autor->id}}" class="w-full max-w-lg" method="post">
+            @method('PUT')
             @csrf()
             <div class="flex items-center py-2">
                 <div class="w-full px-3">
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Código</label>
                 </div>
-                <input type="text" id="codigo" name="codigo" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" tabindex="1">
+                <input type="text" id="codigo" value="{{ $autor->codigo }}" readonly name="codigo" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" tabindex="1">
             </div>
             <div class="flex items-center py-2">
                 <div class="w-full px-3">
