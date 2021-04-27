@@ -18,6 +18,7 @@ class CreateAreasTable extends Migration
             $table->id();
             $table->string('codigoArea',50)->unique();
             $table->string('area',50);
+            $table->timestamps();
             
         });
    

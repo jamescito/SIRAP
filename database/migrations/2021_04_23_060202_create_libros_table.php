@@ -25,6 +25,7 @@ class CreateLibrosTable extends Migration
             $table->string('editoriales_id',50);
             $table->foreign('area_id')->references('codigoArea')->on('areas');
             $table->foreign('editoriales_id')->references('codigoEditorial')->on('editoriales');
+            $table->timestamps();
         });
        
     }

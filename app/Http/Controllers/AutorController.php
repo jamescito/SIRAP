@@ -17,7 +17,7 @@ class AutorController extends Controller
     {
         //
         $autores=DB::select('select * from autores');
-        return view('autores.index',['autores' => $autores]);
+        return view('autores.index', ['autores' => $autores]);
     }
 
     /**
@@ -45,7 +45,7 @@ class AutorController extends Controller
         $apellido=$request->get('apellido');
         $fecha=$request->get('fecha_nacimiento');
         $nacionalidad=$request->get('nacionalidad');
-        DB::Insert('insert into autores (codigo, nombre, apellido, fecha_nacimiento, nacionalidad) values (?, ?, ?, ?, ?)',[$codigo,$nombre,$apellido,$fecha,$nacionalidad]);
+        DB::Insert('insert into autores (codigo, nombre, apellido, fecha_nacimiento, nacionalidad) values (?, ?, ?, ?, ?)', [$codigo, $nombre, $apellido, $fecha, $nacionalidad]);
         return redirect('/autores');
     }
 
@@ -70,8 +70,8 @@ class AutorController extends Controller
     public function edit($id)
     {
         //
-        $autor= autores::where('codigo', $id)->get();
-        return view('autores.edit')->with('autor',$autor);
+        $autor= autores::find($id);
+        return view('autores.edit')->with('autor', $autor);
         return redirect('/autores');
     }
 
@@ -85,11 +85,12 @@ class AutorController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $autores= autores::where('codigo', $id)->get();
-        $autores->$nombre=$request->get('nombre');
-        $autores->$apellido=$request->get('apellido');
-        $autores->$fecha=$request->get('fecha_nacimiento');
-        $autores->$nacionalidad=$request->get('nacionalidad');
+        $autores= autores::find($id);
+        $autores->codigo=$request->get('codigo');
+        $autores->nombre=$request->get('nombre');
+        $autores->apellido=$request->get('apellido');
+        $autores->fecha_nacimiento=$request->get('fecha_nacimiento');
+        $autores->nacionalidad=$request->get('nacionalidad');
         $autores->save();
         return redirect('/autores');
     }

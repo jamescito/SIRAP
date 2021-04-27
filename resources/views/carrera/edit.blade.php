@@ -10,14 +10,13 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
             <div class="flex flex-col">
             
-            <form action="\autores/{{ $autor->id}}" class="w-full max-w-lg" method="post">
-            @method('PUT')
+            <form action="\autores/{{ $autor->id }}" class="w-full max-w-lg" method="post">
             @csrf()
             <div class="flex items-center py-2">
                 <div class="w-full px-3">
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Código</label>
                 </div>
-                <input type="text" id="codigo" value="{{ $autor->codigo }}" readonly name="codigo" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" tabindex="1">
+                <input type="text" id="codigo" value="{{ $autor->codigo }}" name="codigo" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" tabindex="1" readonly>
             </div>
             <div class="flex items-center py-2">
                 <div class="w-full px-3">
@@ -29,7 +28,7 @@
                 <div class="w-full px-3">
                     <label for="apellido" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Apellido</label>
                 </div>
-                <input type="text"value="{{ $autor->apellido }}" id="apellido" name="apellido" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" tabindex="3">
+                <input type="text" value="{{ $autor->apellido }}" id="apellido" name="apellido" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" tabindex="3">
             </div>
 
             <div class="flex items-center py-2">

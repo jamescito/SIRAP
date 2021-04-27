@@ -20,7 +20,7 @@ class CreateAutoresTable extends Migration
             $table->string('apellido',40);
             $table->date('fecha_nacimiento');
             $table->string('nacionalidad',50);
-            
+            $table->timestamps();
         });
      
     }
@@ -32,6 +32,7 @@ class CreateAutoresTable extends Migration
      */
     public function down()
     {
+
         Schema::dropIfExists('autores');
     }
 }

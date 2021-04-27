@@ -19,7 +19,7 @@ class CreateDetallelibrosTable extends Migration
             $table->string('codigolibro',50);
             $table->foreign('autoresCodigo')->references('codigo')->on('autores');
             $table->foreign('codigolibro')-> references('codigolibro')->on('libros');
-            
+            $table->timestamps();
         });
       
     }
