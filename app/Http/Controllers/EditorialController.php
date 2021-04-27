@@ -16,8 +16,8 @@ class EditorialController extends Controller
     public function index()
     {
         //
-        $editorial=DB::select('select * from editorials');
-        return view('Editoriales.index',['Editoriales' => $editorial]);
+        $editorial=DB::select('select * from editoriales');
+        return view('editorial.index', ['editoriales' => $editorial]);
      
     }
 
@@ -29,7 +29,7 @@ class EditorialController extends Controller
     public function create()
     {
         //
-        return view('Editoriales.create');
+        return view('editorial.create');
     }
 
     /**
