@@ -56,10 +56,10 @@
                                 {{ $autor->nacionalidad }}
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                            <form action="{{ route('autores.destroy', $autor->codigo) }}" method="post">
+                            <form action="{{ route('autores.destroy', $autor->id) }}" method="post">
                                 @csrf
                                 @method('DELETE')
-                                <a href="/autores/{{ $autor->codigo }}/edit" class="text-indigo-600 hover:text-indigo-900 mr-4"> Editar </a>
+                                <a href="/autores/{{ $autor->id }}/edit" class="text-indigo-600 hover:text-indigo-900 mr-4"> Editar </a>
                                 <button type="submit" class="text-indigo-600 hover:text-indigo-900">Eliminar</a>
                             </form>
                             </td>
