@@ -106,7 +106,5 @@ class AutorController extends Controller
         $autor=autores::find($id);
         $autor->delete();
         return redirect('/autores');
-
-
     }
 }

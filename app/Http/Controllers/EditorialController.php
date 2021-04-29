@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Editoriales;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -17,7 +18,7 @@ class EditorialController extends Controller
     {
         //
         $editorial=DB::select('select * from editoriales');
-        return view('editorial.index', ['editoriales' => $editorial]);
+        return view('Editorial.index', ['editoriales' => $editorial]);
      
     }
 
@@ -29,7 +30,7 @@ class EditorialController extends Controller
     public function create()
     {
         //
-        return view('editorial.create');
+        return view('Editorial.create');
     }
 
     /**
@@ -41,11 +42,12 @@ class EditorialController extends Controller
     public function store(Request $request)
     {
         //
-        $codigo=$request->get('codigo');
+        $codigoEditorial=$request->get('codigoEditorial');
         $editorial=$request->get('editorial');
         $pais=$request->get('pais');
         $correo=$request->get('correo');
-        DB::Insert('insert into autors(codigo, editorial, pais, correo) values (?, ?, ?, ?)',[$codigo,$editorial,$pais, $correo]);
+      
+        DB::Insert('insert into editoriales (codigoEditorial, editorial, pais, correo) values (?, ?, ?, ?)', [$codigoEditorial, $editorial, $pais, $correo]);
         return redirect('/Editoriales');
     }
 
@@ -68,7 +70,9 @@ class EditorialController extends Controller
      */
     public function edit($id)
     {
-        //
+        $editorial= Editoriales::find($id);
+        return view('editorial.edit')->with('editorial', $editorial);
+        return redirect('/Editorial');
     }
 
     /**
@@ -80,7 +84,13 @@ class EditorialController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $editorial= Editoriales::find($id);
+        $editorial->codigoEditorial=$request->get('codigoEditorial');
+        $editorial->editorial=$request->get('editorial');
+        $editorial->pais=$request->get('pais');
+        $editorial->correo=$request->get('correo');
+        $editorial->save();
+        return redirect('/Editoriales');
     }
 
     /**
@@ -91,6 +101,8 @@ class EditorialController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $editorial=Editoriales::find($id);
+        $editorial->delete();
+        return redirect('/Editoriales');
     }
 }
