@@ -13,9 +13,9 @@
             @csrf()
             <div class="flex items-center py-2">
                 <div class="w-full px-3">
-                    <label for="codigo" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Código</label>
+                    <label for="codigoEditorial" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Código</label>
                 </div>
-                <input type="text" id="codigo" name="codigo" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" tabindex="1">
+                <input type="text" id="codigoEditorial" name="codigoEditorial" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" tabindex="1">
             </div>
             <div class="flex items-center py-2">
                 <div class="w-full px-3">
@@ -31,7 +31,7 @@
             </div>
             <div class="flex items-center py-2">
                 <div class="w-full px-3">
-                    <label for="correo" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">correo</label>
+                    <label for="correo" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Correo</label>
                 </div>
                 <input type="text" id="correo" name="correo" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" tabindex="4">
             </div>
