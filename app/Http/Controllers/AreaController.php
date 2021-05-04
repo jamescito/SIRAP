@@ -96,6 +96,8 @@ class AreaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $areas= Areas::find($id);
+        $areas->delete();
+        return redirect('/areas');
     }
 }
