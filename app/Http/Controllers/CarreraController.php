@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Carrera;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -26,7 +27,9 @@ class CarreraController extends Controller
      */
     public function create()
     {
-        //
+        return view('carrera.create');
+
+
     }
 
     /**
@@ -37,7 +40,12 @@ class CarreraController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $Carreras= new Carrera();
+        $Carreras->codigoCarrera=$request->get('codigoCarrera');
+        $Carreras->carrera=$request->get('carrera');
+        $Carreras->save();
+       return redirect('/Carreras');
+        
     }
 
     /**
@@ -59,7 +67,10 @@ class CarreraController extends Controller
      */
     public function edit($id)
     {
-        //
+        $Carreras= Carrera::find($id);
+        return view('carrera.edit')->with('carrer',$Carreras);
+        return redirect('/Carreras');
+        
     }
 
     /**
@@ -71,7 +82,11 @@ class CarreraController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $Carreras= Carrera::find($id);
+        $Carreras->codigoCarrera=$request->get('codigoCarrera');
+        $Carreras->carrera=$request->get('carrera');
+        $Carreras->save();
+       return redirect('/Carreras');
     }
 
     /**
@@ -82,6 +97,8 @@ class CarreraController extends Controller
      */
     public function destroy($id)
     {
-        //
+     $Carreras=Carrera::find($id);
+     $Carreras->delete();
+     return redirect('/Carreras');
     }
 }
