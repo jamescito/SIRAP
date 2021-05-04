@@ -64,7 +64,12 @@ class AreaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $areas=Areas::find($id);
+        return view('areas.edit')->with('area',$areas);
+        return redirect('/areas');
+
+     
+        
     }
 
     /**
@@ -76,7 +81,11 @@ class AreaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $area= Areas::find($id);
+        $area->codigoArea=$request->get('codigoArea');
+        $area->area=$request->get('area');
+        $area->save();
+        return redirect('/areas');
     }
 
     /**
