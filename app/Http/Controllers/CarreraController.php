@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Carrera;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -26,7 +27,9 @@ class CarreraController extends Controller
      */
     public function create()
     {
-        //
+        return view('carrera.create');
+
+
     }
 
     /**
@@ -37,7 +40,12 @@ class CarreraController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $Carreras= new Carrera();
+        $Carreras->codigoCarrera=$request->get('codigoCarrera');
+        $Carreras->carrera=$request->get('carrera');
+        $Carreras->save();
+       return redirect('/Carreras');
+        
     }
 
     /**
