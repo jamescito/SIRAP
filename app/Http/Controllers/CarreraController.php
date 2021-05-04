@@ -97,6 +97,8 @@ class CarreraController extends Controller
      */
     public function destroy($id)
     {
-        //
+     $Carreras=Carrera::find($id);
+     $Carreras->delete();
+     return redirect('/Carreras');
     }
 }
