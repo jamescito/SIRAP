@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Areas;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AreaController extends Controller
 {
@@ -13,7 +15,8 @@ class AreaController extends Controller
      */
     public function index()
     {
-        return view('areas.index');
+        $area=DB::select('select * from areas');
+        return view('areas.index',['areas'=> $area]);
     }
 
     /**
@@ -23,7 +26,7 @@ class AreaController extends Controller
      */
     public function create()
     {
-        //
+        return view('areas.create');
     }
 
     /**
@@ -34,7 +37,12 @@ class AreaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $area= new Areas();
+        $area->codigoArea=$request->get('codigoArea');
+        $area->area=$request->get('area');
+        $area->save();
+        return redirect('/areas');
+
     }
 
     /**
