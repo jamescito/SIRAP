@@ -36,6 +36,10 @@
                         <x-jet-nav-link href="{{ route('Carreras.index')  }}">
                         {{ __('Carreras') }}
                     </x-jet-nav-link>
+
+                    <x-jet-nav-link href="{{ route('areas.index')  }}">
+                        {{ __('Areas') }}
+                    </x-jet-nav-link>
                 </div>
             </div>
 
