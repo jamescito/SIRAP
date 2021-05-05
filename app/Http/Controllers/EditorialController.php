@@ -17,8 +17,8 @@ class EditorialController extends Controller
     public function index()
     {
         //
-        $editorial=DB::select('select * from editoriales');
-        return view('Editorial.index', ['editoriales' => $editorial]);
+        $Editorial=DB::select('select * from Editoriales');
+        return view('Editorial.index', ['Editoriales' => $Editorial]);
      
     }
 
@@ -70,8 +70,8 @@ class EditorialController extends Controller
      */
     public function edit($id)
     {
-        $editorial= Editoriales::find($id);
-        return view('editorial.edit')->with('editorial', $editorial);
+        $Editorial= Editoriales::find($id);
+        return view('Editorial.edit')->with('Editorial', $Editorial);
         return redirect('/Editorial');
     }
 
@@ -84,12 +84,12 @@ class EditorialController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $editorial= Editoriales::find($id);
-        $editorial->codigoEditorial=$request->get('codigoEditorial');
-        $editorial->editorial=$request->get('editorial');
-        $editorial->pais=$request->get('pais');
-        $editorial->correo=$request->get('correo');
-        $editorial->save();
+        $Editorial= Editoriales::find($id);
+        $Editorial->codigoEditorial=$request->get('codigoEditorial');
+        $Editorial->editorial=$request->get('editorial');
+        $Editorial->pais=$request->get('pais');
+        $Editorial->correo=$request->get('correo');
+        $Editorial->save();
         return redirect('/Editoriales');
     }
 
@@ -101,8 +101,8 @@ class EditorialController extends Controller
      */
     public function destroy($id)
     {
-        $editorial=Editoriales::find($id);
-        $editorial->delete();
+        $Editorial=Editoriales::find($id);
+        $Editorial->delete();
         return redirect('/Editoriales');
     }
 }

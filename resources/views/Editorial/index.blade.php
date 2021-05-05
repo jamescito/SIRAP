@@ -35,27 +35,27 @@
                             </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
-                        @foreach ($editoriales as $editorial)
+                        @foreach ($Editoriales as $Editorial)
                             <tr>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                {{ $editorial->codigoEditorial }}
+                                {{ $Editorial->codigoEditorial }}
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                {{ $editorial->editorial }}
+                                {{ $Editorial->editorial }}
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                {{ $editorial->pais }}
+                                {{ $Editorial->pais }}
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                {{ $editorial->correo }}
+                                {{ $Editorial->correo }}
                             </td>
 
                             
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                            <form action="{{ route('Editoriales.destroy', $editorial->id) }}" method="post">
+                            <form action="{{ route('Editoriales.destroy', $Editorial->id) }}" method="post">
                                 @csrf
                                 @method('DELETE')
-                                <a href="/Editoriales/{{ $editorial->id }}/edit" class="text-indigo-600 hover:text-indigo-900 mr-4"> Editar </a>
+                                <a href="/Editoriales/{{ $Editorial->id }}/edit" class="text-indigo-600 hover:text-indigo-900 mr-4"> Editar </a>
                                 <button type="submit" class="text-indigo-600 hover:text-indigo-900">Eliminar</a>
                             </form>
                             </td>
