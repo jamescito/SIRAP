@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class EstudianteSeeder extends Seeder
 {
@@ -13,6 +14,16 @@ class EstudianteSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('estudiantes')-> insert([
+          
+            [
+                'codigoCarnet'=>'18-343-666',
+                'nombre'=>'Eliezer',
+                'apellido'=>'Hernandez',
+                'carrera_id'=>'1'
+            ]
+
+        ]);
+     
     }
 }
