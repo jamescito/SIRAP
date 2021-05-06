@@ -29,7 +29,7 @@
                         {{ __('Estudiantes') }}
                     </x-jet-nav-link>
 
-                    <x-jet-nav-link href="{{ route('Editoriales.index')  }}">
+                    <x-jet-nav-link href="{{ route('editoriales.index')  }}">
                         {{ __('Editorial') }}
                         </x-jet-nav-link>
 
@@ -40,6 +40,11 @@
                     <x-jet-nav-link href="{{ route('areas.index')  }}">
                         {{ __('Areas') }}
                     </x-jet-nav-link>
+
+                    <x-jet-nav-link href="{{ route('usuario.index') }}" :="request()->routeIs('usuario')">
+                        {{ __('Usuarios') }}
+                    </x-jet-nav-link>
+                    
                 </div>
             </div>
 
