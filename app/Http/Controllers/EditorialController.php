@@ -18,7 +18,7 @@ class EditorialController extends Controller
     {
         //
         $editorial=DB::select('select * from editoriales');
-        return view('editorial.index', ['editoriales' => $editorial]);
+        return view('Editorial.index', ['editoriales' => $editorial]);
      
     }
 
@@ -30,7 +30,7 @@ class EditorialController extends Controller
     public function create()
     {
         //
-        return view('editorial.create');
+        return view('Editorial.create');
     }
 
     /**
@@ -71,7 +71,7 @@ class EditorialController extends Controller
     public function edit($id)
     {
         $editorial= editoriales::find($id);
-        return view('editorial.edit')->with('editorial', $editorial);
+        return view('Editorial.edit')->with('editorial', $editorial);
         return redirect('/editorial');
     }
 
