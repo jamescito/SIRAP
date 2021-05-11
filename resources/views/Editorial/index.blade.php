@@ -1,4 +1,7 @@
 <x-app-layout>
+@section('css')
+<link href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap5.min.css" rel="styleheet">
+@endsection
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Editoriales') }}
@@ -8,12 +11,12 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-1">
             <div class=" bg-white overflow-hidden shadow-xl sm:rounded-lg py-3">
                 
-            <a href="Editoriales/create" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 m-6  border border-blue-500 hover:border-transparent rounded">CREAR</a>
+            <a href="editoriales/create" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 m-6  border border-blue-500 hover:border-transparent rounded">CREAR</a>
                  <!--TABLA CON TAILWIND-->
                 <div class="my-4 overflow-x-auto sm:mx-6 lg:mx-8 w-full">
                     <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                     <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                        <table class="min-w-full divide-y divide-gray-200">
+                        <table id="editorial"  class="min-w-full divide-y divide-gray-200">
                         <thead class="bg-gray-50">
                             <tr>
                            
@@ -52,10 +55,10 @@
 
                             
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                            <form action="{{ route('Editoriales.destroy', $editorial->id) }}" method="post">
+                            <form action="{{ route('editoriales.destroy', $editorial->id) }}" method="post">
                                 @csrf
                                 @method('DELETE')
-                                <a href="/Editoriales/{{ $editorial->id }}/edit" class="text-indigo-600 hover:text-indigo-900 mr-4"> Editar </a>
+                                <a href="/editoriales/{{ $editorial->id }}/edit" class="text-indigo-600 hover:text-indigo-900 mr-4"> Editar </a>
                                 <button type="submit" class="text-indigo-600 hover:text-indigo-900">Eliminar</a>
                             </form>
                             </td>
@@ -67,6 +70,7 @@
                     </div>
                     </div>
                 </div>
+                
                 </div>
                 <!--FIN TABLA TAILWIND-->
 
@@ -74,7 +78,7 @@
             </div>
         </div>
     </div>
-
+    
     <div class="border-t border-smoke px-8 py-4 bg-white">
   <div class="flex justify-center text-grey">
               Todos los derechos reservado 

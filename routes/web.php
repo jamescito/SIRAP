@@ -18,10 +18,12 @@ Route::get('/', function () {
 });
 
 Route::resource('autores','App\Http\Controllers\AutorController');
-Route::resource('Editoriales','App\Http\Controllers\EditorialController');
+Route::resource('editoriales','App\Http\Controllers\EditorialController');
 Route::resource('Carreras','App\Http\Controllers\CarreraController');
 Route::resource('Estudiantes','App\Http\Controllers\EstudianteController');
 Route::resource('Libros','App\Http\Controllers\LibroController');
+Route::resource('areas','App\Http\Controllers\AreaController');
+Route::resource('usuario', 'App\Http\Controllers\UserController');
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

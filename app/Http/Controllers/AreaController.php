@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\editoriales;
+use App\Models\Areas;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-
-class EditorialController extends Controller
+class AreaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +15,8 @@ class EditorialController extends Controller
      */
     public function index()
     {
-        //
-        $editorial=DB::select('select * from editoriales');
-        return view('editorial.index', ['editoriales' => $editorial]);
-     
+        $area=DB::select('select * from areas');
+        return view('areas.index',['areas'=> $area]);
     }
 
     /**
@@ -29,8 +26,7 @@ class EditorialController extends Controller
      */
     public function create()
     {
-        //
-        return view('editorial.create');
+        return view('areas.create');
     }
 
     /**
@@ -41,14 +37,12 @@ class EditorialController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        $codigoEditorial=$request->get('codigoEditorial');
-        $editorial=$request->get('editorial');
-        $pais=$request->get('pais');
-        $correo=$request->get('correo');
-      
-        DB::Insert('insert into editoriales (codigoEditorial, editorial, pais, correo) values (?, ?, ?, ?)', [$codigoEditorial, $editorial, $pais, $correo]);
-        return redirect('/editoriales');
+        $area= new Areas();
+        $area->codigoArea=$request->get('codigoArea');
+        $area->area=$request->get('area');
+        $area->save();
+        return redirect('/areas');
+
     }
 
     /**
@@ -70,9 +64,12 @@ class EditorialController extends Controller
      */
     public function edit($id)
     {
-        $editorial= editoriales::find($id);
-        return view('editorial.edit')->with('editorial', $editorial);
-        return redirect('/editorial');
+        $areas=Areas::find($id);
+        return view('areas.edit')->with('area',$areas);
+        return redirect('/areas');
+
+     
+        
     }
 
     /**
@@ -84,13 +81,11 @@ class EditorialController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $editorial= editoriales::find($id);
-        $editorial->codigoEditorial=$request->get('codigoEditorial');
-        $editorial->editorial=$request->get('editorial');
-        $editorial->pais=$request->get('pais');
-        $editorial->correo=$request->get('correo');
-        $editorial->save();
-        return redirect('/editoriales');
+        $area= Areas::find($id);
+        $area->codigoArea=$request->get('codigoArea');
+        $area->area=$request->get('area');
+        $area->save();
+        return redirect('/areas');
     }
 
     /**
@@ -101,8 +96,8 @@ class EditorialController extends Controller
      */
     public function destroy($id)
     {
-        $editorial=editoriales::find($id);
-        $editorial->delete();
-        return redirect('/editoriales');
+        $areas= Areas::find($id);
+        $areas->delete();
+        return redirect('/areas');
     }
 }
