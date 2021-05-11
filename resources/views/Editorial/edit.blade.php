@@ -10,7 +10,7 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
             <div class="flex flex-col">
             
-            <form action="\Editoriales/{{ $editorial->id}}" class="w-full max-w-lg" method="post">
+            <form action="/editoriales/{{$editorial->id}}" class="w-full max-w-lg" method="post">
             @method('PUT')
             @csrf()
             <div class="flex items-center py-2">
@@ -41,7 +41,7 @@
 
            
             <form >
-                <a href="/Editoriales" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" tabindex="5">Cancelar</a>
+                <a href="/editoriales" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" tabindex="5">Cancelar</a>
                 <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" tabindex="4">Guardar</button>
                 </div>
             </form>
