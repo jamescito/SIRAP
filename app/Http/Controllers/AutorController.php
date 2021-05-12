@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\autores;
+
+use App\Models\Autores;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -16,7 +17,9 @@ class AutorController extends Controller
     public function index()
     {
         //
-        $autores=DB::select('select * from autores');
+       // $autores= DB::table('autores')->simplePaginate(10);
+        $autores=Autores::paginate(3);
+        //$autores= DB::select('select * from autores');
         return view('autores.index', ['autores' => $autores]);
     }
 
