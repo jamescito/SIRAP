@@ -56,6 +56,7 @@
                                 {{ $autor->nacionalidad }}
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                            
                             <form action="{{ route('autores.destroy', $autor->id) }}" method="post">
                                 @csrf
                                 @method('DELETE')
@@ -70,10 +71,10 @@
                     </div>
                     </div>
                 </div>
+                {{ $autores->links() }} 
                 </div>
                 <!--FIN TABLA TAILWIND-->
 
-      
             </div>
         </div>
     </div>
