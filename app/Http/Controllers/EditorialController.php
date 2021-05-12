@@ -16,7 +16,8 @@ class EditorialController extends Controller
     public function index()
     {
         //
-        $editorial = DB::select('select * from editoriales');
+        $editorial=Editoriales::paginate(2);
+      //  $editorial = DB::select('select * from editoriales');
         return view('Editorial.index', ['editoriales' => $editorial]);
 
     }

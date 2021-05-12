@@ -67,6 +67,7 @@
                     </div>
                     </div>
                 </div>
+                {{ $editoriales->links() }} 
                 </div>
                 <!--FIN TABLA TAILWIND-->
 
