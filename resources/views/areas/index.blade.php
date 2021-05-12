@@ -48,11 +48,15 @@
                             </td>
                             </tr>
                             @endforeach
-                     
-                            
+                            </tbody>
+                            </table>
+                    </div>
+                    </div>
+                </div>
+                            {{ $areas->links() }}                         
             </div>
         </div>
     </div>
-   
+      
 
     </x-app-layout>
