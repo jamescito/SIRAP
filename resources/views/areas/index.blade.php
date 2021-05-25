@@ -4,6 +4,7 @@
             {{ __('Areas') }}
         </h2>
     </x-slot>
+
         <div class="py-10">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-1">
             <div class=" bg-white overflow-hidden shadow-xl sm:rounded-lg py-3">
@@ -47,10 +48,15 @@
                             </td>
                             </tr>
                             @endforeach
-                                              
+                            </tbody>
+                            </table>
+                    </div>
+                    </div>
+                </div>
+                            {{ $areas->links() }}                         
             </div>
         </div>
     </div>
-   
+      
 
     </x-app-layout>
