@@ -14,8 +14,8 @@ class AreaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $area=DB::select('select * from areas');
+    {  $area=Areas::paginate(2);
+      //  $area=DB::select('select * from areas');
         return view('areas.index',['areas'=> $area]);
     }
 

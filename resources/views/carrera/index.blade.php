@@ -54,6 +54,7 @@
                     </div>
                     </div>
                 </div>
+                {{ $carreras->links() }} 
                 </div>
                 <!--FIN TABLA TAILWIND-->
 

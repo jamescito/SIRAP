@@ -70,6 +70,10 @@
                         </div>
                     </div>
                 </div>
+                {{ $editoriales->links() }} 
+                </div>
+                <!--FIN TABLA TAILWIND-->
+
             </div>
             <!--FIN TABLA TAILWIND-->
 

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 class LibroController extends Controller
 {
     /**
@@ -14,7 +14,8 @@ class LibroController extends Controller
     public function index()
     {
         //
-        return view('libro.index');
+        $libro=DB::select('select * from libros');
+        return view('libro.index', ['libro'=> $libro]);
     }
 
     /**

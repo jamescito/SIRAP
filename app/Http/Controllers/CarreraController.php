@@ -16,7 +16,8 @@ class CarreraController extends Controller
     public function index()
     {
         //
-        $Carreras=DB::select('select * from carreras');  
+        $Carreras=Carrera::paginate(3);
+        //$Carreras=DB::select('select * from carreras');  
         return view('carrera.index',['carreras'=> $Carreras]);
     }
 
