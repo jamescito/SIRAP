@@ -3,13 +3,12 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\EditarLibrosRequest;
-use App\Http\Requests\GuardarLibrosRequest;
-use App\Models\Libros;
+use App\Http\Requests\EditarPrestamosRequest;
+use App\Http\Requests\GuardarPrestamosRequest;
+use App\Models\Prestamos;
 use Illuminate\Http\Request;
-use Symfony\Component\VarDumper\Cloner\Data;
 
-class LibroController extends Controller
+class PrestamosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +17,8 @@ class LibroController extends Controller
      */
     public function index()
     {
-        return Libros::all();
+        //
+        return Prestamos::all();
     }
 
     /**
@@ -27,12 +27,12 @@ class LibroController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(GuardarLibrosRequest $request)
+    public function store(GuardarPrestamosRequest $request)
     {
-        Libros::create($request->all());
+        Prestamos::create($request->all());
         return response()->json([
             'res'=>true,
-            'mensaje'=>'Libro guardado con éxito'
+            'mensaje'=>'Prestamo guardado con éxito'
         ]);
     }
 
@@ -42,11 +42,11 @@ class LibroController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Libros $libros)
+    public function show( Prestamos $prestamos)
     {
         return response()->json([
             'res'=>true,
-            'data'=>$libros
+            'data'=>$prestamos
         ]);
     }
 
@@ -57,12 +57,13 @@ class LibroController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(EditarLibrosRequest $request,Libros $libros)
-    {   
-        $libros->update($request->all());
+    public function update(EditarPrestamosRequest $request,Prestamos $prestamos)
+    {
+        $prestamos->update($request->all());
         return response()->json([
-            'res'=>true,
-            'mensaje'=>'Libro actualizado con éxito'
+            'rest'=>true,
+            'mensaje'=>'Prestamo actualizado con éxito'
+        
         ],200);
     }
 
@@ -72,12 +73,12 @@ class LibroController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Libros $libros)
+    public function destroy( Prestamos $prestamos)
     {
-        $libros->delete();
+        $prestamos->delete();
         return response()->json([
-            'rest'=>true,
-            'mensaje'=>'Libro eliminado con éxito'
+            'res'=>true,
+            'mensaje'=>'Prestamo eliminado con éxito'
         ]);
     }
 }

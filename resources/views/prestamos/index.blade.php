@@ -8,7 +8,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-1">
             <div class=" bg-white overflow-hidden shadow-xl sm:rounded-lg py-3">
                 
-            <a href="Libros/create" ></a>
+            <a href="prestamos/create" ></a>
                  <!--TABLA CON TAILWIND-->
                 <div class="my-4 overflow-x-auto sm:mx-6 lg:mx-8 w-full">
                     <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
@@ -17,32 +17,24 @@
                         <thead class="bg-gray-50">
                             <tr>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            codigo libro
+                            codigo Prestamo
                             </th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Titulo
+                            estudiante_id
                             </th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Cantidad Páginas
+                            libro_id
                             </th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Libro Original
-                            </th>
-
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Año Publicación
+                            Fecha Prestamo
                             </th>
 
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Idioma
+                            Fecha Devolucion
                             </th>
 
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Area
-                            </th>
-
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Editorial
+                            Fecha Estado Prestamo
                             </th>
 
                             <th scope="col" class="relative px-6 py-3">
@@ -51,44 +43,38 @@
                             </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
-                        @foreach ($libro as $libro)
+                        @foreach ($prestamos as $prestamos)
                             <tr>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                {{ $libro->codigolibro }}
+                                {{ $prestamos->codigoPrestamo }}
                             </td>
                      
                             <td class="px-6 py-4 whitespace-nowrap">
-                                {{ $libro->titulo }}
+                                {{ $prestamos->estudiante_id }}
                             </td>
                             
                             <td class="px-6 py-4 whitespace-nowrap">
-                                {{ $libro->cantidadpaginas }}
+                                {{ $prestamos->libro_id }}
                             </td>
 
                             <td class="px-6 py-4 whitespace-nowrap">
-                                {{ $libro->libroOriginal }}
+                                {{ $prestamos->fechaprestamo }}
                             </td>
 
                             <td class="px-6 py-4 whitespace-nowrap">
-                                {{ $libro->aniopublicacion }}
+                                {{ $prestamos->fechadevolucion }}
                             </td>
 
                             <td class="px-6 py-4 whitespace-nowrap">
-                                {{ $libro->idioma }}
+                                {{ $prestamos->fechaestadoprestamo }}
                             </td>
 
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                {{ $libro->area_id }}
-                            </td>
-
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                {{ $libro->editoriales_id }}
-                            </td>
+                           
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                            <form action="{{ route('Libros.destroy', $libro->id) }}" method="post">
+                            <form action="{{ route('prestamos.destroy', $prestamos->id) }}" method="post">
                                 @csrf
                                 @method('DELETE')
-                                <a href="/libros/{{ $libro->id }}/edit" class="text-indigo-600 hover:text-indigo-900 mr-4">  </a>
+                                <a href="/prestamos/{{ $prestamos->id }}/edit" class="text-indigo-600 hover:text-indigo-900 mr-4">  </a>
                                 <button type="submit" class="text-indigo-600 hover:text-indigo-900"></a>
                             </form>
                             </td>
