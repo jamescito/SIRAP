@@ -25,6 +25,7 @@ Route::get('prestamos',[PrestamosController::class,'index']);
 Route::get('libros',[LibroController::class,'index']);
 
 
+
 Route::group(['middleware'=>['auth:sanctum']],function(){
     Route::post('cerrarsesion',[AutenticarController::class,'CerrarSesion']);  
     Route::get('estudiantes',[EstudianteController::class,'index']);
