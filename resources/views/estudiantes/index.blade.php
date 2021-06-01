@@ -51,7 +51,7 @@
                             </td>
                      
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                            <form action="{{ route('estudiantes.destroy', $estudiantes->id) }}" method="post">
+                            <form action="{{ route('Estudiantes.destroy', $estudiantes->id) }}" method="post">
                                 @csrf
                                 @method('DELETE')
                                 <a href="/estudiantes/{{ $estudiantes->id }}/edit" class="text-indigo-600 hover:text-indigo-900 mr-4"> Editar </a>
