@@ -47,14 +47,12 @@
                             </td>
                             </tr>
                             @endforeach
-
                             </tbody>
                             </table>
                     </div>
                     </div>
                 </div>
                             {{ $areas->links() }}                         
-
             </div>
         </div>
     </div>
