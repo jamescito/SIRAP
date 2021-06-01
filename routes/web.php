@@ -23,6 +23,7 @@ Route::resource('Carreras', 'App\Http\Controllers\CarreraController');
 Route::resource('Estudiantes', 'App\Http\Controllers\EstudianteController');
 Route::resource('Libros', 'App\Http\Controllers\LibroController');
 Route::resource('areas', 'App\Http\Controllers\AreaController');
+Route::resource('prestamos', 'App\Http\Controllers\PrestamoController');
 Route::resource('usuario', 'App\Http\Controllers\UserController');
 
 

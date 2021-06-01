@@ -41,6 +41,10 @@
                         {{ __('Areas') }}
                     </x-jet-nav-link>
 
+                    <x-jet-nav-link href="{{ route('prestamos.index')  }}">
+                        {{ __('Préstamos') }}
+                    </x-jet-nav-link>
+
                     <x-jet-nav-link href="{{ route('usuario.index') }}" :="request()->routeIs('usuario')">
                         {{ __('Usuarios') }}
                     </x-jet-nav-link>

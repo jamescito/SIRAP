@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AutenticarController;
 use App\Http\Controllers\API\EstudianteController;
+use App\Http\Controllers\API\LibroController;
+use App\Http\Controllers\API\PrestamosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +21,11 @@ use App\Http\Controllers\API\EstudianteController;
 Route::post('registro',[AutenticarController::class,'registro']);
 Route::post('acceso',[AutenticarController::class,'acceso']); 
 
+Route::get('prestamos',[PrestamosController::class,'index']);
+Route::get('libros',[LibroController::class,'index']);
+
+
+
 Route::group(['middleware'=>['auth:sanctum']],function(){
     Route::post('cerrarsesion',[AutenticarController::class,'CerrarSesion']);  
     Route::get('estudiantes',[EstudianteController::class,'index']);
@@ -26,6 +33,10 @@ Route::group(['middleware'=>['auth:sanctum']],function(){
     Route::put('estudiantes/{estudiante}',[EstudianteController::class,'update']);
     Route::get('estudiantes/{estudiante}',[EstudianteController::class,'show']);
     Route::delete('estudiantes/{estudiante}',[EstudianteController::class,'destroy']);
+
+
+
+
 });
 
 

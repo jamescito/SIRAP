@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-class LibroController extends Controller
+class EstudianteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class LibroController extends Controller
     public function index()
     {
         //
-        $libro=DB::select('select * from libros');
-        return view('libro.index', ['libro'=> $libro]);
+        $estudiantes=DB::select('select * from estudiantes');
+        return view('estudiantes.index', ['estudiantes'=> $estudiantes]);
     }
 
     /**
