@@ -20,15 +20,24 @@ use App\Http\Controllers\API\PrestamosController;
 
 Route::post('registro',[AutenticarController::class,'registro']);
 Route::post('acceso',[AutenticarController::class,'acceso']);
+Route::post('cerrarsesion',[AutenticarController::class,'CerrarSesion']);
+
 
 Route::get('estudiantes',[EstudianteController::class,'index']);
 Route::post('estudiantes',[EstudianteController::class,'store']);
 Route::put('estudiantes/{estudiante}',[EstudianteController::class,'update']);
 Route::get('estudiantes/{estudiante}',[EstudianteController::class,'show']);
 Route::delete('estudiantes/{estudiante}',[EstudianteController::class,'destroy']);
-Route::post('cerrarsesion',[AutenticarController::class,'CerrarSesion']);
+
+
+
 Route::get('prestamos',[PrestamosController::class,'index']);
+Route::post('prestamos',[PrestamosController::class,'store']);
+
+
+
 Route::get('libros',[LibroController::class,'index']);
+Route::post('libros',[LibroController::class,'store']);
 
 
 
