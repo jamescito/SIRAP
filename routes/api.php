@@ -30,15 +30,14 @@ Route::get('estudiantes/{estudiante}',[EstudianteController::class,'show']);
 Route::delete('estudiantes/{estudiante}',[EstudianteController::class,'destroy']);
 
 
+Route::get('libros',[LibroController::class,'index']);
+Route::post('libros',[LibroController::class,'store']);
+Route::put('libros/{libro}',[LibroController::class,'update']);
+Route::get('libros/{libro}',[LibroController::class,'show']);
 
 Route::get('prestamos',[PrestamosController::class,'index']);
 Route::post('prestamos',[PrestamosController::class,'store']);
-
-
-
-Route::get('libros',[LibroController::class,'index']);
-Route::post('libros',[LibroController::class,'store']);
-
+Route::post('prestamos/{prestamo}',[PrestamosController::class,'update']);
 
 
 // Route::group(['middleware'=>['auth:sanctum']],function(){

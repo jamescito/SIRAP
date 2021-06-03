@@ -17,6 +17,6 @@ class Libros extends Model
         'aniopublicacion',
         'idioma',
         'area_id',
-        'editoriales_id',
+        'editoriales_id'
     ];
 }
