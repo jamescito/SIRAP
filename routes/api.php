@@ -37,7 +37,8 @@ Route::get('libros/{libro}',[LibroController::class,'show']);
 
 Route::get('prestamos',[PrestamosController::class,'index']);
 Route::post('prestamos',[PrestamosController::class,'store']);
-Route::post('prestamos/{prestamo}',[PrestamosController::class,'update']);
+Route::put('prestamos/{prestamo}',[PrestamosController::class,'update']);
+Route::get('prestamos/{prestamo}',[PrestamosController::class,'show']);
 
 
 // Route::group(['middleware'=>['auth:sanctum']],function(){
@@ -60,6 +61,6 @@ Route::post('prestamos/{prestamo}',[PrestamosController::class,'update']);
 
 
 
-// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
 // });

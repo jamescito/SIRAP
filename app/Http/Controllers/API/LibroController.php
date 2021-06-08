@@ -18,7 +18,8 @@ class LibroController extends Controller
      */
     public function index()
     {
-        return Libros::all();
+        $libro=Libros::query()->paginate(2);
+        return response($libro,200);
     }
 
     /**

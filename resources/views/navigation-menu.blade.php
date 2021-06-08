@@ -41,6 +41,9 @@
                         {{ __('Areas') }}
                     </x-jet-nav-link>
 
+                    <x-jet-nav-link href="{{ route('prestamos.index')  }}">
+                        {{ __('Prestamos') }}
+                    </x-jet-nav-link>
                   
                     
                 </div>

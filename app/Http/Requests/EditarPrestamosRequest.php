@@ -24,12 +24,12 @@ class EditarPrestamosRequest extends FormRequest
     public function rules()
     {
         return [
-            "codigoPrestamo"=>"required|unique:prestamos,codigoPrestamo".$this->route('prestamos')->id,
+            "codigoPrestamo"=>"required|unique:prestamos,codigoPrestamo,".$this->route('prestamo')->id,
             "estudiante_id"=>"required",
             "libro_id"=>"required",
             "fechaprestamo"=>"required",
             "fechadevolucion"=>"required",
-            "fechaestadoprestamo"=>"required",
+            "fechaestadoprestamo"=>"required"
         ];
     }
 }

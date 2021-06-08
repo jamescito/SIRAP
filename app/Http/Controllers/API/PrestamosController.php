@@ -18,7 +18,8 @@ class PrestamosController extends Controller
     public function index()
     {
         //
-        return Prestamos::all();
+        $prestamo=Prestamos::query()->paginate(2);
+        return response($prestamo,200);
     }
 
     /**
@@ -42,11 +43,11 @@ class PrestamosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show( Prestamos $prestamos)
+    public function show( Prestamos $prestamo)
     {
         return response()->json([
             'res'=>true,
-            'data'=>$prestamos
+            'data'=>$prestamo
         ]);
     }
 
@@ -57,9 +58,9 @@ class PrestamosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(EditarPrestamosRequest $request,Prestamos $prestamos)
+    public function update(EditarPrestamosRequest $request,Prestamos $prestamo)
     {
-        $prestamos->update($request->all());
+        $prestamo->update($request->all());
         return response()->json([
             'rest'=>true,
             'mensaje'=>'Prestamo actualizado con éxito'
@@ -73,9 +74,9 @@ class PrestamosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy( Prestamos $prestamos)
+    public function destroy( Prestamos $prestamo)
     {
-        $prestamos->delete();
+        $prestamo->delete();
         return response()->json([
             'res'=>true,
             'mensaje'=>'Prestamo eliminado con éxito'
