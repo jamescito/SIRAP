@@ -8,7 +8,25 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <div class="flex flex-col">            
+                <div class="flex flex-col">
+                    @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                            <h1>El código ya exite, ingrese otro !!</h1>
+                            <style>
+                                h1 {
+                                    color: red;
+                                    text-align: center;
+                                    font-family: Bahnschrift, SemiBold;
+                                    font-size: 100%;
+                                }
+                            </style>
+                            @endforeach
+
+                        </ul>
+                    </div>
+                    @endif
                     <form action="/areas" class="w-full max-w-lg" method="post">
                         @csrf()
                         <div class="flex items-center py-2">
@@ -19,7 +37,7 @@
                         </div>
                         <div class="flex items-center py-2">
                             <div class="w-full px-3">
-                         <label for="nombre" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" >Nombre</label>
+                                <label for="nombre" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Nombre</label>
                             </div>
                             <input required type="text" id="area" name="area" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" tabindex="2">
                         </div>

@@ -42,6 +42,11 @@ class EditorialController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'codigoEditorial'    => 'required|unique:editoriales',
+            
+        ]);
+
         $codigoEditorial = $request->get('codigoEditorial');
         $editorial = $request->get('editorial');
         $pais = $request->get('pais');

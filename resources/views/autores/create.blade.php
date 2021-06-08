@@ -9,6 +9,24 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="flex flex-col">
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                            <h1>El código ya exite, ingrese otro !!</h1>
+                            <style>
+                                h1 {
+                                    color: red;
+                                    text-align: center;
+                                    font-family: Bahnschrift, SemiBold;
+                                    font-size: 100%;
+                                }
+                            </style>
+                            @endforeach
+
+                        </ul>
+                    </div>
+                    @endif
                     <form action="/autores" class="w-full max-w-lg" method="post">
                         @csrf()
                         <div class="flex items-center py-2">

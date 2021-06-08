@@ -43,6 +43,11 @@ class AutorController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'codigo'    => 'required|unique:autores',
+            
+        ]);
+
         $codigo=$request->get('codigo');
         $nombre=$request->get('nombre');
         $apellido=$request->get('apellido');

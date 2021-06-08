@@ -37,6 +37,10 @@ class AreaController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'codigoArea'    => 'required|unique:areas',
+            
+        ]);
         $area= new Areas();
         $area->codigoArea=$request->get('codigoArea');
         $area->area=$request->get('area');
