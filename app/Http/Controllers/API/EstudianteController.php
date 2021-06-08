@@ -17,7 +17,8 @@ class EstudianteController extends Controller
      */
     public function index()
     {
-        return Estudiantes::all();
+        $estudiante=Estudiantes::query()->paginate(6);
+        return response($estudiante,200);
     }
 
     /**

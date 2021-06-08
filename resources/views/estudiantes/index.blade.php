@@ -68,6 +68,7 @@
                     </div>
                     </div>
                 </div>
+                
                 </div>
                 <!--FIN TABLA TAILWIND-->
 

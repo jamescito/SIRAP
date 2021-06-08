@@ -18,7 +18,8 @@ class LibroController extends Controller
      */
     public function index()
     {
-        return Libros::all();
+        $libro=Libros::query()->paginate(2);
+        return response($libro,200);
     }
 
     /**
@@ -42,11 +43,11 @@ class LibroController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Libros $libros)
+    public function show(Libros $libro)
     {
         return response()->json([
             'res'=>true,
-            'data'=>$libros
+            'data'=>$libro
         ]);
     }
 
@@ -57,9 +58,9 @@ class LibroController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(EditarLibrosRequest $request,Libros $libros)
+    public function update(EditarLibrosRequest $request,Libros $libro)
     {   
-        $libros->update($request->all());
+        $libro->update($request->all());
         return response()->json([
             'res'=>true,
             'mensaje'=>'Libro actualizado con éxito'
@@ -72,9 +73,9 @@ class LibroController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Libros $libros)
+    public function destroy(Libros $libro)
     {
-        $libros->delete();
+        $libro->delete();
         return response()->json([
             'rest'=>true,
             'mensaje'=>'Libro eliminado con éxito'

@@ -24,9 +24,9 @@ class EditarLibrosRequest extends FormRequest
     public function rules()
     {
         return [
-            "codigolibro"=>"required|unique:libros,codigolibro".$this->route('libros')->id,
-            " titulo"=>"required",
-            " titulo"=>"required",
+
+            "codigolibro"=>"required|unique:libros,codigolibro,".$this->route('libro')->id,
+            "titulo"=>"required",
             "cantidadpaginas"=>"required",
             "libroOriginal"=>"required",
             "idioma"=>"required",

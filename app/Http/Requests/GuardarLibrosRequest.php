@@ -25,7 +25,7 @@ class GuardarLibrosRequest extends FormRequest
     {
         return [
           "codigolibro"=>"required|unique:libros,codigolibro",
-          " titulo"=>" required",  
+          "titulo"=>"required",  
           "cantidadpaginas"=>"required",
           "libroOriginal"=>"required",
           "aniopublicacion"=>"required",
