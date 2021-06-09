@@ -21,6 +21,16 @@ class EstudianteController extends Controller
         return response($estudiante,200);
     }
 
+    public function listar()
+    {
+        $estudiante=Estudiantes::all();
+        return response()->json([
+            'res'=>true,
+            'data'=>$estudiante
+        ]);
+    }
+
+
     /**
      * Store a newly created resource in storage.
      *

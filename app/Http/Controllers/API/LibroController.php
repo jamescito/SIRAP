@@ -21,7 +21,14 @@ class LibroController extends Controller
         $libro=Libros::query()->paginate(2);
         return response($libro,200);
     }
-
+    public function listar()
+    {
+        $libro=Libros::all();
+        return response()->json([
+            'res'=>true,
+            'data'=>$libro
+        ]);
+    }
     /**
      * Store a newly created resource in storage.
      *

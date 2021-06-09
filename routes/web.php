@@ -17,16 +17,17 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::resource('autores', 'App\Http\Controllers\AutorController');
-Route::resource('editoriales', 'App\Http\Controllers\EditorialController');
-Route::resource('Carreras', 'App\Http\Controllers\CarreraController');
-Route::resource('Estudiantes', 'App\Http\Controllers\EstudianteController');
-Route::resource('Libros', 'App\Http\Controllers\LibroController');
-Route::resource('areas', 'App\Http\Controllers\AreaController');
-Route::resource('prestamos', 'App\Http\Controllers\PrestamoController');
-Route::resource('usuario', 'App\Http\Controllers\UserController');
+Route::resource('autores', 'App\Http\Controllers\AutorController')->middleware('auth');
+Route::resource('editoriales', 'App\Http\Controllers\EditorialController')->middleware('auth');
+Route::resource('Carreras', 'App\Http\Controllers\CarreraController')->middleware('auth');
+Route::resource('Estudiantes', 'App\Http\Controllers\EstudianteController')->middleware('auth');
+Route::resource('Libros', 'App\Http\Controllers\LibroController')->middleware('auth');
+Route::resource('areas', 'App\Http\Controllers\AreaController')->middleware('auth');
+Route::resource('prestamos', 'App\Http\Controllers\PrestamoController')->middleware('auth');
+Route::resource('usuario', 'App\Http\Controllers\UserController')->middleware('auth');
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
