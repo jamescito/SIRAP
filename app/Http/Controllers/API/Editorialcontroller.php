@@ -12,7 +12,5 @@ class Editorialcontroller extends Controller
     {
         $editorial=Editoriales::all();
        return response($editorial);
-        
-        
     }
 }
