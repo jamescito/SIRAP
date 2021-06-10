@@ -41,6 +41,7 @@ Route::put('libros/{libro}',[LibroController::class,'update']);
 Route::get('libros/{libro}',[LibroController::class,'show']);
 
 Route::get('prestamos',[PrestamosController::class,'index']);
+Route::get('consulta',[PrestamosController::class,'consulta']);
 Route::post('prestamos',[PrestamosController::class,'store']);
 Route::put('prestamos/{prestamo}',[PrestamosController::class,'update']);
 Route::get('prestamos/{prestamo}',[PrestamosController::class,'show'])->middleware('auth');

@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Models\Prestamos;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\EditarPrestamosRequest;
 use App\Http\Requests\GuardarPrestamosRequest;
-use App\Models\Prestamos;
-use Illuminate\Http\Request;
 
 class PrestamosController extends Controller
 {
@@ -21,7 +22,16 @@ class PrestamosController extends Controller
         $prestamo=Prestamos::query()->paginate(2);
         return response($prestamo,200);
     }
-
+    public function consulta()
+    {
+        //
+        $prestamo=DB::table('prestamos')
+        ->join('estudiantes','estudiantes.codigoCarnet', '=' ,'prestamos.estudiante_id')
+        ->select('prestamos.codigoPrestamo','estudiantes.nombre','estudiantes.apellido')
+        ->get();
+        dd($prestamo);
+       
+    }
     /**
      * Store a newly created resource in storage.
      *
