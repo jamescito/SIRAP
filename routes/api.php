@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\API\AreaController;
+use App\Http\Controllers\API\Areacontroller;
 use App\Http\Controllers\API\LibroController;
 use App\Http\Controllers\API\Editorialcontroller;
 use App\Http\Controllers\AutenticarController;
@@ -48,7 +48,7 @@ Route::get('prestamos/{prestamo}',[PrestamosController::class,'show'])->middlewa
 
 Route::get('carreras/{carrera}',[carreraController::class,'show']);
 Route::get('carreras',[carreraController::class,'index']);
-Route::get('areas',[AreaController::class,'index']);
+Route::get('areas',[Areacontroller::class,'index']);
 Route::get('editoriales',[Editorialcontroller::class,'index']);
 
 
