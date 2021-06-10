@@ -43,16 +43,16 @@ class EditorialController extends Controller
     {
         //
         $request->validate([
-            'codigoEditorial'    => 'required|unique:editoriales',
+            'codigoEditorial'  => 'required|unique:editoriales',
             
         ]);
-
-        $codigoEditorial = $request->get('codigoEditorial');
-        $editorial = $request->get('editorial');
-        $pais = $request->get('pais');
-        $correo = $request->get('correo');
-
-        DB::Insert('insert into editoriales (codigoEditorial, editorial, pais, correo) values (?, ?, ?, ?)', [$codigoEditorial, $editorial, $pais, $correo]);
+        $editorial =new Editoriales();
+        $editorial->codigoEditorial = $request->get('codigoEditorial');
+        $editorial->editorial = $request->get('editorial');
+        $editorial->pais = $request->get('pais');
+        $editorial->correo = $request->get('correo');
+        $editorial->save();
+       // DB::Insert('insert into editoriales (codigoEditorial, editorial, pais, correo) values (?, ?, ?, ?)', [$codigoEditorial, $editorial, $pais, $correo]);
         return redirect('/editoriales');
     }
 
