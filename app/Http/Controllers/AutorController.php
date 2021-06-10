@@ -18,7 +18,7 @@ class AutorController extends Controller
     {
         //
         $autores= DB::table('autores')->simplePaginate(10);
-        $autores=Autores::paginate(3);
+        //$autores=Autores::paginate(3);
         //$autores= DB::select('select * from autores');
         return view('autores.index', ['autores' => $autores]);
     }
