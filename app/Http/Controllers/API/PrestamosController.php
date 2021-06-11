@@ -27,7 +27,8 @@ class PrestamosController extends Controller
         //
         $prestamo=DB::table('prestamos')
         ->join('estudiantes','estudiantes.codigoCarnet', '=' ,'prestamos.estudiante_id')
-        ->select('prestamos.codigoPrestamo','estudiantes.nombre','estudiantes.apellido')
+        ->join('libros','libros.codigolibro', '=' ,'prestamos.libro_id')
+        ->select('libros.titulo','estudiantes.nombre','estudiantes.apellido')
         //->where('estudiantes.id',6)
         ->get();
         return response($prestamo,200);
@@ -37,7 +38,8 @@ class PrestamosController extends Controller
         //
         $prestamo=DB::table('prestamos')
         ->join('estudiantes','estudiantes.codigoCarnet', '=' ,'prestamos.estudiante_id')
-        ->select('prestamos.codigoPrestamo','estudiantes.nombre','estudiantes.apellido')
+        ->join('libros','libros.codigolibro', '=' ,'prestamos.libro_id')
+        ->select('libros.titulo','estudiantes.nombre','estudiantes.apellido')
         ->where('estudiantes.id',$id)
         ->get();
         return response($prestamo,200);
