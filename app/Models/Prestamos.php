@@ -18,4 +18,12 @@ class Prestamos extends Model
         'fechaestadoprestamo'
 
     ];
+
+    public function estudiante(){
+        return $this->belongsTo('App\Models\Estudiantes');
+    }
+
+    public function libro(){
+        return $this->belongsTo('App\Models\Libros');
+    }
 }

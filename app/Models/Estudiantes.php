@@ -15,4 +15,9 @@ class Estudiantes extends Model
         'apellido',
         'carrera_id'
     ];
+
+
+    public function prestamos(){
+        return $this->hasMany('App\Models\Prestamos');
+    }
 }

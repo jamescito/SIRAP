@@ -19,4 +19,8 @@ class Libros extends Model
         'area_id',
         'editoriales_id'
     ];
+
+    public function prestamos(){
+        return $this->hasMany('App\Models\Prestamos');
+    }
 }

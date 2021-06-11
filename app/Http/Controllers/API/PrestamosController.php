@@ -28,6 +28,17 @@ class PrestamosController extends Controller
         $prestamo=DB::table('prestamos')
         ->join('estudiantes','estudiantes.codigoCarnet', '=' ,'prestamos.estudiante_id')
         ->select('prestamos.codigoPrestamo','estudiantes.nombre','estudiantes.apellido')
+        //->where('estudiantes.id',6)
+        ->get();
+        return response($prestamo,200);
+    }
+    public function consultando($id)
+    {
+        //
+        $prestamo=DB::table('prestamos')
+        ->join('estudiantes','estudiantes.codigoCarnet', '=' ,'prestamos.estudiante_id')
+        ->select('prestamos.codigoPrestamo','estudiantes.nombre','estudiantes.apellido')
+        ->where('estudiantes.id',$id)
         ->get();
         return response($prestamo,200);
     }
