@@ -29,8 +29,7 @@ class PrestamosController extends Controller
         ->join('estudiantes','estudiantes.codigoCarnet', '=' ,'prestamos.estudiante_id')
         ->select('prestamos.codigoPrestamo','estudiantes.nombre','estudiantes.apellido')
         ->get();
-        dd($prestamo);
-       
+        return response($prestamo,200);
     }
     /**
      * Store a newly created resource in storage.
