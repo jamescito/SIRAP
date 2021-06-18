@@ -32,7 +32,7 @@ class PrestamosController extends Controller
         ->select('libros.titulo','estudiantes.nombre','estudiantes.apellido','users.email')
       //  ->where('estudiantes.id',$id)
         ->get();
-        return response()->json([
+        return response($prestamo)->json([
             'data'=>$prestamo
         ]);
     }
@@ -46,7 +46,9 @@ class PrestamosController extends Controller
         ->select('libros.titulo','estudiantes.nombre','estudiantes.apellido','users.email')
         ->where('users.email',$id)
         ->get();
-        return response($prestamo,200);
+        return response($prestamo)->json([
+            'data'=>$prestamo
+        ]);
     }
 
     
