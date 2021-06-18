@@ -27,7 +27,8 @@ class EditarEstudianteRequest extends FormRequest
             "codigoCarnet"=>"required|unique:estudiantes,codigoCarnet,".$this->route('estudiante')->id,
             "nombre"=>"required",
             "apellido"=>"required",
-            "carrera_id"=>"required"
+            "carrera_id"=>"required",
+            "correo"=>"required"
         ];
     }
 }

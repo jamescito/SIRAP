@@ -13,7 +13,8 @@ class Estudiantes extends Model
         'codigoCarnet',
         'nombre',
         'apellido',
-        'carrera_id'
+        'carrera_id',
+        'correo'
     ];
 
 

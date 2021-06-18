@@ -31,6 +31,9 @@
                               <th scope="col"  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                 Carrera
                               </th>
+                              <th scope="col"  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Correo
+                              </th>
                             </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
@@ -49,7 +52,9 @@
                             <td class="px-6 py-4 whitespace-nowrap">
                                 {{ $estudiantes-> carrera_id }}
                             </td>
-                     
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                {{ $estudiantes-> correo }}
+                            </td>
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                             <form action="{{ route('Estudiantes.destroy', $estudiantes->id) }}" method="post">
                                 @csrf

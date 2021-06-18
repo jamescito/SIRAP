@@ -28,10 +28,13 @@ class PrestamosController extends Controller
         $prestamo=DB::table('prestamos')
         ->join('estudiantes','estudiantes.codigoCarnet', '=' ,'prestamos.estudiante_id')
         ->join('libros','libros.codigolibro', '=' ,'prestamos.libro_id')
-        ->select('libros.titulo','estudiantes.nombre','estudiantes.apellido')
-        //->where('estudiantes.id',6)
+        ->join('users','estudiantes.correo', '=' ,'users.email')
+        ->select('libros.titulo','estudiantes.nombre','estudiantes.apellido','users.email')
+      //  ->where('estudiantes.id',$id)
         ->get();
-        return response($prestamo,200);
+        return response()->json([
+            'data'=>$prestamo
+        ]);
     }
     public function consultando($id)
     {
@@ -39,11 +42,14 @@ class PrestamosController extends Controller
         $prestamo=DB::table('prestamos')
         ->join('estudiantes','estudiantes.codigoCarnet', '=' ,'prestamos.estudiante_id')
         ->join('libros','libros.codigolibro', '=' ,'prestamos.libro_id')
-        ->select('libros.titulo','estudiantes.nombre','estudiantes.apellido')
-        ->where('estudiantes.id',$id)
+        ->join('users','estudiantes.correo', '=' ,'users.email')
+        ->select('libros.titulo','estudiantes.nombre','estudiantes.apellido','users.email')
+        ->where('users.email',$id)
         ->get();
         return response($prestamo,200);
     }
+
+    
     /**
      * Store a newly created resource in storage.
      *

@@ -28,7 +28,8 @@ class GuardarEstudianteRequest extends FormRequest
             "codigoCarnet"=>"required|unique:estudiantes,codigoCarnet",
             "nombre"=>"required",
             "apellido"=>"required",
-            "carrera_id"=>"required"
+            "carrera_id"=>"required",
+            "correo"=>"required"
         ];
     }
 }

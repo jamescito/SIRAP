@@ -20,6 +20,7 @@ class CreateEstudiantesTable extends Migration
             $table->string('nombre',50);
             $table->string('apellido',50);
             $table->string('carrera_id',50);
+            $table->string('correo')->unique();;
             $table->foreign('carrera_id')-> references('codigoCarrera')->on('carreras');
             $table->timestamps();
         });
