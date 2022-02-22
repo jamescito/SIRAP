@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Estudiantes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+
 class EstudianteController extends Controller
 {
     /**
@@ -25,7 +27,7 @@ class EstudianteController extends Controller
      */
     public function create()
     {
-        //
+        return view('estudiantes.create');
     }
 
     /**
@@ -36,8 +38,21 @@ class EstudianteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'codigoCarnet'    => 'required|unique:estudiantes',
+            
+        ]);
+
+        $estudiantes = new Estudiantes();
+        $estudiantes->codigoCarnet = $request->get('codigoCarnet');
+        $estudiantes->nombre = $request->get('nombre');
+        $estudiantes->apellido = $request->get('apellido');
+        $estudiantes->carrera_id = $request->get('carrera_id');
+        $estudiantes->correo = $request->get('correo');
+        $estudiantes->save();
+        return redirect('/estudiantes');
     }
+
 
     /**
      * Display the specified resource.
@@ -47,7 +62,7 @@ class EstudianteController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -58,7 +73,9 @@ class EstudianteController extends Controller
      */
     public function edit($id)
     {
-        //
+        $estudiantes = Estudiantes::find($id);
+        return view('estudiantes.edit')->with('estudiantes', $estudiantes);
+        return redirect('/estudiantes');
     }
 
     /**
@@ -70,7 +87,14 @@ class EstudianteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $estudiantes = Estudiantes::find($id);
+        $estudiantes->codigoCarnet = $request->get('codigoCarnet');
+        $estudiantes->nombre = $request->get('nombre');
+        $estudiantes->apellido = $request->get('apellido');
+        $estudiantes->carrera_id = $request->get('carrera_id');
+        $estudiantes->correo = $request->get('correo');
+        $estudiantes->save();
+        return redirect('/estudiantes');   
     }
 
     /**
@@ -81,6 +105,8 @@ class EstudianteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $estudiantes = Estudiantes::find($id);
+        $estudiantes->delete();
+        return redirect('/estudiantes');
     }
 }

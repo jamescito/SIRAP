@@ -16,7 +16,7 @@
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
 
-                    <x-jet-nav-link href="{{ route('Libros.index')  }}">
+                    <x-jet-nav-link href="{{ route('libros.index')  }}">
                         {{ __('Libros') }}
                     </x-jet-nav-link>
 
@@ -25,7 +25,7 @@
                         {{ __('Autores') }}
                     </x-jet-nav-link>
 
-                    <x-jet-nav-link href="{{ route('Estudiantes.index')  }}">
+                    <x-jet-nav-link href="{{ route('estudiantes.index')  }}">
                         {{ __('Estudiantes') }}
                     </x-jet-nav-link>
 
@@ -44,7 +44,7 @@
                     <x-jet-nav-link href="{{ route('prestamos.index')  }}">
                         {{ __('Prestamos') }}
                     </x-jet-nav-link>
-                  
+                
                     
                 </div>
             </div>

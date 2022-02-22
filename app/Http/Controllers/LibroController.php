@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Libros;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+
 class LibroController extends Controller
 {
     /**
@@ -25,7 +27,7 @@ class LibroController extends Controller
      */
     public function create()
     {
-        //
+        return view('libro.create');
     }
 
     /**
@@ -36,7 +38,22 @@ class LibroController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'codigolibro'    => 'required|unique:libros',
+            
+        ]);
+
+        $libro = new Libros();
+        $libro->codigolibro = $request->get('codigolibro');
+        $libro->titulo = $request->get('titulo');
+        $libro->cantidadpaginas = $request->get('cantidadpaginas');
+        $libro->libroOriginal = $request->get('libroOriginal');
+        $libro->aniopublicacion = $request->get('aniopublicacion');
+        $libro->idioma = $request->get('idioma');
+        $libro->area_id = $request->get('area_id');
+        $libro->editoriales_id = $request->get('editoriales_id');
+        $libro->save();
+        return redirect('/libros');
     }
 
     /**

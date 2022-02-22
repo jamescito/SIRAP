@@ -8,8 +8,8 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-1">
             <div class=" bg-white overflow-hidden shadow-xl sm:rounded-lg py-3">
                 
-            <a href="estudiantes/create" ></a>
-                 <!--TABLA CON TAILWIND-->
+            <a href="estudiantes/create" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 m-6  border border-blue-500 hover:border-transparent rounded">CREAR</a>
+                <!--TABLA CON TAILWIND-->
                 <div class="my-4 overflow-x-auto sm:mx-6 lg:mx-8 w-full">
                     <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                     <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
@@ -17,23 +17,23 @@
                         <thead class="bg-gray-50">
                             <tr>
 
-                              <th scope="col"  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            <th scope="col"  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                 Codigo Carnet
-                              </th>
+                            </th>
 
-                               <th scope="col"  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            <th scope="col"  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                 Nombre
-                              </th>
+                            </th>
 
-                              <th scope="col"  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            <th scope="col"  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                 Apellido
-                              </th>
-                              <th scope="col"  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            </th>
+                            <th scope="col"  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                 Carrera
-                              </th>
-                              <th scope="col"  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            </th>
+                            <th scope="col"  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                 Correo
-                              </th>
+                            </th>
                             </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
@@ -42,7 +42,7 @@
                             <td class="px-6 py-4 whitespace-nowrap">
                                 {{ $estudiantes->codigoCarnet }}
                             </td>
-                     
+                    
                             <td class="px-6 py-4 whitespace-nowrap">
                                 {{ $estudiantes->nombre }}
                             </td>
@@ -56,7 +56,7 @@
                                 {{ $estudiantes-> correo }}
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                            <form action="{{ route('Estudiantes.destroy', $estudiantes->id) }}" method="post">
+                            <form action="{{ route('estudiantes.destroy', $estudiantes->id) }}" method="post">
                                 @csrf
                                 @method('DELETE')
                                 <a href="/estudiantes/{{ $estudiantes->id }}/edit" class="text-indigo-600 hover:text-indigo-900 mr-4"> Editar </a>
@@ -65,7 +65,7 @@
                             </td>
                             </tr>
                             @endforeach
-                     
+                    
 
 
                         </tbody>
@@ -77,8 +77,6 @@
                 </div>
                 <!--FIN TABLA TAILWIND-->
 
- 
-   
                 
             </div>
         </div>

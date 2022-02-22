@@ -24,7 +24,7 @@ class CreateEstudiantesTable extends Migration
             $table->foreign('carrera_id')-> references('codigoCarrera')->on('carreras');
             $table->timestamps();
         });
-     
+    
     }
 
     /**

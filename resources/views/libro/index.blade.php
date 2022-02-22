@@ -7,9 +7,10 @@
     <div class="py-10">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-1">
             <div class=" bg-white overflow-hidden shadow-xl sm:rounded-lg py-3">
+
+            <a href="libros/create" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 m-6  border border-blue-500 hover:border-transparent rounded">CREAR</a>
                 
-            <a href="Libros/create" ></a>
-                 <!--TABLA CON TAILWIND-->
+                <!--TABLA CON TAILWIND-->
                 <div class="my-4 overflow-x-auto sm:mx-6 lg:mx-8 w-full">
                     <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                     <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">

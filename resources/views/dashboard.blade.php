@@ -27,7 +27,7 @@
               jr76407900@gmail.com
   </div>
   <div class="flex justify-center text-grey">
-              Eliezerrivera@gmail.com
+              Faruckchavarria@gmail.com
   </div>
 </div>
 </x-app-layout>
