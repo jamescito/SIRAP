@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Prestamos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+
 class PrestamoController extends Controller
 {
     /**
@@ -25,7 +27,7 @@ class PrestamoController extends Controller
      */
     public function create()
     {
-        //
+        return view('prestamos.create');
     }
 
     /**
@@ -36,7 +38,20 @@ class PrestamoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'codigoPrestamo'    => 'required|unique:prestamos',
+        ]);
+
+        $prestamos=new Prestamos();
+        $prestamos->codigoPrestamo = $request->get('codigoPrestamo');
+        $prestamos->estudiante_id = $request->get('estudiante_id');
+        $prestamos->libro_id = $request->get('libro_id');
+        $prestamos->fechaprestamo = $request->get('fechaprestamo');
+        $prestamos->fechadevolucion = $request->get('fechadevolucion');
+        $prestamos->fechaestadoprestamo = $request->get('fechaestadoprestamo');
+        $prestamos->save();
+        return redirect('/prestamos');
+        
     }
 
     /**
@@ -47,7 +62,7 @@ class PrestamoController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -58,7 +73,9 @@ class PrestamoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $prestamos = Prestamos::find($id);
+        return view('prestamos.edit')->with('prestamos', $prestamos);
+        return redirect('/prestamos');
     }
 
     /**
@@ -70,7 +87,15 @@ class PrestamoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $prestamos= Prestamos:: find($id);
+        $prestamos->codigoPrestamo = $request->get('codigoPrestamo');
+        $prestamos->estudiante_id = $request->get('estudiante_id');
+        $prestamos->libro_id = $request->get('libro_id');
+        $prestamos->fechaprestamo = $request->get('fechaprestamo');
+        $prestamos->fechadevolucion = $request->get('fechadevolucion');
+        $prestamos->fechaestadoprestamo = $request->get('fechaestadoprestamo');
+        $prestamos->save();
+        return redirect('/prestamos');
     }
 
     /**
@@ -81,6 +106,8 @@ class PrestamoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $prestamos = Prestamos::find($id);
+        $prestamos->delete();
+        return redirect('/prestamos');
     }
 }

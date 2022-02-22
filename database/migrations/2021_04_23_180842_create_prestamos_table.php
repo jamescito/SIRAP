@@ -25,7 +25,7 @@ class CreatePrestamosTable extends Migration
             $table->foreign('estudiante_id')-> references('codigoCarnet')->on('estudiantes');
             $table->timestamps();
         });
-       
+
     }
 
     /**

@@ -40,8 +40,7 @@ class EstudianteController extends Controller
     {
         $request->validate([
             'codigoCarnet'    => 'required|unique:estudiantes',
-            
-        ]);
+]);
 
         $estudiantes = new Estudiantes();
         $estudiantes->codigoCarnet = $request->get('codigoCarnet');
