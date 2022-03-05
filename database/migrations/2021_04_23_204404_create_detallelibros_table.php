@@ -17,6 +17,10 @@ class CreateDetallelibrosTable extends Migration
             $table->id();
             $table->string('autoresCodigo',50); 
             $table->string('codigolibro',50);
+            $table->string('cantidadpaginas',50);
+            $table->string('libroOriginal',50);
+            $table->date('aniopublicacion');
+            $table->string('idioma',50);
             $table->foreign('autoresCodigo')->references('codigo')->on('autores');
             $table->foreign('codigolibro')-> references('codigolibro')->on('libros');
             $table->timestamps();

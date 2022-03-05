@@ -17,10 +17,6 @@ class CreateLibrosTable extends Migration
             $table->id();
             $table->string('codigolibro',50)->unique();
             $table->string('titulo',50);
-            $table->string('cantidadpaginas',50);
-            $table->string('libroOriginal',50);
-            $table->date('aniopublicacion');
-            $table->string('idioma',50);
             $table->string('area_id',50);
             $table->string('editoriales_id',50);
             $table->foreign('area_id')->references('codigoArea')->on('areas');
@@ -28,7 +24,7 @@ class CreateLibrosTable extends Migration
             
             $table->timestamps();
         });
-       
+    
     }
 
     /**

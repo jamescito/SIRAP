@@ -8,7 +8,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-1">
             <div class=" bg-white overflow-hidden shadow-xl sm:rounded-lg py-3">
 
-            <a href="libros/create" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 m-6  border border-blue-500 hover:border-transparent rounded">CREAR</a>
+            <a href="ibros/create" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 m-6  border border-blue-500 hover:border-transparent rounded">CREAR</a>
                 
                 <!--TABLA CON TAILWIND-->
                 <div class="my-4 overflow-x-auto sm:mx-6 lg:mx-8 w-full">
@@ -51,13 +51,14 @@
                             </th>
                             </tr>
                         </thead>
+
                         <tbody class="bg-white divide-y divide-gray-200">
                         @foreach ($libro as $libro)
                             <tr>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 {{ $libro->codigolibro }}
                             </td>
-                     
+
                             <td class="px-6 py-4 whitespace-nowrap">
                                 {{ $libro->titulo }}
                             </td>
@@ -86,7 +87,7 @@
                                 {{ $libro->editoriales_id }}
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                            <form action="{{ route('Libros.destroy', $libro->id) }}" method="post">
+                            <form action="{{ route('libros.destroy', $libro->id) }}" method="post">
                                 @csrf
                                 @method('DELETE')
                                 <a href="/libros/{{ $libro->id }}/edit" class="text-indigo-600 hover:text-indigo-900 mr-4">  </a>
@@ -105,20 +106,20 @@
                 </div>
                 <!--FIN TABLA TAILWIND-->
 
-      
+
             </div>
         </div>
     </div>
 
     <div class="border-t border-smoke px-8 py-4 bg-white">
   <div class="flex justify-center text-grey">
-              Todos los derechos reservado 
+                Todos los derechos reservado 
   </div>
   <div class="flex justify-center text-grey">
-              jr76407900@gmail.com
+            jr76407900@gmail.com
   </div>
   <div class="flex justify-center text-grey">
-              Eliezerrivera@gmail.com
+            Eliezerrivera@gmail.com
   </div>
 </div>
 </x-app-layout>

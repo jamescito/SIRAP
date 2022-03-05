@@ -27,6 +27,8 @@ Route::resource('prestamos', 'App\Http\Controllers\PrestamoController')->middlew
 Route::resource('usuario', 'App\Http\Controllers\UserController')->middleware('auth');
 
 
+
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
