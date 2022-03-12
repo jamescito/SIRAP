@@ -16,7 +16,8 @@ class EstudianteController extends Controller
     public function index()
     {
         //
-        $estudiantes=DB::select('select * from estudiantes');
+        //$estudiantes=DB::select('select * from estudiantes');
+        $estudiantes=Estudiantes::paginate(5);
         return view('estudiantes.index', ['estudiantes'=> $estudiantes]);
     }
 

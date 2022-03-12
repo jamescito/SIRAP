@@ -72,7 +72,6 @@ class AreaController extends Controller
         return view('areas.edit')->with('area',$areas);
         return redirect('/areas');
 
-     
         
     }
 

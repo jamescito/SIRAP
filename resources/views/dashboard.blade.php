@@ -21,13 +21,13 @@
   
 <div class="border-t border-smoke px-8 py-4 bg-white">
   <div class="flex justify-center text-grey">
-              Todos los derechos reservado 
+            Todos los derechos reservado 
   </div>
   <div class="flex justify-center text-grey">
-              jr76407900@gmail.com
+            jr76407900@gmail.com
   </div>
   <div class="flex justify-center text-grey">
-              Faruckchavarria@gmail.com
+            Faruckchavarria@gmail.com
   </div>
 </div>
 </x-app-layout>

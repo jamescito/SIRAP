@@ -8,7 +8,8 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <div class="flex flex-col">
+
+            <div class="flex flex-col">
                 @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>
@@ -66,6 +67,7 @@
                             <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" tabindex="4">Guardar</button>
                 </div>
                 </form>
+
             </div>
         </div>
     </div>

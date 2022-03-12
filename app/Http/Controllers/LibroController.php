@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Libros;
+use App\Models\Detallelibro;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -16,8 +17,18 @@ class LibroController extends Controller
     public function index()
     {
         //
-        $libro=DB::select('select * from libros');
-        return view('libro.index', ['libro'=> $libro]);
+       // $libro=DB::select('select * from libros');
+        //return view('libro.index', ['libro'=> $libro]);
+
+        $detallelibro=DB::table('detallelibros')
+        ->join('libros','libros.codigolibro', '=' ,'detallelibros.codigolibro')
+        ->join('autores','autores.codigo', '=' ,'detallelibros.autoresCodigo')
+        ->select('libros.codigolibro','libros.titulo','estudiantes.apellido','users.email')
+        ->where('users.email',$id)
+        ->get();
+        return response()->json([
+            'data'=>$detallelibro
+        ]);
     }
 
     /**
@@ -46,10 +57,6 @@ class LibroController extends Controller
         $libro = new Libros();
         $libro->codigolibro = $request->get('codigolibro');
         $libro->titulo = $request->get('titulo');
-        $libro->cantidadpaginas = $request->get('cantidadpaginas');
-        $libro->libroOriginal = $request->get('libroOriginal');
-        $libro->aniopublicacion = $request->get('aniopublicacion');
-        $libro->idioma = $request->get('idioma');
         $libro->area_id = $request->get('area_id');
         $libro->editoriales_id = $request->get('editoriales_id');
         $libro->save();
@@ -111,4 +118,21 @@ class LibroController extends Controller
     {
         
     }
+
+    // consulta para mostrar los datos correcto a los usuarios
+    public function consultandolibro($id)
+    {
+        //
+        $detallelibro=DB::table('detallelibros')
+        ->join('libros','libros.codigolibro', '=' ,'detallelibros.codigolibro')
+        ->join('libros','libros.titulo', '=' ,'detallelibros.codigolibro')
+        ->join('autores','autores.nombre', '=' ,'users.email')
+        ->select('libros.titulo','estudiantes.nombre','estudiantes.apellido','users.email')
+        ->where('users.email',$id)
+        ->get();
+        return response()->json([
+            'data'=>$detallelibro
+        ]);
+    }
+
 }
