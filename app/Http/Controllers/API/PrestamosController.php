@@ -28,9 +28,8 @@ class PrestamosController extends Controller
         $prestamo=DB::table('prestamos')
         ->join('estudiantes','estudiantes.codigoCarnet', '=' ,'prestamos.estudiante_id')
         ->join('libros','libros.codigolibro', '=' ,'prestamos.libro_id')
-        ->join('users','estudiantes.correo', '=' ,'users.email')
-        ->select('libros.titulo','estudiantes.nombre','estudiantes.apellido','users.email')
-      //  ->where('estudiantes.id',$id)
+        ->join('autores','autores.nombre', '=' ,'users.email')
+        ->select('libros.titulo','estudiantes.nombre','estudiantes.apellido','prestamos.fechaprestamo','prestamos.fechadevolucion')
         ->get();
         return response()->json([
             'data'=>$prestamo

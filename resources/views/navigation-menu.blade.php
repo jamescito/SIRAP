@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-blue-900 hover:bg-white border-b border-black-100 transition duration-1000">
+<nav x-data="{ open: false }" class="bg-blue-900  border-b border-black-100 transition duration-1000 ">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -12,38 +12,40 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex ">
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                    <x-jet-nav-link style="color:white;" href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
 
-                    
-                    <x-jet-nav-link href="{{ route('autores.index')  }}">
-                        {{ __('Autores') }}
-                    </x-jet-nav-link>
-
-                    <x-jet-nav-link href="{{ route('estudiantes.index')  }}">
-                        {{ __('Estudiantes') }}
-                    </x-jet-nav-link>
-
-                    <x-jet-nav-link href="{{ route('editoriales.index')  }}">
-                        {{ __('Editorial') }}
-                        </x-jet-nav-link>
-
-                        <x-jet-nav-link href="{{ route('Carreras.index')  }}">
-                        {{ __('Carreras') }}
-                    </x-jet-nav-link>
-
-                    <x-jet-nav-link href="{{ route('areas.index')  }}">
-                        {{ __('Areas') }}
-                    </x-jet-nav-link>
-
-                    <x-jet-nav-link href="{{ route('prestamos.index')  }}">
+                    <x-jet-nav-link style="color:white;" href="{{ route('prestamos.index')  }}">
                         {{ __('Prestamos') }}
                     </x-jet-nav-link>
 
-                    
-                
-                    
+                    <x-jet-nav-link style="color:white;" href="{{ route('libros.index')  }}">
+                        {{ __('Libros') }}
+                    </x-jet-nav-link>
+
+                    <x-jet-nav-link style="color:white;" href="{{ route('estudiantes.index')  }}">
+                        {{ __('Estudiantes') }}
+                    </x-jet-nav-link>
+
+
+                    <x-jet-nav-link style="color:white;" href="{{ route('autores.index')  }}">
+                        {{ __('Autores') }}
+                    </x-jet-nav-link>
+
+
+                    <x-jet-nav-link style="color:white;" href="{{ route('editoriales.index')  }}">
+                        {{ __('Editorial') }}
+                        </x-jet-nav-link>
+
+                        <x-jet-nav-link style="color:white;" href="{{ route('Carreras.index')  }}">
+                        {{ __('Carreras') }}
+                    </x-jet-nav-link>
+
+                    <x-jet-nav-link style="color:white;" href="{{ route('areas.index')  }}">
+                        {{ __('Areas') }}
+                    </x-jet-nav-link>
+
                 </div>
             </div>
 

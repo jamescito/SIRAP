@@ -62,7 +62,7 @@
 
     <div class="py-12 bg-blue-100  overflow-hidden shadow-xl sm:rounded-lg">   
             
-                <table class="min-w-full divide-y divide-gray-200 ">
+                <table class="min-w-full divide-y divide-gray-200">
                         <thead class="bg-gray-50">
                             <tr>
 

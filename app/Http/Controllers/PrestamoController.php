@@ -16,8 +16,19 @@ class PrestamoController extends Controller
     public function index()
     {
         //
-        $prestamos=DB::select('select * from prestamos');
-        return view('prestamos.index', ['prestamos'=> $prestamos]);
+       // $prestamos=DB::select('select * from prestamos');
+        // return view('prestamos.index', ['prestamos'=> $prestamos]);
+
+        //$prestamos=Prestamos::paginate(5);
+        $prestamos=DB::table('prestamos')
+        ->join('estudiantes','estudiantes.codigoCarnet', '=' ,'prestamos.estudiante_id')
+        ->join('libros','libros.codigolibro', '=' ,'prestamos.libro_id')
+        ->select('prestamos.id','libros.titulo','estudiantes.nombre','estudiantes.apellido','prestamos.fechaprestamo','prestamos.fechadevolucion')
+        ->paginate(2);
+        //->get();
+
+        return view('prestamos.index')->with('prestamos',$prestamos);
+        
     }
 
     /**
