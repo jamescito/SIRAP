@@ -20,14 +20,14 @@ class LibroController extends Controller
        // $libro=DB::select('select * from libros');
         //return view('libro.index', ['libro'=> $libro]);
 
-        $detallelibro=DB::table('detallelibros')
-        ->join('libros','libros.codigolibro', '=' ,'detallelibros.codigolibro')
-        ->join('area','area.codigoArea', '=' ,'libros.area_id')
+        $libro=DB::table('libros')
+        ->join('detallelibros','detallelibros.codigolibro', '=' ,'libros.codigolibro')
+        ->join('areas','areas.codigoArea', '=' ,'libros.area_id')
         ->join('editoriales','editoriales.codigoEditorial', '=' ,'libros.editoriales_id')
-        ->select('libros.id','libros.codigolibro','libros.titulo','detallelibros.cantidadpaginas','detallelibros.libroOriginal','detallelibros.aniopublicacion','detallelibros.idioma','detallelibros.idioma','detallelibros.idioma')
-        ->where('users.email',$id)
-        ->get();
-        return view('detallelibros.index')->with('detallelibros',$detallelibro);
+        ->select('libros.id','libros.codigolibro','libros.titulo','detallelibros.cantidadpaginas','detallelibros.libroOriginal','detallelibros.aniopublicacion','detallelibros.idioma','areas.area','editoriales.editorial')
+        ->paginate(3);
+
+        return view('libro.index')->with('libros',$libro);
 
     }
 

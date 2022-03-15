@@ -53,7 +53,7 @@
                         </thead>
 
                         <tbody class="bg-white divide-y divide-gray-200">
-                        @foreach ($libro as $libro)
+                        @foreach ($libros as $libro)
                             <tr>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 {{ $libro->codigolibro }}
@@ -80,11 +80,11 @@
                             </td>
 
                             <td class="px-6 py-4 whitespace-nowrap">
-                                {{ $libro->area_id }}
+                                {{ $libro->area }}
                             </td>
 
                             <td class="px-6 py-4 whitespace-nowrap">
-                                {{ $libro->editoriales_id }}
+                                {{ $libro->editorial }}
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                             <form action="{{ route('libros.destroy', $libro->id) }}" method="post">
@@ -112,14 +112,14 @@
     </div>
 
     <div class="border-t border-smoke px-8 py-4 bg-white">
-  <div class="flex justify-center text-grey">
+    <div class="flex justify-center text-grey">
                 Todos los derechos reservado 
-  </div>
-  <div class="flex justify-center text-grey">
+    </div>
+    <div class="flex justify-center text-grey">
             jr76407900@gmail.com
-  </div>
-  <div class="flex justify-center text-grey">
+    </div>
+    <div class="flex justify-center text-grey">
             Eliezerrivera@gmail.com
-  </div>
+    </div>
 </div>
 </x-app-layout>
