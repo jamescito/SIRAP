@@ -29,22 +29,7 @@
                     </x-jet-nav-link>
 
 
-                    <x-jet-nav-link style="color:white;" href="{{ route('autores.index')  }}">
-                        {{ __('Autores') }}
-                    </x-jet-nav-link>
 
-
-                    <x-jet-nav-link style="color:white;" href="{{ route('editoriales.index')  }}">
-                        {{ __('Editorial') }}
-                        </x-jet-nav-link>
-
-                        <x-jet-nav-link style="color:white;" href="{{ route('Carreras.index')  }}">
-                        {{ __('Carreras') }}
-                    </x-jet-nav-link>
-
-                    <x-jet-nav-link style="color:white;" href="{{ route('areas.index')  }}">
-                        {{ __('Areas') }}
-                    </x-jet-nav-link>
 
                 </div>
             </div>

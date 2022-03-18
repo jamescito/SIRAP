@@ -59,17 +59,17 @@ class LibroController extends Controller
         $libro->titulo = $request->get('titulo');
         $libro->area_id = $request->get('area_id');
         $libro->editoriales_id = $request->get('editoriales_id');
+        //$libro->save();
+
+
+        $libro= new Detallelibro();
+        $libro->autoresCodigo = $request->get('autoresCodigo');
+        $libro->codigolibro = $request->get('codigolibro');
+        $libro->cantidadpaginas = $request->get('cantidadpaginas');
+        $libro->libroOriginal = $request->get('libroOriginal');
+        $libro->aniopublicacion = $request->get('aniopublicacion');
+        $libro->idioma = $request->get('idioma');
         $libro->save();
-
-
-        $detallelibro= new Detallelibro();
-        $detallelibro->autoresCodigo = $request->get('autoresCodigo');
-        $detallelibro->codigolibro = $request->get('codigolibro');
-        $detallelibro->cantidadpaginas = $request->get('cantidadpaginas');
-        $detallelibro->libroOriginal = $request->get('libroOriginal');
-        $detallelibro->aniopublicacion = $request->get('aniopublicacion');
-        $detallelibro->idioma = $request->get('idioma');
-        $detallelibro->save();
         return redirect('/libros');
 
     }
