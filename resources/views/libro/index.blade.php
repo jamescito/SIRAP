@@ -209,8 +209,8 @@
                             <form action="{{ route('libros.destroy', $libro->id) }}" method="post">
                                 @csrf
                                 @method('DELETE')
-                                <a href="/libros/{{ $libro->id }}/edit" class="text-indigo-600 hover:text-indigo-900 mr-4">  </a>
-                                <button type="submit" class="text-indigo-600 hover:text-indigo-900"></a>
+                                <a href="/libros/{{ $libro->id }}/edit" class="text-indigo-900 hover:text-indigo-900 mr-4">Editar  </a>
+                                <button type="submit" class="text-red-500 hover:text-indigo-900">Eliminar</a>
                             </form>
                             </td>
                             </tr>
