@@ -25,6 +25,7 @@ Route::resource('libros', 'App\Http\Controllers\LibroController')->middleware('a
 Route::resource('areas', 'App\Http\Controllers\AreaController')->middleware('auth');
 Route::resource('prestamos', 'App\Http\Controllers\PrestamoController')->middleware('auth');
 Route::resource('usuario', 'App\Http\Controllers\UserController')->middleware('auth');
+Route::resource('otros', 'App\Http\Controllers\OtrosController')->middleware('auth');
 
 
 

@@ -28,6 +28,9 @@
                         {{ __('Estudiantes') }}
                     </x-jet-nav-link>
 
+                    <x-jet-nav-link style="color:white;" href="{{ route('otros.index')  }}">
+                        {{ __('Otros') }}
+                    </x-jet-nav-link>
 
 
 

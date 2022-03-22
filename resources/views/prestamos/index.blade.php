@@ -125,7 +125,7 @@
                             </td>
                     
                             <td class="px-6 py-4 whitespace-nowrap">
-                                {{ $presta->nombre }}
+                                {{ $presta->nombre}}
                             </td>
                             
                             <td class="px-6 py-4 whitespace-nowrap">
