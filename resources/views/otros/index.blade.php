@@ -20,7 +20,7 @@
                         <a href="editoriales" class="bg-transparent ml-14 hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 m-6  border border-blue-500 hover:border-transparent rounded">Ir a editoriales</a>
                         <a href="Carreras" class="bg-transparent ml-14 hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 m-6  border border-blue-500 hover:border-transparent rounded">Ir a carrera</a>
                         <a href="autores" class="bg-transparent ml-14 hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 m-6  border border-blue-500 hover:border-transparent rounded">Ir a autores</a>
-                        <a href="ares" class="bg-transparent ml-14 hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 m-6  border border-blue-500 hover:border-transparent rounded">Ir a areas</a>
+                        <a href="areas" class="bg-transparent ml-14 hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 m-6  border border-blue-500 hover:border-transparent rounded">Ir a areas</a>
                     </div>
                 </form>
 

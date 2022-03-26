@@ -86,7 +86,7 @@
                                     @csrf
                                     @method('DELETE')
                                     <a href="/Carreras/{{ $carrer->id }}/edit" class="text-indigo-600 hover:text-indigo-900 mr-4"> Editar </a>
-                                    <button type="submit" class="text-indigo-600 hover:text-indigo-900">Eliminar</a>
+                                    <button type="submit" class="text-red-500 hover:text-indigo-900">Eliminar</a>
                                 </form>
 
                                 </td>
