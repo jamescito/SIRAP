@@ -11,26 +11,26 @@
             
             
             <div class="py-12  bg-blue-100 overflow-hidden shadow-xl sm:rounded-lg">
-            <img src="https://www.tecnacional.edu.ni/media/uploads/2016/11/18/logo-inatec-2016.png" alt=""  class=" w-60 ">    
+                <img src="https://www.tecnacional.edu.ni/media/uploads/2016/11/18/logo-inatec-2016.png" alt=""  class=" w-60 ">    
 
-            <div class="flex flex-col">
+                <div class="flex flex-col">
 
-                    @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                            <h1>El codigo ya exite ingrese otro !!</h1>
-                            <style>
-                            h1{
-                                color: red;
-                                text-align: center;
-                            }
-                            </style>
-                            @endforeach
+                        @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                <h1>El codigo ya exite ingrese otro !!</h1>
+                                <style>
+                                h1{
+                                    color: red;
+                                    text-align: center;
+                                }
+                                </style>
+                                @endforeach
                             
-                        </ul>
-                    </div>
-                    @endif
+                            </ul>
+                        </div>
+                        @endif
 
                     <!--p></p-->
 
