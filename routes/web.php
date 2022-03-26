@@ -24,8 +24,13 @@ Route::resource('estudiantes', 'App\Http\Controllers\EstudianteController')->mid
 Route::resource('libros', 'App\Http\Controllers\LibroController')->middleware('auth');
 Route::resource('areas', 'App\Http\Controllers\AreaController')->middleware('auth');
 Route::resource('prestamos', 'App\Http\Controllers\PrestamoController')->middleware('auth');
+
+Route::get('download-pdf', [App\Http\Controllers\PrestamoController::class, 'pdf'])->name('prestamos-pdf');
+Route::get('descarga-pdf', [App\Http\Controllers\EstudianteController::class, 'pdf'])->name('estudiantes-pdf');
+
 Route::resource('usuario', 'App\Http\Controllers\UserController')->middleware('auth');
 Route::resource('otros', 'App\Http\Controllers\OtrosController')->middleware('auth');
+
 
 
 

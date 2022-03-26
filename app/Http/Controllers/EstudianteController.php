@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Barryvdh\DomPDF\facade as PDF;
 use App\Models\Estudiantes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -17,8 +18,16 @@ class EstudianteController extends Controller
     {
         //
         //$estudiantes=DB::select('select * from estudiantes');
-        $estudiantes=Estudiantes::paginate(5);
+        $estudiantes=Estudiantes::paginate(3);
         return view('estudiantes.index', ['estudiantes'=> $estudiantes]);
+    }
+
+    public function pdf()
+    {
+        $estudiantes=Estudiantes::paginate(9);
+        $pdf = PDF::loadView('estudiantes.pdf', ['estudiantes' => $estudiantes]);
+       // return $pdf->download('estudiantes.pdf');
+    return $pdf->stream();
     }
 
     /**

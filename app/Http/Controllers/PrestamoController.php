@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Barryvdh\DomPDF\Facade as PDF;
 use App\Models\Prestamos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -29,6 +30,14 @@ class PrestamoController extends Controller
 
         return view('prestamos.index')->with('prestamos',$prestamos);
         
+    }
+
+    public function pdf()
+    {
+        $prestamos=DB::select('select * from prestamos');
+        view()->share('prestamos.pdf', $prestamos);
+        $pdf = PDF::loadView('prestamos.pdf', ['prestamos' => $prestamos]);
+        return $pdf->download('prestamos.pdf');
     }
 
     /**
