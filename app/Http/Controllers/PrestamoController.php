@@ -32,6 +32,8 @@ class PrestamoController extends Controller
         
     }
 
+    
+
     public function pdf()
     {
         $prestamos=DB::select('select * from prestamos');

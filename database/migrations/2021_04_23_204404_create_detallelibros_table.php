@@ -15,6 +15,7 @@ class CreateDetallelibrosTable extends Migration
     {
         Schema::create('detallelibros', function (Blueprint $table) {
             $table->id();
+            $table->string('tipolibro',50); 
             $table->string('autoresCodigo',50); 
             $table->string('codigolibro',50);
             $table->string('cantidadpaginas',50);
@@ -25,7 +26,7 @@ class CreateDetallelibrosTable extends Migration
             $table->foreign('codigolibro')-> references('codigolibro')->on('libros');
             $table->timestamps();
         });
-      
+    
     }
 
     /**

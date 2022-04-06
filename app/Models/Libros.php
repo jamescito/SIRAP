@@ -12,13 +12,13 @@ class Libros extends Model
     protected $fillable=[
         'codigolibro',
         'titulo',
-        'cantidadpaginas',
-        'libroOriginal',
-        'aniopublicacion',
-        'idioma',
         'area_id',
         'editoriales_id'
     ];
+
+    public function detallelibros(){
+        return $this->hasMany('App\Models\Detallelibro');
+    }
 
     public function prestamos(){
         return $this->hasMany('App\Models\Prestamos');

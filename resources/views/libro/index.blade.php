@@ -35,18 +35,18 @@
             
                     <!--p></p-->
 
-                    <form action="/libros" class="w-full max-w-lg bg-gray-300  mx-auto  overflow-hidden shadow-xl sm:rounded-lg py-7 -mt-16" method="post">
+                    <form action="/libros"  class="w-full max-w-lg bg-gray-300  mx-auto  overflow-hidden shadow-xl sm:rounded-lg py-7 -mt-16" method="post">
 
                         @csrf()
                         <div class=" ml-6 mx-auto">
                             <div class="">
-                                <label for="tipolibro" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Seleccione el tipo</label>
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Seleccione el tipo</label>
                             </div>
-                            <select required type="text" id="titulo" name="titulo" class="appearance-none w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 -ml-4" >
-                                <option value="">Seleccione</option>
-                                <option value="">Libros</option>
-                                <option value="">Revista</option>
-                                <option value="">Monografía</option>
+                            <select required type="text" id="tipolibro" name="tipolibro" class="appearance-none w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 -ml-4" >
+                                <option value="tipolibro">Seleccione</option>
+                                <option value="tipolibro">Libros</option>
+                                <option value="tipolibro">Revista</option>
+                                <option value="tipolibro">Monografía</option>
                             </select>
                         </div>
 
@@ -57,7 +57,7 @@
                             <div class="">
                                 <label for="Autores" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 ml-3">Autores</label>
                             </div>
-                            <input required  type="text" id="autores" name="autores" class="appearance-none w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 -ml-4" tabindex="3">
+                            <input required  type="text" id="autoresCodigo" name="autoresCodigo" class="appearance-none w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 -ml-4" tabindex="3">
                             
                         </div>
 
@@ -66,7 +66,7 @@
 
                             <div class="container font-bold mt-3">
                                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 ml-3  mt-3">Código</label>
-                                <input required type="text" id="codigo" name="codigo" class="bg-gray-200 border-collapse ml-2 space-y-1 hover:bg-white border-transparent rounded" tabindex="1">
+                                <input required type="text" id="codigolibro" name="codigolibro" class="bg-gray-200 border-collapse ml-2 space-y-1 hover:bg-white border-transparent rounded" tabindex="1">
                             </div>
 
                             <div class=" mt-3 ">
@@ -137,7 +137,13 @@
                         <thead class="bg-gray-50">
                             <tr>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
+                                Tipo                             
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
                             Código libro
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
+                            Código autor
                             </th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
                             Titulo
@@ -175,7 +181,15 @@
                         @foreach ($libros as $libro)
                             <tr>
                             <td class="px-6 py-4 whitespace-nowrap ">
+                                {{ $libro->tipolibro }}
+                            </td>
+                            
+                            <td class="px-6 py-4 whitespace-nowrap ">
                                 {{ $libro->codigolibro }}
+                            </td>
+
+                            <td class="px-6 py-4 whitespace-nowrap ">
+                                {{ $libro->autoresCodigo }}
                             </td>
 
                             <td class="px-6 py-4 whitespace-nowrap">
@@ -223,15 +237,15 @@
                 <!--FIN TABLA TAILWIND-->
 
     
-    </div>
+    
 
 
 
 
+    
+                {{ $libros->links() }}     
 
-            </div>
-
-
+            
 
 
             </div>

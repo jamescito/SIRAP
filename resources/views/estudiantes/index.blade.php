@@ -106,7 +106,7 @@
                                 {{ $estudiante->apellido }}
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                {{ $estudiante-> carrera_id }}
+                                {{ $estudiante->carrera_id}}
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 {{ $estudiante-> correo }}

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LibroController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +22,8 @@ Route::resource('autores', 'App\Http\Controllers\AutorController')->middleware('
 Route::resource('editoriales', 'App\Http\Controllers\EditorialController')->middleware('auth');
 Route::resource('Carreras', 'App\Http\Controllers\CarreraController')->middleware('auth');
 Route::resource('estudiantes', 'App\Http\Controllers\EstudianteController')->middleware('auth');
-Route::resource('libros', 'App\Http\Controllers\LibroController')->middleware('auth');
+//Route::resource('libros', 'App\Http\Controllers\LibroController')->middleware('auth');
+Route::resource('libros', LibroController::class);
 Route::resource('areas', 'App\Http\Controllers\AreaController')->middleware('auth');
 Route::resource('prestamos', 'App\Http\Controllers\PrestamoController')->middleware('auth');
 

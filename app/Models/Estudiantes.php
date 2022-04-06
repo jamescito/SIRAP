@@ -22,4 +22,7 @@ class Estudiantes extends Model
         return $this->hasMany('App\Models\Prestamos');
     }
     */
+    public function carreras(){
+        return $this->belongsTo(Carrera::class,'carrera_id');
+    }
 }

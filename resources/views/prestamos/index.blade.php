@@ -95,14 +95,12 @@
                         <thead class="bg-gray-50">
                             <tr>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
-                            titulo
+                            titulo del libro
                             </th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
-                            nombre
+                            estudiante
                             </th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
-                            apellido
-                            </th>
+
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
                             Fecha Prestamo
                             </th>
@@ -126,11 +124,9 @@
                     
                             <td class="px-6 py-4 whitespace-nowrap">
                                 {{ $presta->nombre}}
-                            </td>
-                            
-                            <td class="px-6 py-4 whitespace-nowrap">
                                 {{ $presta->apellido }}
                             </td>
+                            
 
                             <td class="px-6 py-4 whitespace-nowrap">
                                 {{ $presta->fechaprestamo }}
