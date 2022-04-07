@@ -110,6 +110,10 @@
                             </th>
 
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
+                            Fecha fecha estado prestamo
+                            </th>
+
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
                                 <span class="sr-only">Acciones</span>
                             </th>
                             </tr>
@@ -134,6 +138,10 @@
 
                             <td class="px-6 py-4 whitespace-nowrap">
                                 {{ $presta->fechadevolucion }}
+                            </td>
+
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                {{ $presta->fechaestadoprestamo }}
                             </td>
 
                             
