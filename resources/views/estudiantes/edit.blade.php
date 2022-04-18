@@ -36,12 +36,21 @@
                 <input value=" {{ $estudiantes->apellido }}" type="text" id="apellido" name="apellido" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" tabindex="2">
             </div>
 
-            <div class="flex items-center py-2">
-                <div class="w-full px-3">
-                    <label for="carrera_id" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Carrera</label>
-                </div>
-                <input value=" {{ $estudiantes->carrera_id }}" type="text" id="carrera_id" name="carrera_id" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" tabindex="2">
-            </div>
+
+
+            <div wire:ignore class=" ml-6 mx-auto">
+                            <div class="">
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Carrera</label>
+                            </div>
+                            <select  name="carrera_id" class="appearance-none w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 -ml-4" >
+                            <option value="{{$estudiantes->carrera_id}}">Carrera actual: {{$estudiantes->carrera}}</option>
+                            <option disabled class="bg-blue-300">Seleccionar nueva carrera</option>
+                                @foreach($carreras as $carrera)
+                                    <option class="text-gray-70" value="{{$carrera->codigoCarrera}}">{{ $carrera->carrera }}</option>
+                                @endforeach
+                            </select>
+
+                        </div>
 
             <div class="flex items-center py-2">
                 <div class="w-full px-3">

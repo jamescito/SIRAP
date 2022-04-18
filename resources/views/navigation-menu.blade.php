@@ -24,8 +24,12 @@
                         {{ __('Libros') }}
                     </x-jet-nav-link>
 
-                    <x-jet-nav-link style="color:white;" href="{{ route('estudiantes.index')  }}">
+                    <x-jet-nav-link style="color:white;" href="{{ route('estudiantes.index') }}" >
                         {{ __('Estudiantes') }}
+                    </x-jet-nav-link>
+
+                    <x-jet-nav-link style="color:white;" href="{{ route('select2') }}" :active="request()->routeIs('select2')">
+                        {{ __('select') }}
                     </x-jet-nav-link>
 
                     <x-jet-nav-link style="color:white;" href="{{ route('otros.index')  }}">

@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Barryvdh\DomPDF\facade as PDF;
+use App\Models\Carrera;
 use App\Models\Estudiantes;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\facade as PDF;
+use Livewire\Component;
+use App\Http\Livewire;
 use Illuminate\Support\Facades\DB;
 
 class EstudianteController extends Controller
@@ -14,12 +17,20 @@ class EstudianteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
     public function index()
     {
         //
         //$estudiantes=DB::select('select * from estudiantes');
-        $estudiantes=Estudiantes::paginate(3);
-        return view('estudiantes.index', ['estudiantes'=> $estudiantes]);
+        //$estudiantes=Estudiantes::paginate(3);
+        //return view('estudiantes.index', ['estudiantes'=> $estudiantes]);
+
+        $estudiantes=DB::table('estudiantes')
+        ->join('carreras','carreras.codigoCarrera', '=' ,'estudiantes.carrera_id')
+        ->select('estudiantes.id','estudiantes.codigoCarnet','estudiantes.nombre','estudiantes.apellido','estudiantes.carrera_id','carreras.carrera','estudiantes.correo')
+        ->paginate(10);
+        return view('estudiantes.index')->with('estudiantes',$estudiantes);
     }
 
     public function pdf()
@@ -48,9 +59,7 @@ class EstudianteController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'codigoCarnet'    => 'required|unique:estudiantes',
-]);
+        $request->validate(['codigoCarnet'    => 'required|unique:estudiantes']);
 
         $estudiantes = new Estudiantes();
         $estudiantes->codigoCarnet = $request->get('codigoCarnet');
@@ -82,9 +91,14 @@ class EstudianteController extends Controller
      */
     public function edit($id)
     {
-        $estudiantes = Estudiantes::find($id);
-        return view('estudiantes.edit')->with('estudiantes', $estudiantes);
-        return redirect('/estudiantes');
+        $carreras = Carrera::All();
+
+        $estudiantes=DB::table('estudiantes')
+        ->join('carreras','carreras.codigoCarrera', '=' ,'estudiantes.carrera_id')
+        ->select('estudiantes.id','estudiantes.codigoCarnet','estudiantes.nombre','estudiantes.apellido','estudiantes.carrera_id','carreras.carrera','estudiantes.correo')
+        ->where('estudiantes.id',$id)->first();
+        return view('estudiantes.edit')->with('estudiantes',$estudiantes)->with('carreras',$carreras);
+
     }
 
     /**
@@ -96,13 +110,14 @@ class EstudianteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $estudiantes = Estudiantes::find($id);
-        $estudiantes->codigoCarnet = $request->get('codigoCarnet');
-        $estudiantes->nombre = $request->get('nombre');
-        $estudiantes->apellido = $request->get('apellido');
-        $estudiantes->carrera_id = $request->get('carrera_id');
-        $estudiantes->correo = $request->get('correo');
-        $estudiantes->save();
+        //$estudiantes = Estudiantes::find($id);
+
+        $codigoCarnet = $request->get('codigoCarnet');
+        $nombre = $request->get('nombre');
+        $apellido = $request->get('apellido');
+        $carrera_id = $request->get('carrera_id');
+        $correo = $request->get('correo');
+        DB::update('update estudiantes Set codigoCarnet=?, nombre=?, apellido=?, carrera_id=?, correo=? where id=?', [$codigoCarnet,$nombre,$apellido,$carrera_id,$correo,$id]);
         return redirect('/estudiantes');   
     }
 

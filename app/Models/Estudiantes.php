@@ -10,11 +10,7 @@ class Estudiantes extends Model
     use HasFactory;
 protected $table='estudiantes';
     protected $fillable=[
-        'codigoCarnet',
-        'nombre',
-        'apellido',
-        'carrera_id',
-        'correo'
+        'codigoCarnet','nombre','apellido','carrera_id','correo'
     ];
 
 

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Livewire\Estudiante;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LibroController;
 
@@ -33,7 +34,7 @@ Route::get('descarga-pdf', [App\Http\Controllers\EstudianteController::class, 'p
 Route::resource('usuario', 'App\Http\Controllers\UserController')->middleware('auth');
 Route::resource('otros', 'App\Http\Controllers\OtrosController')->middleware('auth');
 
-
+Route::get('/select2',Estudiante::class)->name('select2');
 
 
 

@@ -137,23 +137,6 @@ class LibroController extends Controller
         DB::update('update detallelibros Set autoresCodigo=?, codigolibro=?, cantidadpaginas=?, libroOriginal=?, aniopublicacion=?, idioma=? where id=?', [$autoresCodigo,$codigolibro,$cantidadpaginas,$libroOriginal,$aniopublicacion,$idioma,$id]);
         return redirect('/libros');
 
-        // $libro = Libros::find($id);
-        // $libro->codigolibro = $request->get('codigolibro');
-        // $libro->titulo = $request->get('titulo');
-        // $libro->area_id = $request->get('area_id');
-        // $libro->editoriales_id = $request->get('editoriales_id');
-        // $libro->save();
-        // //var_dump($libro);
-        // $librodetalle = Detallelibro::where('codigolibro', $id)->get();
-        // $librodetalle->autoresCodigo = $request->get('autoresCodigo');
-        // $librodetalle->codigolibro = $request->get('codigolibro');
-        // $librodetalle->cantidadpaginas = $request->get('cantidadpaginas');
-        // $librodetalle->libroOriginal = $request->get('libroOriginal');
-        // $librodetalle->aniopublicacion = $request->get('aniopublicacion');
-        // $librodetalle->idioma = $request->get('idioma');
-        // $librodetalle->save();
-
-        // return redirect('/libros');
     }
 
     /**

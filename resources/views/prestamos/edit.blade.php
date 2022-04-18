@@ -18,14 +18,14 @@
                 <div class="w-full px-3">
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">codigo prestamo</label>
                 </div>
-                <input value=" {{ $prestamos->codigoPrestamo }}" readonly type="text" id="codigoPrestamo" name="codigoPrestamo" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" tabindex="1">
+                <input value=" {{ $prestamos->codigoPrestamo }}"  readonly type="text" id="codigoPrestamo" name="codigoPrestamo" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" tabindex="1">
             </div>
 
             <div class="flex items-center py-2">
                 <div class="w-full px-3">
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">estudiante</label>
                 </div>
-                <input value=" {{ $prestamos->estudiante_id }}"  type="text" id="estudiante_id" name="estudiante_id" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" tabindex="1">
+                <input value=" {{ $prestamos->estudiante_id }}" placeholder="{{ $prestamos->nombre }}"  type="text" id="estudiante_id" name="estudiante_id" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" tabindex="1">
             </div>
 
             <div class="flex items-center py-2">

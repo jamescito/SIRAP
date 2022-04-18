@@ -35,9 +35,10 @@
             
                     <!--p></p-->
 
-                    <form action="/libros"  class="w-full max-w-lg bg-gray-300  mx-auto  overflow-hidden shadow-xl sm:rounded-lg py-7 -mt-16" method="post">
+                    <form action="/libros"  class="p-3 w-full max-w-lg bg-gray-300  mx-auto  overflow-hidden shadow-xl sm:rounded-lg py-7 -mt-16" method="post">
 
                         @csrf()
+                        <div >
                         <div class=" ml-6 mx-auto">
                             <div class="">
                                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Seleccione el tipo</label>
@@ -106,21 +107,24 @@
 
                         </div>
 
+                        <div class=" flex items-center">
 
-                        <div class="flex items-center">
-                            <div class="container font-bold mt-3">
-                                <label for="area_id" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 ml-3  mt-3">area id</label>
-                                <input required type="text" id="area_id" name="area_id" class="bg-gray-200 border-collapse ml-2 space-y-1 hover:bg-white border-transparent rounded" tabindex="4">
-                            </di>
+                        <div class="container font-bold mt-3">
+                            <label for="cantidadpaginas" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 ml-3  mt-3">Area</label>
+                            <input required type="text" name="area_id" class="bg-gray-200 border-collapse ml-2 space-y-1 hhover:bg-white border-transparent rounded" tabindex="3">
+                        </div>
 
-                            <div class="mt-3">
-                                <label for="editoriales_id" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-3 ml-3">editoriales id</label>
-                                <input required type="text" id="editoriales_id" name="editoriales_id" class="bg-gray-200 border-collapse ml-2 space-y-1 hover:bg-white border-transparent rounded" tabindex="4">
-                            </div>
+                        <div class="mt-3">
+                            <label for="libroOriginal" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-3 -ml-3">Editorial</label>
+                            <input required type="text" name="editorial_id" class="bg-gray-200 border-collapse -ml-2 space-y-1 hover:bg-white border-transparent rounded" tabindex="4">
+                        </div>
 
                         </div>
 
-                        <div class="flex items-center -ml-3">
+
+                </div>
+
+                        <div class="flex items-center ml-3 mt-6" style="width: 100%;">
                             <a href="/libros" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" tabindex="5">Cancelar</a>
                             <button type="submit" class="ml-3 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" tabindex="4">Guardar</button>
                         </div>
@@ -134,7 +138,7 @@
 
         <div class="py-12 bg-blue-100  overflow-hidden shadow-xl sm:rounded-lg"> 
         <table class="min-w-full divide-y divide-gray-200">
-                        <thead class="bg-gray-50">
+                        <thead class="bg-gray-50" >
                             <tr>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
                                 Tipo                             
@@ -142,9 +146,7 @@
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
                             Código libro
                             </th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
-                            Código autor
-                            </th>
+
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
                             Titulo
                             </th>
@@ -186,10 +188,6 @@
                             
                             <td class="px-6 py-4 whitespace-nowrap ">
                                 {{ $libro->codigolibro }}
-                            </td>
-
-                            <td class="px-6 py-4 whitespace-nowrap ">
-                                {{ $libro->autoresCodigo }}
                             </td>
 
                             <td class="px-6 py-4 whitespace-nowrap">

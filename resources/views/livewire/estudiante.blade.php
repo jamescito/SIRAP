@@ -5,15 +5,12 @@
         </h2>
     </x-slot>
 
-    <div class="py-10">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-1">
-            <div class=" bg-white overflow-hidden shadow-xl sm:rounded-lg py-3">
 
     <div class="py-12 bg-blue-100 overflow-hidden shadow-xl sm:rounded-lg">
     
         <img src="https://www.tecnacional.edu.ni/media/uploads/2016/11/18/logo-inatec-2016.png" alt=""  class=" w-60 ">    
 
-        <form action="/estudiantes" class="p-5 w-full max-w-lg bg-gray-300  mx-auto  overflow-hidden shadow-xl sm:rounded-lg py-3 -mt-16" method="post">
+        <form action="/estudiantes" class="w-full max-w-lg bg-gray-300  mx-auto  overflow-hidden shadow-xl sm:rounded-lg py-3 -mt-16" method="post">
                         @csrf()
                         <div class="flex items-center py-2">
                             <div class="w-full px-3">
@@ -40,10 +37,10 @@
                             <div class="">
                                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Seleccione el tipo</label>
                             </div>
-                            <select  name="carrera_id" class="appearance-none w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 -ml-4" >
+                            <select id="select2" class="appearance-none w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 -ml-4" >
                                 <option value="">Seleccione una carrera</option>
-                                @foreach($estudiantes as $estudiante)
-                                    <option class="text-gray-70" value="{{$estudiante->carrera_id}}">{{$estudiante->carrera}} </option>
+                                @foreach($carreras as $car)
+                                    <option value="{{$car->id}}">{{$car->carrera}} </option>
                                 @endforeach
                             </select>
 
@@ -98,63 +95,23 @@
 
                             </tr>
                         </thead>
-                        <tbody class="bg-white divide-y divide-gray-200">
-                        @foreach ($estudiantes as $estudiante)
-                            <tr>
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                {{ $estudiante->codigoCarnet }}
-                            </td>
-                    
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                {{ $estudiante->nombre }}
-                            </td>
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                {{ $estudiante->apellido }}
-                            </td>
 
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                {{ $estudiante->carrera}}
-                            </td>
-
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                {{ $estudiante-> correo }}
-                            </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                            <form action="{{ route('estudiantes.destroy', $estudiante->id) }}" method="post">
-                                @csrf
-                                @method('DELETE')
-                                <a href="/estudiantes/{{ $estudiante->id }}/edit" class="text-indigo-900 hover:text-indigo-900 mr-4"> Editar </a>
-                                <button type="submit" class="text-red-500 hover:text-indigo-900">Eliminar</a>
-                            </form>
-                            </td>
-                            </tr>
-                            @endforeach
-                        </tbody>
                         </table>
 
     </div>
-    
-
-    {{ $estudiantes->links() }}                         
-
-            </div>
-        </div>
-    </div>
 
 
-<!--p>FOOTER</p -->
-
-
-    <div class="border-t border-smoke px-8 py-4 bg-white">
-        <div class="flex justify-center text-grey">
-            Todos los derechos reservado 
-        </div>
-        <div class="flex justify-center text-grey">
-            jr76407900@gmail.com
-        </div>
-        <div class="flex justify-center text-grey">
-            Faruckchavarria@gmail.com
-        </div>
-</div>
 </x-app-layout>
 
+<script>
+    $(document).ready( function() {
+        $('#select2').select2();
+        $('#select2').on('change', function(e) {
+            let valor=$('#select2').select2('val');
+            let texto=$('#select2 option:selected').text();
+            @this.set('seleccionado',texto);
+        })
+
+
+    })
+</script>
