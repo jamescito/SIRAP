@@ -26,11 +26,14 @@ class EstudianteController extends Controller
         //$estudiantes=Estudiantes::paginate(3);
         //return view('estudiantes.index', ['estudiantes'=> $estudiantes]);
 
+        $carrerasLista = Carrera::All();
+
+
         $estudiantes=DB::table('estudiantes')
         ->join('carreras','carreras.codigoCarrera', '=' ,'estudiantes.carrera_id')
         ->select('estudiantes.id','estudiantes.codigoCarnet','estudiantes.nombre','estudiantes.apellido','estudiantes.carrera_id','carreras.carrera','estudiantes.correo')
         ->paginate(10);
-        return view('estudiantes.index')->with('estudiantes',$estudiantes);
+        return view('estudiantes.index')->with('estudiantes',$estudiantes)->with('carrerasLista',$carrerasLista);
     }
 
     public function pdf()
