@@ -3,6 +3,7 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Prestamos') }}
         </h2>
+        
     </x-slot>
 
     <div class="py-10">
@@ -34,7 +35,7 @@
 
                     <!--p></p-->
 
-                    <form action="/prestamos" class="w-full max-w-lg bg-gray-300  mx-auto  overflow-hidden shadow-xl sm:rounded-lg py-3 -mt-16" method="post">
+                    <form action="/prestamos" class="p-5 w-full max-w-lg bg-gray-300  mx-auto  overflow-hidden shadow-xl sm:rounded-lg py-3 -mt-16" method="post">
                         @csrf()
                         <div class="flex items-center py-2">
                             <div class="w-full px-3">
@@ -48,6 +49,7 @@
                                 <label for="estudiante_id" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">estudiante</label>
                             </div>
                             <input required type="text" id="estudiante_id" name="estudiante_id" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" tabindex="2">
+                            <ul id="nombre" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 " tabindex="1"></ul>
                         </div>
 
                         <div class="flex items-center py-2">
@@ -190,4 +192,8 @@
             Faruckchavarria@gmail.com
         </div>
 </div>
+
+<script src="{{asset('/js/search.js')}}" type="module"></script>
+<script src="{{asset('/js/searchlibro.js')}}" type="module"></script>
+
 </x-app-layout>

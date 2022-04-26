@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Barryvdh\DomPDF\Facade as PDF;
 use App\Models\Prestamos;
+use App\Models\Estudiantes;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Support\Facades\DB;
 
 class PrestamoController extends Controller
@@ -21,6 +22,9 @@ class PrestamoController extends Controller
         // return view('prestamos.index', ['prestamos'=> $prestamos]);
 
         //$prestamos=Prestamos::paginate(5);
+
+        $estudLis = Estudiantes::All();
+
         $prestamos=DB::table('prestamos')
         ->join('estudiantes','estudiantes.codigoCarnet', '=' ,'prestamos.estudiante_id')
         ->join('libros','libros.codigolibro', '=' ,'prestamos.libro_id')
@@ -28,7 +32,7 @@ class PrestamoController extends Controller
         ->paginate(2);
         //->get();
 
-        return view('prestamos.index')->with('prestamos',$prestamos);
+        return view('prestamos.index')->with('prestamos',$prestamos)->with('estudLis',$estudLis);
         
     }
 
@@ -82,11 +86,35 @@ class PrestamoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
-        
+        $data = trim($request->valor);
+        $result=DB::table('estudiantes')
+        ->where('nombre','like','%'.$data.'%')
+        ->orwhere('codigoCarnet','like','%'.$data.'%')
+        ->limit(5)
+        ->get();
+
+        return response()->json([
+            "estado"=>1,
+            "result"=>$result 
+        ]);
     }
 
+    public function autocomplete(Request $request)
+    {
+        $data = trim($request->valor);
+        $result=DB::table('libros')
+        ->where('titulo','like','%'.$data.'%')
+        ->orwhere('codigolibro','like','%'.$data.'%')
+        ->limit(5)
+        ->get();
+
+        return response()->json([
+            "estado"=>1,
+            "result"=>$result 
+        ]);
+    }
     /**
      * Show the form for editing the specified resource.
      *

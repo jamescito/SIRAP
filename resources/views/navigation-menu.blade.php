@@ -13,27 +13,24 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex ">
                     <x-jet-nav-link style="color:white;" href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                        {{ ('Dashboard') }}
                     </x-jet-nav-link>
 
                     <x-jet-nav-link style="color:white;" href="{{ route('prestamos.index')  }}">
-                        {{ __('Prestamos') }}
+                        {{ ('Prestamos') }}
                     </x-jet-nav-link>
 
                     <x-jet-nav-link style="color:white;" href="{{ route('libros.index')  }}">
-                        {{ __('Libros') }}
+                        {{ ('Libros') }}
                     </x-jet-nav-link>
 
                     <x-jet-nav-link style="color:white;" href="{{ route('estudiantes.index') }}" >
-                        {{ __('Estudiantes') }}
+                        {{ ('Estudiantes') }}
                     </x-jet-nav-link>
 
-                    <x-jet-nav-link style="color:white;" href="{{ route('select2') }}" :active="request()->routeIs('select2')">
-                        {{ __('select') }}
-                    </x-jet-nav-link>
 
                     <x-jet-nav-link style="color:white;" href="{{ route('otros.index')  }}">
-                        {{ __('Otros') }}
+                        {{ ('Otros') }}
                     </x-jet-nav-link>
 
 

@@ -43,7 +43,7 @@
                             <select  name="carrera_id" class="appearance-none w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 -ml-4" >
                                 <option value="">Seleccione una carrera</option>
                                 @foreach($carrerasLista as $lsc)
-                                    <option class="text-gray-70" value="{{$lsc->carrera_id}}">{{$lsc->carrera}} </option>
+                                    <option class="text-gray-70" value="{{$lsc->codigoCarrera}}">{{$lsc->carrera}} </option>
                                 @endforeach
                             </select>
 

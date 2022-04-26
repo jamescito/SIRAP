@@ -9,6 +9,7 @@ use Barryvdh\DomPDF\facade as PDF;
 use Livewire\Component;
 use App\Http\Livewire;
 use Illuminate\Support\Facades\DB;
+use Response;
 
 class EstudianteController extends Controller
 {
@@ -28,7 +29,6 @@ class EstudianteController extends Controller
 
         $carrerasLista = Carrera::All();
 
-
         $estudiantes=DB::table('estudiantes')
         ->join('carreras','carreras.codigoCarrera', '=' ,'estudiantes.carrera_id')
         ->select('estudiantes.id','estudiantes.codigoCarnet','estudiantes.nombre','estudiantes.apellido','estudiantes.carrera_id','carreras.carrera','estudiantes.correo')
@@ -38,10 +38,11 @@ class EstudianteController extends Controller
 
     public function pdf()
     {
-        $estudiantes=Estudiantes::paginate(9);
+        $estudiantes=Estudiantes::paginate(5);
         $pdf = PDF::loadView('estudiantes.pdf', ['estudiantes' => $estudiantes]);
-       // return $pdf->download('estudiantes.pdf');
-    return $pdf->stream();
+        //return $pdf->download('estudiantes.pdf');
+        return $pdf->stream();
+
     }
 
     /**
@@ -81,9 +82,18 @@ class EstudianteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
-        
+        $data = trim($request->valor);
+        $result=DB::table('estudiantes')
+        ->where('nombre','like','%'.$data.'%')
+        ->orwhere('barcode','like','%'.$data.'%')
+        ->limit(5)
+        ->get();
+
+        return response()->json([
+            "result"=>$result
+        ]);
     }
 
     /**
@@ -135,5 +145,21 @@ class EstudianteController extends Controller
         $estudiantes = Estudiantes::find($id);
         $estudiantes->delete();
         return redirect('/estudiantes');
+    }
+
+    public function autocomplete(Request $request)
+    {
+        $term=$request->get('term');
+        $query=Estudiantes::where('nombre','LIKEE','%'.$term.'%')->get();
+
+        $data=[];
+        foreach($query as $qu)
+        {
+            $data=['label'=> $qu->nombre];
+        }
+
+        return $data;
+
+
     }
 }

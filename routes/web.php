@@ -3,6 +3,8 @@
 use App\Http\Livewire\Estudiante;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LibroController;
+use App\Http\Controllers\PrestamoController;
+use App\Http\Controllers\EstudianteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +36,10 @@ Route::get('descarga-pdf', [App\Http\Controllers\EstudianteController::class, 'p
 Route::resource('usuario', 'App\Http\Controllers\UserController')->middleware('auth');
 Route::resource('otros', 'App\Http\Controllers\OtrosController')->middleware('auth');
 
-Route::get('/select2',Estudiante::class)->name('select2');
+//Route::get('/select2',Estudiante::class)->name('select2');
+Route::post('myurl',[PrestamoController::class, 'show']);
+Route::post('autocompletelibro',[PrestamoController::class, 'autocomplete']);
+
 
 
 
