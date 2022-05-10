@@ -2,7 +2,7 @@ export class search {
 
     constructor(myurlp, mysearchp, ul_add_lip) {
         this.url = myurlp;
-        this.nombre = mysearchp;
+        this.estudiante_id = mysearchp;
         this.ul_add_li = ul_add_lip;
         this.idli = "mylist";
         this.pcantidad = document.querySelector("#pcantidad");
@@ -10,12 +10,12 @@ export class search {
     }
 
     inputsearch() {
-        this.nombre.addEventListener("input", (e) => {
+        this.estudiante_id.addEventListener("input", (e) => {
             e.preventDefault();
             try {
                 let token = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
                 let minimo_letra = 0;
-                let valor = this.nombre.value;
+                let valor = this.estudiante_id.value;
                 //console.log(valor);
                 if (valor.length > minimo_letra) {
                     let datasearch = new FormData();
@@ -69,6 +69,12 @@ export class search {
     }
 
 
+    mostrar() {
+        document.querySelector('#btn').addEventListener('click', function() {
+            alert('probando')
+        })
+    }
+
     show_list_each_data(arrayp, valor, n) {
         for (let item of arrayp) {
             n++;
@@ -84,7 +90,8 @@ export class search {
                     <strong>${nombre.substr(0,valor.length)}</strong>
                     ${nombre.substr(valor.length)}
                     <p class="card-text"> ${item.apellido}</p>
-                    <p class="card-text"> ${item.codigoCarnet}</p>
+                    <p id="secreativo" class="card-text"> ${item.codigoCarnet}</p>
+                    <button id="btn" class="bg-yellow-400">selecccionar locoman</button>
             </div>
             </div>
             </li>

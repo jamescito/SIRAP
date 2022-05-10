@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
+use App\Models\Areas;
+use App\Models\Autores;
 use App\Models\Libros;
+use App\Models\Comment;
 use App\Models\Detallelibro;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\Comment;
-use App\Models\Post;
 
 class LibroController extends Controller
 {
@@ -16,20 +18,27 @@ class LibroController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
        // $libro=DB::select('select * from libros');
         //return view('libro.index', ['libro'=> $libro]);
+        
+        $autores_id=trim($request->get('autores_id'));
+        $autor=DB::table('autores')->select('nombre','apellido')->where('apellido','LIKE','%'.$autores_id.'%')->orderBy('apellido','asc')
+                                    ->paginate(10);
+
+
+        $areas=Areas::all();
 
         $libro=DB::table('libros')
         ->join('detallelibros','detallelibros.codigolibro', '=' ,'libros.codigolibro')
         ->join('areas','areas.codigoArea', '=' ,'libros.area_id')
         ->join('editoriales','editoriales.codigoEditorial', '=' ,'libros.editoriales_id')
         ->select('libros.id','detallelibros.tipolibro','detallelibros.autoresCodigo','libros.codigolibro','libros.titulo','detallelibros.cantidadpaginas','detallelibros.libroOriginal','detallelibros.aniopublicacion','detallelibros.idioma','areas.area','editoriales.editorial')
-        ->paginate(3);
+        ->paginate(10);
 
-        return view('libro.index')->with('libros',$libro);
+        return view('libro.index',compact('autores_id'))->with('libros',$libro)->with('areas',$areas)->with('autor',$autor);
 
     }
 

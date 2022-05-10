@@ -38,11 +38,17 @@ class EstudianteController extends Controller
 
     public function pdf()
     {
-        $estudiantes=Estudiantes::paginate(5);
-        $pdf = PDF::loadView('estudiantes.pdf', ['estudiantes' => $estudiantes]);
-        //return $pdf->download('estudiantes.pdf');
-        return $pdf->stream();
+        $estudiantes=DB::table('estudiantes')
+        ->join('carreras','carreras.codigoCarrera', '=' ,'estudiantes.carrera_id')
+        ->select('estudiantes.id','estudiantes.codigoCarnet','estudiantes.nombre','estudiantes.apellido','estudiantes.carrera_id','carreras.carrera','estudiantes.correo')
+        ->paginate(10);
+        $pdf= PDF::loadView('estudiantes.pdf',['estudiantes' => $estudiantes]);
+        return $pdf->setPaper('a4','landscape')->stream();
 
+        // $prestamos=DB::select('select * from prestamos');      
+        // $pdf = PDF::loadView('prestamos.pdf', ['prestamos' => $prestamos]);
+        // //return $pdf->download('prestamos.pdf');
+        // return $pdf->stream();
     }
 
     /**

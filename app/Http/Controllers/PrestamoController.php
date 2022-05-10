@@ -40,10 +40,16 @@ class PrestamoController extends Controller
 
     public function pdf()
     {
-        $prestamos=DB::select('select * from prestamos');
-        view()->share('prestamos.pdf', $prestamos);
+        //$prestamos=DB::select('select * from prestamos');      
+        $prestamos=DB::table('prestamos')
+        ->join('estudiantes','estudiantes.codigoCarnet', '=' ,'prestamos.estudiante_id')
+        ->join('libros','libros.codigolibro', '=' ,'prestamos.libro_id')
+        ->select('prestamos.id','libros.titulo','estudiantes.nombre','estudiantes.apellido','prestamos.fechaprestamo','prestamos.fechadevolucion','prestamos.fechaestadoprestamo')
+        ->paginate(12);
         $pdf = PDF::loadView('prestamos.pdf', ['prestamos' => $prestamos]);
-        return $pdf->download('prestamos.pdf');
+        //return $pdf->download('prestamos.pdf');
+        return $pdf->stream();
+        
     }
 
     /**

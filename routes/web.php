@@ -27,6 +27,7 @@ Route::resource('Carreras', 'App\Http\Controllers\CarreraController')->middlewar
 Route::resource('estudiantes', 'App\Http\Controllers\EstudianteController')->middleware('auth');
 //Route::resource('libros', 'App\Http\Controllers\LibroController')->middleware('auth');
 Route::resource('libros', LibroController::class);
+//Route::get('libros','App\Http\Controllers\LibroController@index');
 Route::resource('areas', 'App\Http\Controllers\AreaController')->middleware('auth');
 Route::resource('prestamos', 'App\Http\Controllers\PrestamoController')->middleware('auth');
 

@@ -39,7 +39,7 @@
 
                         @csrf()
                         <div >
-                        <div class=" ml-6 mx-auto">
+                        <div class=" ml-6 mx-auto p-3">
                             <div class="">
                                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Seleccione el tipo</label>
                             </div>
@@ -54,12 +54,45 @@
 
 
 
-                        <div class="ml-6 mx-auto">
+                        <div class="ml-6 mx-auto p-3">
                             <div class="">
                                 <label for="Autores" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 ml-3">Autores</label>
                             </div>
-                            <input required  type="text" id="autoresCodigo" name="autoresCodigo" class="appearance-none w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 -ml-4" tabindex="3">
-                            
+                            <form action="{{ route('libros.index') }}" method="GET">
+                                <div class="form row">
+                                    <div class="col sm-4 m-1">
+                                        <input type="text" class="form-control" name="autores_id" value="{{$autores_id}}">
+                                    </div>
+                                    <div class="col au">
+                                        <input type="submit" class="btn btn-primary" value="Buscar">
+                                    </div>
+                                </div>
+                            </form>
+
+                            <table>
+                                <thead>
+                                <tr>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
+                                    Nombre
+                                </th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
+                                    Apellido
+                                </th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                @foreach($autor as $a)
+                                <tr>
+                                <td class="px-6 py-4 whitespace-nowrap ">
+                                    {{$a->nombre}}
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap ">
+                                    {{$a->apellido}}
+                                </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
                         </div>
 
 
@@ -110,14 +143,18 @@
                         <div class=" flex items-center">
 
                         <div class="container font-bold mt-3">
-                            <label for="cantidadpaginas" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 ml-3  mt-3">Area</label>
-                            <input required type="text" name="area_id" class="bg-gray-200 border-collapse ml-2 space-y-1 hhover:bg-white border-transparent rounded" tabindex="3">
+                            <div class="">
+                                <label for="Areas" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 ml-3">Areas</label>
+                            </div>
+                            <select name="area_id" class="bg-gray-200 border-collapse -ml-2 space-y-1 hover:bg-white border-transparent rounded">
+                                <option value="">Seleccione una area</option>
+                                @foreach($areas as $ar)
+                                        <option class="bg-gray-200 border-collapse -ml-2 space-y-1 hover:bg-white border-transparent rounded" value="{{$ar->codigoArea}}">{{$ar->area}}</option>
+                                @endforeach
+                            </select>
                         </div>
 
-                        <div class="mt-3">
-                            <label for="libroOriginal" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-3 -ml-3">Editorial</label>
-                            <input required type="text" name="editorial_id" class="bg-gray-200 border-collapse -ml-2 space-y-1 hover:bg-white border-transparent rounded" tabindex="4">
-                        </div>
+                        
 
                         </div>
 
@@ -132,21 +169,18 @@
                 </div>
                 </form>
 
-
+            </div>
         <!--p></p-->
 
 
         <div class="py-12 bg-blue-100  overflow-hidden shadow-xl sm:rounded-lg"> 
-        <table class="min-w-full divide-y divide-gray-200">
+            <a href="{{ route('prestamos-pdf') }}" class="bg-transparent mt-4 hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 m-6  border border-blue-500 hover:border-transparent rounded">Generar PDF</a>
+            <table class="min-w-full divide-y divide-gray-200 mt-4">
                         <thead class="bg-gray-50" >
                             <tr>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
                                 Tipo                             
                             </th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
-                            Código libro
-                            </th>
-
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
                             Titulo
                             </th>
@@ -185,10 +219,6 @@
                             <td class="px-6 py-4 whitespace-nowrap ">
                                 {{ $libro->tipolibro }}
                             </td>
-                            
-                            <td class="px-6 py-4 whitespace-nowrap ">
-                                {{ $libro->codigolibro }}
-                            </td>
 
                             <td class="px-6 py-4 whitespace-nowrap">
                                 {{ $libro->titulo }}
@@ -217,6 +247,7 @@
                             <td class="px-6 py-4 whitespace-nowrap">
                                 {{ $libro->editorial }}
                             </td>
+
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                             <form action="{{ route('libros.destroy', $libro->id) }}" method="post">
                                 @csrf
@@ -225,6 +256,7 @@
                                 <button type="submit" class="text-red-500 hover:text-indigo-900">Eliminar</a>
                             </form>
                             </td>
+
                             </tr>
                             @endforeach
 
@@ -234,21 +266,14 @@
 
                 <!--FIN TABLA TAILWIND-->
 
-    
-    
-
-
-
-
-    
                 {{ $libros->links() }}     
-
-            
 
 
             </div>
         </div>
     </div>
+
+    <script src="{{asset('/js/search.js')}}" type="module"></script>
 
     <!--p>FOOTER</p -->
 
