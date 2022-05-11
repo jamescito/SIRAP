@@ -2,7 +2,7 @@ export class search {
 
     constructor(myurlp, mysearchp, ul_add_lip) {
         this.url = myurlp;
-        this.estudiante_id = mysearchp;
+        this.codigoCarnet = mysearchp;
         this.ul_add_li = ul_add_lip;
         this.idli = "mylist";
         this.pcantidad = document.querySelector("#pcantidad");
@@ -10,12 +10,12 @@ export class search {
     }
 
     inputsearch() {
-        this.estudiante_id.addEventListener("input", (e) => {
+        this.codigoCarnet.addEventListener("input", (e) => {
             e.preventDefault();
             try {
                 let token = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
                 let minimo_letra = 0;
-                let valor = this.estudiante_id.value;
+                let valor = this.codigoCarnet.value;
                 //console.log(valor);
                 if (valor.length > minimo_letra) {
                     let datasearch = new FormData();

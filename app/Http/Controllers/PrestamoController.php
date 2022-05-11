@@ -15,6 +15,17 @@ class PrestamoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+    public function autocompletes(Request $request)
+    {
+        $data = Estudiantes::select("nombre")
+                ->where("nombre","LIKE","%{$request->query}%")
+                ->get();
+
+        return response()->json($data);
+    }
+
     public function index()
     {
         //
@@ -48,7 +59,7 @@ class PrestamoController extends Controller
         ->paginate(12);
         $pdf = PDF::loadView('prestamos.pdf', ['prestamos' => $prestamos]);
         //return $pdf->download('prestamos.pdf');
-        return $pdf->stream();
+        return $pdf->setPaper('a4','landscape')->stream();
         
     }
 

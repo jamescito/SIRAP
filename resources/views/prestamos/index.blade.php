@@ -3,7 +3,7 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Prestamos') }}
         </h2>
-        
+
     </x-slot>
 
     <div class="py-10">
@@ -196,5 +196,6 @@
 
 <script src="{{asset('/js/search.js')}}" type="module"></script>
 <script src="{{asset('/js/searchlibro.js')}}" type="module"></script>
+
 
 </x-app-layout>

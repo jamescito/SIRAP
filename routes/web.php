@@ -39,7 +39,10 @@ Route::resource('otros', 'App\Http\Controllers\OtrosController')->middleware('au
 
 //Route::get('/select2',Estudiante::class)->name('select2');
 Route::post('myurl',[PrestamoController::class, 'show']);
+
 Route::post('autocompletelibro',[PrestamoController::class, 'autocomplete']);
+//Route::get('autocompletelibro',[PrestamoController::class, 'autocompletes'])->name('autocomplete');
+//Route::get('myurl',[PrestamoController::class, 'show'])->name('search');
 
 
 

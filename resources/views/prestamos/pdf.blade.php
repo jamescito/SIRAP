@@ -1,79 +1,71 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>prestamos-pdf</title>
+
     <link src= "asset {{('./public/image/logo-inatec-2016.png')}} " >
     <link rel="stylesheet" href="{{ public_path('css/app.css') }}">
 </head>
 <body>
+    
+    <img src="https://www.tecnacional.edu.ni/media/uploads/2016/11/18/logo-inatec-2016.png" alt=""  class=" mt-3" style="width: 20%">    
+    
+    <div class="flex flex-col mt-4">
+        <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div class="py-4 inline-block min-w-full sm:px-6 lg:px-8">
+            <div class="overflow-hidden">
+                <table class="min-w-full text-center" style="background-color: rgb(241, 236, 236)">
+                <thead class="border-b bg-gray-800" style="background-color: rgb(90, 198, 244)">
+                    <tr>
+                    <th scope="col" class="text-sm font-medium text-white px-6 py-4">
+                        LIBRO
+                    </th>
+                    <th scope="col" class="text-sm font-medium text-white px-6 py-4">
+                        ESTUDIANTE          
+                    </th>
+                    <th scope="col" class="text-sm font-medium text-white px-6 py-4">
+                        FECHA DEL PRESTAMO
+                    </th>
+                    <th scope="col" class="text-sm font-medium text-white px-6 py-4">
+                        F. DEVOLUCIÓN DEL PRESTAMO
+                    </th>
 
-    <img src="https://www.tecnacional.edu.ni/media/uploads/2016/11/18/logo-inatec-2016.png" alt=""  class=" w-60 ">    
-
-    <div  class="py-12 bg-blue-600  overflow-hidden shadow-xl sm:rounded-lg mt-3 p-5">   
-
-        <table style="background-color: rgb(209, 213, 219); text-align: center;" style="padding:22" class="min-w-full divide-y divide-gray-200 mt-4 mr-7">
-            <thead style="border: 1px solid rgb(12, 5, 5);" class="bg-gray-50 ">
-                <tr>
-                <th scope="col"  class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
-                libro
-                </th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
-                estudiante
-                </th>
-
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
-                Fecha Prestamo
-                </th>
-
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
-                Fecha Devolucion
-                </th>
-
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
-                Fecha fecha estado prestamo
-                </th>
-
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
-                    <span class="sr-only">Acciones</span>
-                </th>
-                </tr>
-            </thead>
-
-            <tbody style="border: 1px solid black;" class="bg-white divide-y divide-gray-200">
-            @foreach ($prestamos as $presta)
-                <tr>
-                <td  class="px-6 py-4 whitespace-nowrap">
-                    {{ $presta->titulo }}
-                </td>
-        
-                <td class="px-6 py-4 whitespace-nowrap">
-                    {{ $presta->nombre}}
-                    {{ $presta->apellido }}
-                </td>
-                
-
-                <td class="px-6 py-4 whitespace-nowrap">
-                    {{ $presta->fechaprestamo }}
-                </td>
-
-                <td class="px-6 py-4 whitespace-nowrap">
-                    {{ $presta->fechadevolucion }}
-                </td>
-
-                <td class="px-6 py-4 whitespace-nowrap">
-                    {{ $presta->fechaestadoprestamo }}
-                </td>
-
-                </tr>
-                @endforeach
-
-            </tbody>
-            </table>
-
-    </div>
+                    <th scope="col" class="text-sm font-medium text-white px-5 py-3">
+                        F. ESTADO DEL PRESTAMO
+                    </th>
+                    </tr>
+                </thead class="border-b">
+                <tbody style="font-family: Verdana, Geneva, Tahoma, sans-serif; color:rgb(49, 47, 47)">
+                    @foreach ($prestamos as $presta)
+                    <tr class="bg-white border-b">
+                    <td class="text-sm text-gray-900 font-medium px-6 py-4 whitespace-nowrap">
+                        {{ $presta->titulo }}
+                    </td>
+                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                        {{ $presta->nombre }} {{ $presta->apellido }}
+                    </td>
+                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                        {{ $presta->fechaprestamo }}
+                    </td>
+                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                        {{ $presta->fechadevolucion }}
+                    </td>
+                    <td class="text-sm text-gray-900 font-light px-5 py-3 whitespace-nowrap">
+                        {{ $presta->fechaestadoprestamo }}
+                    </td>
+                  </tr class="bg-white border-b">
+                  <tr class="bg-white border-b">    
+                  @endforeach
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
 
 </body>
 </html>
