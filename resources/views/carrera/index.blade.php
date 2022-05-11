@@ -35,7 +35,7 @@
 
                 <!--p></p-->
 
-                    <form action="/Carreras" class="w-full max-w-lg bg-gray-300  mx-auto  overflow-hidden shadow-xl sm:rounded-lg py-3 -mt-16" method="post">
+                    <form action="/Carreras" class="p-5 w-full max-w-lg bg-gray-300  mx-auto  overflow-hidden shadow-xl sm:rounded-lg py-3 -mt-16" method="post">
                             @csrf()
                             <div class="flex items-center py-2">
                                 <div class="w-full px-3">
