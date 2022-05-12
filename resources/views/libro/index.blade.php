@@ -58,41 +58,8 @@
                             <div class="">
                                 <label for="Autores" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 ml-3">Autores</label>
                             </div>
-                            <form action="{{ route('libros.index') }}" method="GET">
-                                <div class="form row">
-                                    <div class="col sm-4 m-1">
-                                        <input type="text" class="form-control" name="autores_id" value="{{$autores_id}}">
-                                    </div>
-                                    <div class="col au">
-                                        <input type="submit" class="btn btn-primary" value="Buscar">
-                                    </div>
-                                </div>
-                            </form>
+                            <input id="autocomplete-search" />
 
-                            <table>
-                                <thead>
-                                <tr>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
-                                    Nombre
-                                </th>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
-                                    Apellido
-                                </th>
-                                </tr>
-                            </thead>
-                            <tbody class="bg-white divide-y divide-gray-200">
-                                @foreach($autor as $a)
-                                <tr>
-                                <td class="px-6 py-4 whitespace-nowrap ">
-                                    {{$a->nombre}}
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap ">
-                                    {{$a->apellido}}
-                                </td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
                         </div>
 
 
@@ -289,4 +256,26 @@
             Faruckchavarria@gmail.com
         </div>
 </div>
+
+<script type="text/javascript">
+    $("#autocomplete-search").easyAutocomplete({
+    url: function(search) {
+        return "{{route('posts.search')}}?search=" + search;
+        console.log(search)
+    },
+
+        getValue: "nombre",
+        console.log(search)
+        
+    list: {
+        onChooseEvent: function() {
+            var selectedPost = $("#autocomplete-search").getSelectedItemData();
+            window.location = "{{url('post')}}" + "/" + selectedPost.id;
+        }
+    }
+
+
+});
+</script>
+
 </x-app-layout>

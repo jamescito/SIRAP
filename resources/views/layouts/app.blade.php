@@ -17,7 +17,10 @@
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
-
+        <!-- probando plugin de easyautocomplete-->   
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+ 
+        <script src="{{ asset('js/app.js') }}"></script>
         @livewireStyles
 
         <!-- Scripts -->

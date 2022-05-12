@@ -176,7 +176,11 @@
 
 
 
-
+<script>
+    function miAlerta() {
+        alert("esto es real jijo");
+    }
+</script>
 
 
 <!--p>FOOTER</p -->

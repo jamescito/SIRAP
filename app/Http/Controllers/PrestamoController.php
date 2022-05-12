@@ -140,9 +140,20 @@ class PrestamoController extends Controller
      */
     public function edit($id)
     {
-        $prestamos = Prestamos::find($id);
-        return view('prestamos.edit')->with('prestamos', $prestamos);
-        return redirect('/prestamos');
+        // $prestamos = Prestamos::find($id);
+        // return view('prestamos.edit')->with('prestamos', $prestamos);
+        // return redirect('/prestamos');
+
+        $estudLis = Estudiantes::All();
+
+        $prestamos=DB::table('prestamos')
+        ->join('estudiantes','estudiantes.codigoCarnet', '=' ,'prestamos.estudiante_id')
+        ->join('libros','libros.codigolibro', '=' ,'prestamos.libro_id')
+        ->select('prestamos.id','prestamos.codigoPrestamo','estudiantes.nombre','libros.titulo','prestamos.fechaprestamo','prestamos.fechadevolucion','prestamos.fechaestadoprestamo')
+        ->where('prestamos.id',$id)->first();
+        return view('prestamos.edit')->with('prestamos',$prestamos)->with('estudLis',$estudLis);
+
+
     }
 
     /**

@@ -45,7 +45,7 @@ Route::post('autocompletelibro',[PrestamoController::class, 'autocomplete']);
 //Route::get('myurl',[PrestamoController::class, 'show'])->name('search');
 
 
-
+Route::get('/search', 'LibroController@search')->name('posts.search');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

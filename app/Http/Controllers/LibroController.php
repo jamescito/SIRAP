@@ -166,20 +166,12 @@ class LibroController extends Controller
 
     }
 
-    // consulta para mostrar los datos correcto a los usuarios
-    public function consultandolibro($id)
-    {
-        //
-        $detallelibro=DB::table('detallelibros')
-        ->join('libros','libros.codigolibro', '=' ,'detallelibros.codigolibro')
-        ->join('libros','libros.titulo', '=' ,'detallelibros.codigolibro')
-        ->join('autores','autores.nombre', '=' ,'users.email')
-        ->select('libros.titulo','estudiantes.nombre','estudiantes.apellido','users.email')
-        ->where('users.email',$id)
-        ->get();
-        return response()->json([
-            'data'=>$detallelibro
-        ]);
-    }
+
+
+    public function search(Request $request)
+{
+    $autor = Autores::where('nombre', 'LIKE', '%'.$request->search.'%')->get();
+    return \response()->json($autor);
+}
 
 }

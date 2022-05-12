@@ -69,11 +69,8 @@ export class search {
     }
 
 
-    mostrar() {
-        document.querySelector('#btn').addEventListener('click', function() {
-            alert('probando')
-        })
-    }
+
+
 
     show_list_each_data(arrayp, valor, n) {
         for (let item of arrayp) {
@@ -91,7 +88,7 @@ export class search {
                     ${nombre.substr(valor.length)}
                     <p class="card-text"> ${item.apellido}</p>
                     <p id="secreativo" class="card-text"> ${item.codigoCarnet}</p>
-                    <button id="btn" class="bg-yellow-400">selecccionar locoman</button>
+                    <button id="btn" class="bg-yellow-400" onclick="miAlerta()">selecccionar</button>
             </div>
             </div>
             </li>
@@ -100,4 +97,5 @@ export class search {
 
         }
     }
+
 }
