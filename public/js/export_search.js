@@ -66,7 +66,10 @@ export class search {
             }
         }
 
+
+
     }
+
 
 
 
@@ -84,11 +87,12 @@ export class search {
             <div class="p-2 text-center divimg" style="">
             </div>
             <div class="p-2">
-                    <strong>${nombre.substr(0,valor.length)}</strong>
+                    <strong >${nombre.substr(0,valor.length)}</strong>
                     ${nombre.substr(valor.length)}
-                    <p class="card-text"> ${item.apellido}</p>
+                    <p class="card-text bg-blue-100" id="datos"> ${item.nombre} ${item.apellido}</p>
+                    <p class="card-text" id="apellido"> </p>
                     <p id="secreativo" class="card-text"> ${item.codigoCarnet}</p>
-                    <button id="btn" class="bg-yellow-400" onclick="miAlerta()">selecccionar</button>
+                    <button id="btn" class="bg-blue-700 hover:text-black hover:bg-blue-400 text-white" onclick="miAlerta()" >selecccionar</button>
             </div>
             </div>
             </li>
@@ -97,5 +101,6 @@ export class search {
 
         }
     }
+
 
 }

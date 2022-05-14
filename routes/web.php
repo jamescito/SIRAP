@@ -39,13 +39,15 @@ Route::resource('otros', 'App\Http\Controllers\OtrosController')->middleware('au
 
 //Route::get('/select2',Estudiante::class)->name('select2');
 Route::post('myurl',[PrestamoController::class, 'show']);
+Route::post('myurls',[LibroController::class, 'show']);
+Route::post('myurlseditorial',[LibroController::class, 'showeditorial']);
 
 Route::post('autocompletelibro',[PrestamoController::class, 'autocomplete']);
 //Route::get('autocompletelibro',[PrestamoController::class, 'autocompletes'])->name('autocomplete');
 //Route::get('myurl',[PrestamoController::class, 'show'])->name('search');
 
 
-Route::get('/search', 'LibroController@search')->name('posts.search');
+//Route::get('/search', 'LibroController@search')->name('posts.search');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

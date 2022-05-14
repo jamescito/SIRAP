@@ -2,20 +2,20 @@ export class search {
 
     constructor(myurlp, mysearchp, ul_add_lip) {
         this.url = myurlp;
-        this.titulo = mysearchp;
+        this.editorial = mysearchp;
         this.ul_add_li = ul_add_lip;
-        this.idli = "autocompletelibro";
+        this.idli = "myurlseditorial";
         this.pcantidad = document.querySelector("#pcantidad");
 
     }
 
     inputsearch() {
-        this.titulo.addEventListener("input", (e) => {
+        this.editorial.addEventListener("input", (e) => {
             e.preventDefault();
             try {
                 let token = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
                 let minimo_letra = 0;
-                let valor = this.titulo.value;
+                let valor = this.editorial.value;
                 //console.log(valor);
                 if (valor.length > minimo_letra) {
                     let datasearch = new FormData();
@@ -72,21 +72,20 @@ export class search {
     show_list_each_data(arrayp, valor, n) {
         for (let item of arrayp) {
             n++;
-            let titulo = item.titulo;
-            console.log(item.titulo)
+            let editorial = item.editorial;
+            console.log(item.editorial)
             this.ul_add_li.innerHTML += `
 
-            <li id="${n+this.idli}" value="${item.libro_id}" >
+            <li id="${n+this.idli}" value="${item.editorial}" >
             <div class="d-flex flex-row" style="">
             <div class="p-2 text-center divimg" style="">
             </div>
             <div class="p-2">
-                    <strong>${titulo.substr(0,valor.length)}</strong>
-                    ${titulo.substr(valor.length)}
-                    <p class="card-text bg-blue-100" id="titulo"> ${item.titulo}</p>
-                    <p class="card-text" id="codigolibro"> ${item.codigolibro}</p>
-                    <p class="card-text" id="">  ${item.cantidadlibro}</p>
-                    <button id="btn" class="bg-blue-700 hover:text-black hover:bg-blue-400 text-white" onclick="libro()">selecccionar</button>
+                    <strong>${editorial.substr(0,valor.length)}</strong>
+                    ${editorial.substr(valor.length)}
+                    <p class="card-text bg-blue-100" id="datos"> ${item.editorial}</p>
+                    <p class="card-text" id="codigoEditorial"> ${item.codigoEditorial}</p>
+                    <button id="btn" class="bg-blue-700 hover:text-black hover:bg-blue-400 text-white" onclick="editorial()">selecccionar</button>
             </div>
             </div>
             </li>

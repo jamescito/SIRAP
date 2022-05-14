@@ -35,7 +35,7 @@ class LibroController extends Controller
         ->join('detallelibros','detallelibros.codigolibro', '=' ,'libros.codigolibro')
         ->join('areas','areas.codigoArea', '=' ,'libros.area_id')
         ->join('editoriales','editoriales.codigoEditorial', '=' ,'libros.editoriales_id')
-        ->select('libros.id','detallelibros.tipolibro','detallelibros.autoresCodigo','libros.codigolibro','libros.titulo','detallelibros.cantidadpaginas','detallelibros.libroOriginal','detallelibros.aniopublicacion','detallelibros.idioma','areas.area','editoriales.editorial')
+        ->select('libros.id','detallelibros.tipolibro','detallelibros.autoresCodigo','libros.codigolibro','libros.titulo','detallelibros.cantidadpaginas','detallelibros.libroOriginal','detallelibros.aniopublicacion','detallelibros.idioma','areas.area','editoriales.editorial','libros.cantidadlibro')
         ->paginate(10);
 
         return view('libro.index',compact('autores_id'))->with('libros',$libro)->with('areas',$areas)->with('autor',$autor);
@@ -69,6 +69,7 @@ class LibroController extends Controller
         $libro->titulo = $request->get('titulo');
         $libro->area_id = $request->get('area_id');
         $libro->editoriales_id = $request->get('editoriales_id');
+        $libro->cantidadlibro = $request->get('cantidadlibro');
         $libro->save();
         var_dump($libro);
 
@@ -92,9 +93,36 @@ class LibroController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
-        //
+        
+        $data = trim($request->valor);
+        $result=DB::table('autores')
+        ->where('nombre','like','%'.$data.'%')
+        ->orwhere('codigo','like','%'.$data.'%')
+        ->limit(5)
+        ->get();
+
+        return response()->json([
+            "estado"=>1,
+            "result"=>$result 
+        ]);
+    }
+
+    public function showeditorial(Request $request)
+    {
+        
+        $data = trim($request->valor);
+        $result=DB::table('editoriales')
+        ->where('editorial','like','%'.$data.'%')
+        ->orwhere('codigoEditorial','like','%'.$data.'%')
+        ->limit(5)
+        ->get();
+
+        return response()->json([
+            "estado"=>1,
+            "result"=>$result 
+        ]);
     }
 
     /**
@@ -115,7 +143,7 @@ class LibroController extends Controller
         ->join('detallelibros','detallelibros.codigolibro', '=' ,'libros.codigolibro')
         ->join('areas','areas.codigoArea', '=' ,'libros.area_id')
         ->join('editoriales','editoriales.codigoEditorial', '=' ,'libros.editoriales_id')
-        ->select('libros.id','detallelibros.autoresCodigo','libros.codigolibro','libros.titulo','detallelibros.cantidadpaginas','detallelibros.libroOriginal','detallelibros.aniopublicacion','detallelibros.idioma','libros.area_id','libros.editoriales_id')
+        ->select('libros.id','detallelibros.autoresCodigo','libros.codigolibro','libros.titulo','detallelibros.cantidadpaginas','detallelibros.libroOriginal','detallelibros.aniopublicacion','detallelibros.idioma','libros.area_id','libros.editoriales_id','prestamos.cantidadlibro','libro.cantidadlibro')
         ->where('libros.id', $id)->first();
         return view('libro.edit')->with('libro',$libro);
         redirect('/libros');
@@ -135,7 +163,8 @@ class LibroController extends Controller
         $titulo = $request->get('titulo');
         $area_id = $request->get('area_id');
         $editoriales_id = $request->get('editoriales_id');
-        DB::update('update libros set  titulo=?, area_id=?, editoriales_id=? where codigolibro=?', [$titulo,$area_id,$editoriales_id,$codigolibro]);
+        $cantidadlibro = $request->get('cantidadlibro');
+        DB::update('update libros set  titulo=?, area_id=?, editoriales_id=?,cantidadlibro=? where codigolibro=?', [$titulo,$area_id,$editoriales_id,$cantidadlibro,$codigolibro]);
         
         $autoresCodigo = $request->get('autoresCodigo');
         $codigolibro = $request->get('codigolibro');
@@ -143,7 +172,8 @@ class LibroController extends Controller
         $libroOriginal = $request->get('libroOriginal');
         $aniopublicacion = $request->get('aniopublicacion');
         $idioma = $request->get('idioma');
-        DB::update('update detallelibros Set autoresCodigo=?, codigolibro=?, cantidadpaginas=?, libroOriginal=?, aniopublicacion=?, idioma=? where id=?', [$autoresCodigo,$codigolibro,$cantidadpaginas,$libroOriginal,$aniopublicacion,$idioma,$id]);
+        $cantidadlibro = $request->get('cantidadlibro');
+        DB::update('update detallelibros Set autoresCodigo=?, codigolibro=?, cantidadpaginas=?, libroOriginal=?, aniopublicacion=?, idioma=?, where id=?', [$autoresCodigo,$codigolibro,$cantidadpaginas,$libroOriginal,$aniopublicacion,$idioma,$id]);
         return redirect('/libros');
 
     }

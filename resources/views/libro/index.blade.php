@@ -38,6 +38,8 @@
                     <form action="/libros"  class="p-3 w-full max-w-lg bg-gray-300  mx-auto  overflow-hidden shadow-xl sm:rounded-lg py-7 -mt-16" method="post">
 
                         @csrf()
+                    <input  type="text" id="id"  name="autoresCodigo" style="display: none" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" tabindex="2">
+                    <input  type="text" id="id1"  name="editoriales_id" style="display: none"  class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" tabindex="2">
                         <div >
                         <div class=" ml-6 mx-auto p-3">
                             <div class="">
@@ -49,19 +51,28 @@
                                 <option value="tipolibro">Revista</option>
                                 <option value="tipolibro">Monografía</option>
                             </select>
+
+                            
                         </div>
 
 
 
 
-                        <div class="ml-6 mx-auto p-3">
-                            <div class="">
-                                <label for="Autores" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 ml-3">Autores</label>
+                        <div class="flex items-center">
+                            <div class="container font-bold mt-3">
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 ml-3  mt-3">Autores</label>
+                                <input required type="text" id="autoresCodigo" class="bg-gray-200 border-collapse ml-2 space-y-1 hover:bg-white border-transparent rounded" tabindex="1">
                             </div>
-                            <input id="autocomplete-search" />
+
+                                <div class="mt-3">
+                                    <label for=""class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-3 -ml-3">cantidad de libro</label>
+                                    <input required type="text" id="cantidadlibro" name="cantidadlibro" class="bg-gray-200 border-collapse -ml-2 space-y-1 hover:bg-white border-transparent rounded " tabindex="2">
+                                </div>
+
 
                         </div>
 
+                        <ul id="nombre" class="mt-3 appearance-none block w-full bg-gray-290 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 " tabindex="1"></ul>
 
                         <div class="flex items-center">
 
@@ -113,7 +124,7 @@
                             <div class="">
                                 <label for="Areas" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 ml-3">Areas</label>
                             </div>
-                            <select name="area_id" class="bg-gray-200 border-collapse -ml-2 space-y-1 hover:bg-white border-transparent rounded">
+                            <select name="area_id" class=" bg-gray-200 border-collapse -ml-2 space-y-1 hover:bg-white border-transparent rounded">
                                 <option value="">Seleccione una area</option>
                                 @foreach($areas as $ar)
                                         <option class="bg-gray-200 border-collapse -ml-2 space-y-1 hover:bg-white border-transparent rounded" value="{{$ar->codigoArea}}">{{$ar->area}}</option>
@@ -121,11 +132,14 @@
                             </select>
                         </div>
 
-                        
+                        <div class="mt-3">
+                            <label for="" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-3 -ml-3">Editorial</label>
+                            <input required type="text" id="editoriales_id" class="bg-gray-200 border-collapse -ml-2 space-y-1 hover:bg-white border-transparent rounded" tabindex="4">
+                        </div>
 
                         </div>
 
-
+                        
                 </div>
 
                         <div class="flex items-center ml-3 mt-6" style="width: 100%;">
@@ -257,25 +271,34 @@
         </div>
 </div>
 
-<script type="text/javascript">
-    $("#autocomplete-search").easyAutocomplete({
-    url: function(search) {
-        return "{{route('posts.search')}}?search=" + search;
-        console.log(search)
-    },
-
-        getValue: "nombre",
-        console.log(search)
+<script>
+    function autores(){
+        var id=document.getElementById('codigo').innerHTML
+        var id1=document.getElementById('id')
+        var codigo=document.getElementById('autoresCodigo')
+       // nombre.value=id
         
-    list: {
-        onChooseEvent: function() {
-            var selectedPost = $("#autocomplete-search").getSelectedItemData();
-            window.location = "{{url('post')}}" + "/" + selectedPost.id;
-        }
+        var nombres=document.getElementById('datos').innerHTML
+        id1.value=id
+        codigo.value=nombres
     }
 
 
-});
+    function editorial(){
+        var id=document.getElementById('codigoEditorial').innerHTML
+        var id1=document.getElementById('id1')
+        var codigo=document.getElementById('editoriales_id')
+       // nombre.value=id
+        
+        var nombres=document.getElementById('datos').innerHTML
+        id1.value=id
+        codigo.value=nombres
+    }
 </script>
+
+<script src="{{asset('/js/export_autores.js')}}" type="module"></script>
+<script src="{{asset('/js/autores.js')}}" type="module"></script>
+<script src="{{asset('/js/export-editorial.js')}}" type="module"></script>
+<script src="{{asset('/js/searcheditorial.js')}}" type="module"></script>
 
 </x-app-layout>

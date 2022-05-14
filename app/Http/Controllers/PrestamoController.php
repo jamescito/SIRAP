@@ -39,7 +39,7 @@ class PrestamoController extends Controller
         $prestamos=DB::table('prestamos')
         ->join('estudiantes','estudiantes.codigoCarnet', '=' ,'prestamos.estudiante_id')
         ->join('libros','libros.codigolibro', '=' ,'prestamos.libro_id')
-        ->select('prestamos.id','libros.titulo','estudiantes.nombre','estudiantes.apellido','prestamos.fechaprestamo','prestamos.fechadevolucion','prestamos.fechaestadoprestamo')
+        ->select('prestamos.id','libros.titulo','estudiantes.nombre','estudiantes.apellido','prestamos.fechaprestamo','prestamos.fechadevolucion','prestamos.fechaestadoprestamo','prestamos.disponible')
         ->paginate(2);
         //->get();
 
@@ -55,7 +55,7 @@ class PrestamoController extends Controller
         $prestamos=DB::table('prestamos')
         ->join('estudiantes','estudiantes.codigoCarnet', '=' ,'prestamos.estudiante_id')
         ->join('libros','libros.codigolibro', '=' ,'prestamos.libro_id')
-        ->select('prestamos.id','libros.titulo','estudiantes.nombre','estudiantes.apellido','prestamos.fechaprestamo','prestamos.fechadevolucion','prestamos.fechaestadoprestamo')
+        ->select('prestamos.id','libros.titulo','estudiantes.nombre','estudiantes.apellido','prestamos.fechaprestamo','prestamos.fechadevolucion','prestamos.fechaestadoprestamo','prestamos.disponible')
         ->paginate(12);
         $pdf = PDF::loadView('prestamos.pdf', ['prestamos' => $prestamos]);
         //return $pdf->download('prestamos.pdf');
@@ -92,6 +92,7 @@ class PrestamoController extends Controller
         $prestamos->fechaprestamo = $request->get('fechaprestamo');
         $prestamos->fechadevolucion = $request->get('fechadevolucion');
         $prestamos->fechaestadoprestamo = $request->get('fechaestadoprestamo');
+        $prestamos->disponible = $request->get('disponible');
         $prestamos->save();
         return redirect('/prestamos');
         
@@ -124,6 +125,7 @@ class PrestamoController extends Controller
         $result=DB::table('libros')
         ->where('titulo','like','%'.$data.'%')
         ->orwhere('codigolibro','like','%'.$data.'%')
+
         ->limit(5)
         ->get();
 
@@ -149,7 +151,7 @@ class PrestamoController extends Controller
         $prestamos=DB::table('prestamos')
         ->join('estudiantes','estudiantes.codigoCarnet', '=' ,'prestamos.estudiante_id')
         ->join('libros','libros.codigolibro', '=' ,'prestamos.libro_id')
-        ->select('prestamos.id','prestamos.codigoPrestamo','estudiantes.nombre','libros.titulo','prestamos.fechaprestamo','prestamos.fechadevolucion','prestamos.fechaestadoprestamo')
+        ->select('prestamos.id','prestamos.codigoPrestamo','estudiantes.nombre','libros.titulo','prestamos.fechaprestamo','prestamos.fechadevolucion','prestamos.fechaestadoprestamo','prestamos.disponible')
         ->where('prestamos.id',$id)->first();
         return view('prestamos.edit')->with('prestamos',$prestamos)->with('estudLis',$estudLis);
 
@@ -172,6 +174,7 @@ class PrestamoController extends Controller
         $prestamos->fechaprestamo = $request->get('fechaprestamo');
         $prestamos->fechadevolucion = $request->get('fechadevolucion');
         $prestamos->fechaestadoprestamo = $request->get('fechaestadoprestamo');
+        $prestamos->disponible = $request->get('disponible');
         $prestamos->save();
         return redirect('/prestamos');
     }

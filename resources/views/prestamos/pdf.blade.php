@@ -7,12 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>prestamos-pdf</title>
 
-    <link src= "asset {{('./public/image/logo-inatec-2016.png')}} " >
+    
     <link rel="stylesheet" href="{{ public_path('css/app.css') }}">
 </head>
 <body>
     
-    <img src="https://www.tecnacional.edu.ni/media/uploads/2016/11/18/logo-inatec-2016.png" alt=""  class=" mt-3" style="width: 20%">    
+    <img src="image/logo-inatec-2016.png" alt=""  class=" mt-3" style="width: 20%">    
     
     <div class="flex flex-col mt-4">
         <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">

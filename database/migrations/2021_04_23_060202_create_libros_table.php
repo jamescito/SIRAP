@@ -19,6 +19,7 @@ class CreateLibrosTable extends Migration
             $table->string('titulo',50);
             $table->string('area_id',50);
             $table->string('editoriales_id',50);
+            $table->string('cantidadlibro',50);
             $table->foreign('area_id')->references('codigoArea')->on('areas');
             $table->foreign('editoriales_id')->references('codigoEditorial')->on('editoriales');
             
