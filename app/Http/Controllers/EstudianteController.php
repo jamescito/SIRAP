@@ -93,7 +93,7 @@ class EstudianteController extends Controller
         $data = trim($request->valor);
         $result=DB::table('estudiantes')
         ->where('nombre','like','%'.$data.'%')
-        ->orwhere('barcode','like','%'.$data.'%')
+//        ->orwhere('barcode','like','%'.$data.'%')
         ->limit(5)
         ->get();
 

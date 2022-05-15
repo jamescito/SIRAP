@@ -85,7 +85,7 @@ export class search {
                     ${editorial.substr(valor.length)}
                     <p class="card-text bg-blue-100" id="datos"> ${item.editorial}</p>
                     <p class="card-text" id="codigoEditorial"> ${item.codigoEditorial}</p>
-                    <button id="btn" class="bg-blue-700 hover:text-black hover:bg-blue-400 text-white" onclick="editorial()">selecccionar</button>
+                    <button id="btn"  type="button" class="bg-blue-700 hover:text-black hover:bg-blue-400 text-white" onclick="editorial()">selecccionar</button>
             </div>
             </div>
             </li>

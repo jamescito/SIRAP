@@ -92,7 +92,7 @@ export class search {
                     <p class="card-text bg-blue-100" id="datos"> ${item.nombre} ${item.apellido}</p>
                     <p class="card-text" id="apellido"> </p>
                     <p id="codigo" class="card-text"> ${item.codigo}</p>
-                    <button id="btn" class="bg-blue-700 hover:text-black hover:bg-blue-400 text-white" onclick="autores ()" >selecccionar</button>
+                    <button type="button" id="btn" class="bg-blue-700 hover:text-black hover:bg-blue-400 text-white" onclick="autores ()" >selecccionar</button>
             </div>
             </div>
             </li>

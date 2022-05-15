@@ -39,7 +39,7 @@ class PrestamoController extends Controller
         $prestamos=DB::table('prestamos')
         ->join('estudiantes','estudiantes.codigoCarnet', '=' ,'prestamos.estudiante_id')
         ->join('libros','libros.codigolibro', '=' ,'prestamos.libro_id')
-        ->select('prestamos.id','libros.titulo','estudiantes.nombre','estudiantes.apellido','prestamos.fechaprestamo','prestamos.fechadevolucion','prestamos.fechaestadoprestamo','prestamos.disponible')
+        ->select('prestamos.id','libros.titulo','prestamos.estudiante_id','estudiantes.nombre','estudiantes.apellido','prestamos.fechaprestamo','prestamos.fechadevolucion','prestamos.fechaestadoprestamo','prestamos.disponible')
         ->paginate(2);
         //->get();
 
@@ -151,7 +151,7 @@ class PrestamoController extends Controller
         $prestamos=DB::table('prestamos')
         ->join('estudiantes','estudiantes.codigoCarnet', '=' ,'prestamos.estudiante_id')
         ->join('libros','libros.codigolibro', '=' ,'prestamos.libro_id')
-        ->select('prestamos.id','prestamos.codigoPrestamo','estudiantes.nombre','libros.titulo','prestamos.fechaprestamo','prestamos.fechadevolucion','prestamos.fechaestadoprestamo','prestamos.disponible')
+        ->select('prestamos.id','prestamos.codigoPrestamo','prestamos.estudiante_id','prestamos.libro_id','estudiantes.nombre','libros.titulo','prestamos.fechaprestamo','prestamos.fechadevolucion','prestamos.fechaestadoprestamo','prestamos.disponible')
         ->where('prestamos.id',$id)->first();
         return view('prestamos.edit')->with('prestamos',$prestamos)->with('estudLis',$estudLis);
 

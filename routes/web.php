@@ -3,6 +3,7 @@
 use App\Http\Livewire\Estudiante;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LibroController;
+use App\Http\Controllers\PuebloController;
 use App\Http\Controllers\PrestamoController;
 use App\Http\Controllers\EstudianteController;
 
@@ -25,6 +26,7 @@ Route::resource('autores', 'App\Http\Controllers\AutorController')->middleware('
 Route::resource('editoriales', 'App\Http\Controllers\EditorialController')->middleware('auth');
 Route::resource('Carreras', 'App\Http\Controllers\CarreraController')->middleware('auth');
 Route::resource('estudiantes', 'App\Http\Controllers\EstudianteController')->middleware('auth');
+Route::resource('pueblo', 'App\Http\Controllers\PuebloController')->middleware('auth');
 //Route::resource('libros', 'App\Http\Controllers\LibroController')->middleware('auth');
 Route::resource('libros', LibroController::class);
 //Route::get('libros','App\Http\Controllers\LibroController@index');

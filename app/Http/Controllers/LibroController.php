@@ -143,7 +143,7 @@ class LibroController extends Controller
         ->join('detallelibros','detallelibros.codigolibro', '=' ,'libros.codigolibro')
         ->join('areas','areas.codigoArea', '=' ,'libros.area_id')
         ->join('editoriales','editoriales.codigoEditorial', '=' ,'libros.editoriales_id')
-        ->select('libros.id','detallelibros.autoresCodigo','libros.codigolibro','libros.titulo','detallelibros.cantidadpaginas','detallelibros.libroOriginal','detallelibros.aniopublicacion','detallelibros.idioma','libros.area_id','libros.editoriales_id','prestamos.cantidadlibro','libro.cantidadlibro')
+        ->select('libros.id','detallelibros.tipolibro','detallelibros.autoresCodigo','libros.codigolibro','libros.titulo','detallelibros.cantidadpaginas','detallelibros.libroOriginal','detallelibros.aniopublicacion','detallelibros.idioma','areas.area','editoriales.editorial','libros.cantidadlibro','libros.area_id','libros.editoriales_id')
         ->where('libros.id', $id)->first();
         return view('libro.edit')->with('libro',$libro);
         redirect('/libros');
