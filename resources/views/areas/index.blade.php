@@ -60,7 +60,7 @@
 
             
             <div class="py-12 bg-blue-100  overflow-hidden shadow-xl sm:rounded-lg">   
-                <a href="{{ route('prestamos-pdf') }}" class="bg-transparent mt-5 hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 m-6  border border-blue-500 hover:border-transparent rounded">Generar PDF</a>
+             
                 <table class="min-w-full divide-y divide-gray-200 mt-3">
                         <thead class="bg-gray-50">
                             <tr>

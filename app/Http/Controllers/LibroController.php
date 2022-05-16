@@ -137,15 +137,20 @@ class LibroController extends Controller
         // $librodetalle = DetalleLibro::where('codigolibro', $id)->get();
         
         // return view('libro.edit')->with('libro', $libro)->with('librodetalle', $librodetalle);
+        // $autores_id=trim($request->get('autores_id'));
+        // $autor=DB::table('autores')->select('nombre','apellido')->where('apellido','LIKE','%'.$autores_id.'%')->orderBy('apellido','asc')
+        //                             ->paginate(10);
+        $autor=Autores::all();
+        $areas=Areas::all();
         
-
-        $libro=DB::table('libros')
+        $libros=DB::table('libros')
         ->join('detallelibros','detallelibros.codigolibro', '=' ,'libros.codigolibro')
         ->join('areas','areas.codigoArea', '=' ,'libros.area_id')
         ->join('editoriales','editoriales.codigoEditorial', '=' ,'libros.editoriales_id')
-        ->select('libros.id','detallelibros.tipolibro','detallelibros.autoresCodigo','libros.codigolibro','libros.titulo','detallelibros.cantidadpaginas','detallelibros.libroOriginal','detallelibros.aniopublicacion','detallelibros.idioma','areas.area','editoriales.editorial','libros.cantidadlibro','libros.area_id','libros.editoriales_id')
+        ->join('autores','autores.codigo', '=' ,'detallelibros.autoresCodigo')
+        ->select('libros.id','detallelibros.tipolibro','autores.nombre','autores.apellido','detallelibros.autoresCodigo','libros.codigolibro','libros.titulo','detallelibros.cantidadpaginas','detallelibros.libroOriginal','detallelibros.aniopublicacion','detallelibros.idioma','areas.area','editoriales.editorial','libros.cantidadlibro','libros.area_id','libros.editoriales_id')
         ->where('libros.id', $id)->first();
-        return view('libro.edit')->with('libro',$libro);
+        return view('libro.edit')->with('libros',$libros)->with('areas',$areas)->with('autor',$autor);
         redirect('/libros');
     }
 
@@ -166,14 +171,14 @@ class LibroController extends Controller
         $cantidadlibro = $request->get('cantidadlibro');
         DB::update('update libros set  titulo=?, area_id=?, editoriales_id=?,cantidadlibro=? where codigolibro=?', [$titulo,$area_id,$editoriales_id,$cantidadlibro,$codigolibro]);
         
+        $tipolibro = $request->get('tipolibro');
         $autoresCodigo = $request->get('autoresCodigo');
         $codigolibro = $request->get('codigolibro');
         $cantidadpaginas = $request->get('cantidadpaginas');
         $libroOriginal = $request->get('libroOriginal');
         $aniopublicacion = $request->get('aniopublicacion');
         $idioma = $request->get('idioma');
-        $cantidadlibro = $request->get('cantidadlibro');
-        DB::update('update detallelibros Set autoresCodigo=?, codigolibro=?, cantidadpaginas=?, libroOriginal=?, aniopublicacion=?, idioma=?, where id=?', [$autoresCodigo,$codigolibro,$cantidadpaginas,$libroOriginal,$aniopublicacion,$idioma,$id]);
+        DB::update('update detallelibros Set tipolibro=?, autoresCodigo=?, codigolibro=?, cantidadpaginas=?, libroOriginal=?, aniopublicacion=?, idioma=? where id=?', [$tipolibro,$autoresCodigo,$codigolibro,$cantidadpaginas,$libroOriginal,$aniopublicacion,$idioma,$id]);
         return redirect('/libros');
 
     }
