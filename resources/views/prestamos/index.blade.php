@@ -41,14 +41,14 @@
                         <input  type="text" id="id1"  name="libro_id" style="display: none" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" tabindex="2">
                         <div class="flex items-center py-2">
                             <div class="w-full px-3">
-                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Código de prestamos</label>
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Código de préstamos</label>
                             </div>
                             <input required type="text" id="codigoPrestamo" name="codigoPrestamo" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" tabindex="1">
                         </div>
 
                         <div class="flex items-center py-2">
                             <div class="w-full px-3">
-                                <label for="estudiante_id" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">estudiante</label>
+                                <label for="estudiante_id" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Estudiante u otro</label>
                             </div>
                             <input required type="text" id="estudiante_id" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" tabindex="2">
                         
@@ -57,7 +57,7 @@
 
                         <div class="flex items-center py-2">
                             <div class="w-full px-3">
-                                <label for="libro_id" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">libro</label>
+                                <label for="libro_id" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Libro</label>
                             </div>
                             <input required type="text" id="libro_id"  class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" tabindex="2">
                         </div>
@@ -65,21 +65,21 @@
 
                         <div class="flex items-center py-2">
                             <div class="w-full px-3">
-                                <label for="fechaprestamo" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">fecha de prestamo</label>
+                                <label for="fechaprestamo" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Fecha de préstamo</label>
                             </div>
                             <input required type="date" id="fechaprestamo" name="fechaprestamo" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" tabindex="2">
                         </div>
 
                         <div class="flex items-center py-2">
                             <div class="w-full px-3">
-                                <label for="fechadevolucion" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">fecha de volucion</label>
+                                <label for="fechadevolucion" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Fecha de devolución</label>
                             </div>
                             <input required type="date" id="fechadevolucion" name="fechadevolucion" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" tabindex="2">
                         </div>
 
                         <div class="flex items-center py-2">
                             <div class="w-full px-3">
-                                <label for="fechaestadoprestamo" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">fecha de estado de prestamo</label>
+                                <label for="fechaestadoprestamo" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Descripción del préstamo</label>
                             </div>
                             <input required type="text" id="fechaestadoprestamo" name="fechaestadoprestamo" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" tabindex="2">
                         </div>

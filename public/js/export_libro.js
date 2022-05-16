@@ -61,7 +61,7 @@ export class search {
                 console.log("no entro a buscar");
                 this.ul_add_li.innerHTML = "";
                 this.ul_add_li.innerHTML += `
-                <p style="color:red;"><br>No se encontro</p>
+                <p style="color:red;"><br>No se encontró</p>
                 `;
             }
         }
@@ -84,8 +84,8 @@ export class search {
                     <strong>${titulo.substr(0,valor.length)}</strong>
                     ${titulo.substr(valor.length)}
                     <p class="card-text bg-blue-100" id="titulo"> ${item.titulo}</p>
-                    <p class="card-text" id="codigolibro"> ${item.codigolibro}</p>
-                    <p class="card-text" id="">  ${item.cantidadlibro}</p>
+                <p>codigo libro: </p> <p class="card-text" id="codigolibro"> ${item.codigolibro}</p>
+                <p>cantidad libro: </p>   <p class="card-text" id="">  ${item.cantidadlibro}</p>
                     <button type="button" id="btn" class="bg-blue-700 hover:text-black hover:bg-blue-400 text-white" onclick="libro()">selecccionar</button>
             </div>
             </div>

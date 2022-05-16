@@ -107,13 +107,13 @@
                         <div class="flex items-center">
                             <div class="container font-bold mt-3">
                                 <label for="aniopublicacion" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 ml-3  mt-3">Año publicacion</label>                            
-                                <input required type="Date" id="aniopublicacion" name="aniopublicacion" class="bg-gray-200 border-collapse ml-2 space-y-1 hhover:bg-white border-transparent rounded" tabindex="4">
+                                <input required type="date" id="aniopublicacion" name="aniopublicacion" class=" bg-gray-200 border-collapse ml-2 space-y-1 hover:bg-white border-transparent rounded" tabindex="2">
                             </div>
 
 
                             <div class="mt-3">
                                 <label for="idioma" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-3 -ml-3">Idioma</label>
-                                <input required type="text" id="idioma" name="idioma" class="bg-gray-200 border-collapse -ml-2 space-y-1 hover:bg-white border-transparent rounded" tabindex="4">
+                                <input required type="text" id="idioma" name="idioma" class="p-4 bg-gray-200 border-collapse ml-2 space-y-1 hover:bg-white border-transparent rounded" tabindex="4">
                             </div>
 
                         </div>

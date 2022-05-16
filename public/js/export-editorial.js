@@ -61,7 +61,7 @@ export class search {
                 console.log("no entro a buscar");
                 this.ul_add_li.innerHTML = "";
                 this.ul_add_li.innerHTML += `
-                <p style="color:red;"><br>No se encontro</p>
+                <p style="color:red;"><br>No se encontró</p>
                 `;
             }
         }
