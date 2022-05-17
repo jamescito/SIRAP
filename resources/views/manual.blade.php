@@ -14,7 +14,7 @@
             <img src="https://www.tecnacional.edu.ni/media/uploads/2016/11/18/logo-inatec-2016.png" alt=""  class=" w-60 ml-4">
             <div style="display: grid;place-items:center;">
                 <label class="text-4xl m-4" for="">Manual de usuario</label>
-                <button style="width: 90%; background:rgb(6, 178, 190); padding:5px; border-radius:50px; font-size:20px; color:white; font-weight:bold;" class="m-4">Descargar manual ↓</button>
+                <a href="pdf/Manual De Usuario.pdf" download="Manual De Usuario.pdf" type="button" style="width: 90%; background:rgb(6, 178, 190); padding:5px; border-radius:50px; font-size:20px; color:white; font-weight:bold; text-align:center;" class="m-4">Descargar manual ↓</a>
             </div>
             <div class="">
                 <embed src="pdf/Manual De Usuario.pdf#toolbar=0&navpanes=0&scrollbar=0;&zoom=100" type="application/pdf"
