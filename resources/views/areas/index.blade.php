@@ -8,9 +8,9 @@
 <div class="py-10">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-1">
         <div class=" bg-white overflow-hidden shadow-xl sm:rounded-lg py-3">
-        
+
             <div class="py-12  bg-blue-100 overflow-hidden shadow-xl sm:rounded-lg">
-                <img src="https://www.tecnacional.edu.ni/media/uploads/2016/11/18/logo-inatec-2016.png" alt=""  class=" w-60 ">    
+                <img src="https://www.tecnacional.edu.ni/media/uploads/2016/11/18/logo-inatec-2016.png" alt=""  class=" w-60 ">
                 <div class="flex flex-col">
                     @if ($errors->any())
                     <div class="alert alert-danger">
@@ -58,19 +58,18 @@
 
             <!--p></p-->
 
-            
-            <div class="py-12 bg-blue-100  overflow-hidden shadow-xl sm:rounded-lg">   
-             
+
+            <div class="py-12 bg-blue-100  overflow-hidden shadow-xl sm:rounded-lg">
+
                 <table class="min-w-full divide-y divide-gray-200 mt-3">
                         <thead class="bg-gray-50">
                             <tr>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">Codigo areas</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">Códigos areas</th>
 
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">areas</th>
-                            
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
-                                <span class="sr-only">Acciones</span>
-                            </th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">áreas</th>
+
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">Acciones</th>
+
                             </tr>
 
                         </thead>
@@ -100,7 +99,7 @@
 
             </div>
 
-            {{ $areas->links() }}       
+            {{ $areas->links() }}
 
 
         </div>
@@ -114,7 +113,7 @@
 
 <div class="border-t border-smoke px-8 py-4 bg-white">
         <div class="flex justify-center text-grey">
-            Todos los derechos reservado 
+            Todos los derechos reservado
         </div>
         <div class="flex justify-center text-grey">
             jr76407900@gmail.com

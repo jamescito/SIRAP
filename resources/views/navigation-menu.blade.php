@@ -17,7 +17,7 @@
                     </x-jet-nav-link>
 
                     <x-jet-nav-link style="color:white;" href="{{ route('prestamos.index')  }}">
-                        {{ ('Prestamos') }}
+                        {{ ('Préstamos') }}
                     </x-jet-nav-link>
 
                     <x-jet-nav-link style="color:white;" href="{{ route('libros.index')  }}">

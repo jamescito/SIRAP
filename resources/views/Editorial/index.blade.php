@@ -4,16 +4,16 @@
             {{ __('Editoriales') }}
         </h2>
     </x-slot>
-    
-    
+
+
 
     <div class="py-10">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-1">
             <div class=" bg-white overflow-hidden shadow-xl sm:rounded-lg py-3">
 
     <div class="py-12 bg-blue-100 overflow-hidden shadow-xl sm:rounded-lg">
-    
-        <img src="https://www.tecnacional.edu.ni/media/uploads/2016/11/18/logo-inatec-2016.png" alt=""  class=" w-60 ">  
+
+        <img src="https://www.tecnacional.edu.ni/media/uploads/2016/11/18/logo-inatec-2016.png" alt=""  class=" w-60 ">
 
             <div class="flex flex-col">
                 @if ($errors->any())
@@ -76,12 +76,12 @@
             <!--p></p-->
 
 
-                <div class="py-12 bg-blue-100  overflow-hidden shadow-xl sm:rounded-lg">   
+                <div class="py-12 bg-blue-100  overflow-hidden shadow-xl sm:rounded-lg">
                     <a href="{{ route('prestamos-pdf') }}" class="bg-transparent mt-4 hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 m-6  border border-blue-500 hover:border-transparent rounded">Generar PDF</a>
                     <table class="min-w-full divide-y divide-gray-200 mt-4">
                         <thead class="bg-gray-50">
                             <tr>
-                        
+
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
                                 Código
                             </th>
@@ -95,7 +95,7 @@
                                 Correo
                             </th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
-                                <span class="sr-only">Acciones</span>
+                                Acciones
                             </th>
                             </tr>
                         </thead>
@@ -115,7 +115,7 @@
                                 {{ $editorial->correo }}
                             </td>
 
-                            
+
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                             <form action="{{ route('editoriales.destroy', $editorial->id) }}" method="post">
                                 @csrf
@@ -129,12 +129,12 @@
                         </tbody>
                         </table>
                 </div>
-                {{ $editoriales->links() }} 
+                {{ $editoriales->links() }}
 
 
 
 
-    
+
 </div>
     </div>
         </div>
@@ -145,7 +145,7 @@
 
 <div class="border-t border-smoke px-8 py-4 bg-white">
         <div class="flex justify-center text-grey">
-            Todos los derechos reservado 
+            Todos los derechos reservado
         </div>
         <div class="flex justify-center text-grey">
             jr76407900@gmail.com

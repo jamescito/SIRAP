@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
 
-    
+
     <div class="py-10">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-1">
             <div class=" bg-white overflow-hidden shadow-xl sm:rounded-lg py-3">
@@ -13,8 +13,8 @@
 
 
             <div class="py-12  bg-blue-100 overflow-hidden shadow-xl sm:rounded-lg">
-                <img src="https://www.tecnacional.edu.ni/media/uploads/2016/11/18/logo-inatec-2016.png" alt=""  class=" w-60 ">    
-                
+                <img src="https://www.tecnacional.edu.ni/media/uploads/2016/11/18/logo-inatec-2016.png" alt=""  class=" w-60 ">
+
                 <div class="flex flex-col">
                 @if ($errors->any())
                     <div class="alert alert-danger">
@@ -34,7 +34,7 @@
                         </ul>
                     </div>
                     @endif
-            
+
                     <!--p></p-->
 
                     <form action="/libros\{{$libros->id}}"  class="p-5 w-full max-w-lg bg-gray-300  mx-auto  overflow-hidden shadow-xl sm:rounded-lg py-7 -mt-16" method="post">
@@ -56,98 +56,98 @@
                                     <option>Revista</option>
                                     <option>Monografía</option>
                                 </select>
-    
-                                
+
+
                             </div>
-    
-    
-    
-    
+
+
+
+
                             <div class="flex items-center">
                                 <div class="container font-bold mt-3">
                                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 ml-3  mt-3">Autores</label>
                                     <input value=" {{ $libros->nombre }}"  required type="text" id="autoresCodigo" class="bg-gray-200 border-collapse ml-2 space-y-1 hover:bg-white border-transparent rounded" tabindex="1">
                                 </div>
-    
+
                                     <div class="mt-3">
                                         <label for=""class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-3 -ml-3">cantidad de libro</label>
                                         <input required value=" {{ $libros->cantidadlibro }}" type="text" id="cantidadlibro" name="cantidadlibro" class="bg-gray-200 border-collapse -ml-2 space-y-1 hover:bg-white border-transparent rounded " tabindex="2">
                                     </div>
-    
-    
+
+
                             </div>
-    
+
                             <ul id="nombre" class="mt-3 appearance-none block w-full bg-gray-290 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 " tabindex="1"></ul>
-    
+
                             <div class="flex items-center">
-    
+
                                 <div class="container font-bold mt-3">
                                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 ml-3  mt-3">Código</label>
                                     <input value=" {{ $libros->codigolibro }}" required type="text" id="codigolibro" name="codigolibro" class="bg-gray-200 border-collapse ml-2 space-y-1 hover:bg-white border-transparent rounded" tabindex="1">
                                 </div>
-    
+
                                 <div class=" mt-3 ">
-                                    <label for="titulo" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-3 -ml-3">Titulo</label>
+                                    <label for="titulo" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-3 -ml-3">Título</label>
                                     <input value=" {{ $libros->titulo }}" required type="text" id="titulo" name="titulo" class="bg-gray-200 border-collapse -ml-2 space-y-1 hover:bg-white border-transparent rounded" tabindex="2">
                                 </div>
-    
+
                             </div>
-    
-    
-    
+
+
+
                             <div class=" flex items-center">
-    
+
                                 <div class="container font-bold mt-3">
-                                    <label for="cantidadpaginas" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 ml-3  mt-3">Cantidad pagina</label>
+                                    <label for="cantidadpaginas" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 ml-3  mt-3">Cantidad páginas</label>
                                     <input value=" {{ $libros->cantidadpaginas }}" required type="text" id="cantidadpaginas" name="cantidadpaginas" class="bg-gray-200 border-collapse ml-2 space-y-1 hhover:bg-white border-transparent rounded" tabindex="3">
                                 </div>
-    
+
                                 <div class="mt-3">
                                     <label for="libroOriginal" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-3 -ml-3">Libro Original</label>
                                     <input value=" {{ $libros->libroOriginal }}" required type="text" id="libroOriginal" name="libroOriginal" class="bg-gray-200 border-collapse -ml-2 space-y-1 hover:bg-white border-transparent rounded" tabindex="4">
                                 </div>
                             </div>
-    
-    
+
+
                             <div class="flex items-center">
                                 <div class="container font-bold mt-3">
-                                    <label for="aniopublicacion" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 ml-3  mt-3">Año publicacion</label>                            
+                                    <label for="aniopublicacion" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 ml-3  mt-3">Año publicación</label>
                                     <input value="{{ $libros->aniopublicacion }}" required type="Date" id="aniopublicacion" name="aniopublicacion" class="bg-gray-200 border-collapse ml-2 space-y-1 hhover:bg-white border-transparent rounded" tabindex="4">
                                 </div>
-    
-    
+
+
                                 <div class="mt-3">
                                     <label for="idioma" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-3 -ml-3">Idioma</label>
                                     <input value=" {{ $libros->idioma }}" required type="text" id="idioma" name="idioma" class="bg-gray-200 border-collapse -ml-2 space-y-1 hover:bg-white border-transparent rounded" tabindex="4">
                                 </div>
-    
+
                             </div>
-    
+
                             <div class=" flex items-center">
-    
+
                             <div class="container font-bold mt-3">
                                 <div class="">
-                                    <label for="Areas" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 ml-3">Areas</label>
+                                    <label for="Areas" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 ml-3">Áreas</label>
                                 </div>
                                 <select name="area_id" class=" bg-gray-200 border-collapse ml-2 space-y-1 hover:bg-white border-transparent rounded">
                                     <option value="{{$libros->area_id}}">{{$libros->area}}</option>
-                                    <option disabled class="bg-blue-300" value="">Seleccione una area</option>
+                                    <option disabled class="bg-blue-300" value="">Seleccione un área</option>
                                     @foreach($areas as $ar)
                                             <option class="bg-gray-200 border-collapse -ml-2 space-y-1 hover:bg-white border-transparent rounded" value="{{$ar->codigoArea}}">{{$ar->area}}</option>
                                     @endforeach
                                 </select>
                             </div>
-    
+
                             <div class="mt-3">
                                 <label for="" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-3 -ml-3">Editorial</label>
                                 <input value=" {{ $libros->editorial }}" required type="text" id="editoriales_id" class="bg-gray-200 border-collapse -ml-2 space-y-1 hover:bg-white border-transparent rounded" tabindex="4">
                             </div>
-    
+
                             </div>
-    
-                            
+
+
                     </div>
-    
+
                     <div class="flex items-center ml-3 mt-6" style="width: 100%;">
                         <div class="mt-3">
                             <label for=""class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-3 ml-2">libro disponible</label>
@@ -158,7 +158,7 @@
                         <button type="submit" class="ml-3 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" tabindex="4">Guardar</button>
                         </div>
                     </div>
-    
+
                     </div>
                 </form>
 
@@ -181,7 +181,7 @@
 
 <div class="border-t border-smoke px-8 py-4 bg-white">
         <div class="flex justify-center text-grey">
-            Todos los derechos reservado 
+            Todos los derechos reservado
         </div>
         <div class="flex justify-center text-grey">
             jr76407900@gmail.com
@@ -197,7 +197,7 @@
         var id1=document.getElementById('id')
         var codigo=document.getElementById('autoresCodigo')
        // nombre.value=id
-        
+
         var nombres=document.getElementById('datos').innerHTML
         id1.value=id
         codigo.value=nombres
@@ -209,7 +209,7 @@
         var id1=document.getElementById('id1')
         var codigo=document.getElementById('editoriales_id')
        // nombre.value=id
-        
+
         var nombres=document.getElementById('datos').innerHTML
         id1.value=id
         codigo.value=nombres
