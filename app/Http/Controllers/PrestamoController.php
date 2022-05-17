@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Libros;
 use App\Models\Prestamos;
 use App\Models\Estudiantes;
 use Illuminate\Http\Request;
@@ -79,7 +80,7 @@ class PrestamoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
         $request->validate([
             'codigoPrestamo'    => 'required|unique:prestamos',
@@ -96,6 +97,14 @@ class PrestamoController extends Controller
         $prestamos->save();
         return redirect('/prestamos');
         
+        $libro = Libros::find($id);
+        $libro->codigolibro = $request->get('codigolibro');
+        $libro->titulo = $request->get('titulo');
+        $libro->area_id = $request->get('area_id');
+        $libro->editoriales_id = $request->get('editoriales_id');
+        $libro->cantidadlibro = $request->get('cantidadlibro');
+        $libro->librodisponible = $request->get('librodisponible');
+        $libro->save();
     }
 
     /**
