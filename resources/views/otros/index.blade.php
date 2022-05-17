@@ -10,19 +10,19 @@
     <div class="py-10">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-1">
             <div class=" bg-white overflow-hidden shadow-xl sm:rounded-lg py-3">
-    
+
             <div class="py-12  bg-blue-100 overflow-hidden shadow-xl sm:rounded-lg mx-auto">
-            <img src="https://www.tecnacional.edu.ni/media/uploads/2016/11/18/logo-inatec-2016.png" alt="" class=" w-60 ">    
+            <img src="https://www.tecnacional.edu.ni/media/uploads/2016/11/18/logo-inatec-2016.png" alt="" class=" w-60 ">
 
                 <form action="" method="get" class="mt-9 m-10">
                     <div class=" ml-14 mt-5 ">
                         <label class="ml-0 mt-2 font-bold text-3xl text-blue-600">Otras opciones</label>
 
                         <a href="editoriales" class="bg-transparent ml-4 hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 m-6  border border-blue-500 hover:border-transparent rounded">Ir a editoriales</a>
-                        <a href="Carreras" class="bg-transparent ml-4 hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 m-6  border border-blue-500 hover:border-transparent rounded">Ir a carrera</a>
+                        <a href="Carreras" class="bg-transparent ml-4 hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 m-6  border border-blue-500 hover:border-transparent rounded">Ir a carreras</a>
                         <a href="autores" class="bg-transparent ml-4 hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 m-6  border border-blue-500 hover:border-transparent rounded">Ir a autores</a>
-                        <a href="areas" class="bg-transparent ml-4 hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 m-6  border border-blue-500 hover:border-transparent rounded">Ir a areas</a>
-                        <a href="pueblo" class=" bg-transparent ml-4 hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 m-6  border border-blue-500 hover:border-transparent rounded">Ir a ciudadania</a>
+                        <a href="areas" class="bg-transparent ml-4 hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 m-6  border border-blue-500 hover:border-transparent rounded">Ir a áreas</a>
+                        <a href="pueblo" class=" bg-transparent ml-4 hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 m-6  border border-blue-500 hover:border-transparent rounded">Ir a ciudadanía</a>
                     </div>
                 </form>
 
@@ -40,7 +40,7 @@
 
 <div class="border-t border-smoke px-8 py-4 bg-white">
         <div class="flex justify-center text-grey">
-            Todos los derechos reservado 
+            Todos los derechos reservado
         </div>
         <div class="flex justify-center text-grey">
             jr76407900@gmail.com

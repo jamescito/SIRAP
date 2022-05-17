@@ -5,15 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>prestamos-pdf</title>
+    <title>préstamos-pdf</title>
 
-    
+
     <link rel="stylesheet" href="{{ public_path('css/app.css') }}">
 </head>
 <body>
-    
-    <img src="image/logo-inatec-2016.png" alt=""  class=" mt-3" style="width: 20%">    
-    
+
+    <img src="image/logo-inatec-2016.png" alt=""  class=" mt-3" style="width: 20%">
+
     <div class="flex flex-col mt-4">
         <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div class="py-4 inline-block min-w-full sm:px-6 lg:px-8">
@@ -25,7 +25,7 @@
                         LIBRO
                     </th>
                     <th scope="col" class="text-sm font-medium text-white px-6 py-4">
-                        ESTUDIANTE          
+                        ESTUDIANTE
                     </th>
                     <th scope="col" class="text-sm font-medium text-white px-6 py-4">
                         FECHA DEL PRESTAMO
@@ -58,7 +58,7 @@
                         {{ $presta->fechaestadoprestamo }}
                     </td>
                   </tr class="bg-white border-b">
-                  <tr class="bg-white border-b">    
+                  <tr class="bg-white border-b">
                   @endforeach
                 </tbody>
               </table>

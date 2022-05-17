@@ -10,7 +10,7 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg py-3">
             <div class="py-12 bg-blue-100 overflow-hidden shadow-xl sm:rounded-lg">
 
-                <img src="https://www.tecnacional.edu.ni/media/uploads/2016/11/18/logo-inatec-2016.png" alt=""  class=" w-60 ">    
+                <img src="https://www.tecnacional.edu.ni/media/uploads/2016/11/18/logo-inatec-2016.png" alt=""  class=" w-60 ">
 
             <form action="/estudiantes\ {{ $estudiantes->id}}"  class="p-5 w-full max-w-lg bg-gray-300  mx-auto  overflow-hidden shadow-xl sm:rounded-lg py-3 -mt-16" method="post">
             @method('PUT')
@@ -25,14 +25,14 @@
 
             <div class="flex items-center py-2">
                 <div class="w-full px-3">
-                    <label for="nombre" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Nombre</label>
+                    <label for="nombre" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Nombres</label>
                 </div>
                 <input value=" {{ $estudiantes->nombre }}" type="text" id="nombre" name="nombre" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" tabindex="2">
             </div>
-        
+
             <div class="flex items-center py-2">
                 <div class="w-full px-3">
-                    <label for="apellido" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Apellido</label>
+                    <label for="apellido" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Apellidos</label>
                 </div>
                 <input value=" {{ $estudiantes->apellido }}" type="text" id="apellido" name="apellido" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" tabindex="2">
             </div>
@@ -65,18 +65,18 @@
                 <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" tabindex="4">Guardar</button>
                 </div>
             </form>
-            
+
             </div>
         </div>
     </div>
 
-    
+
 <!--p>FOOTER</p -->
 
 
 <div class="border-t border-smoke px-8 py-4 bg-white">
     <div class="flex justify-center text-grey">
-        Todos los derechos reservado 
+        Todos los derechos reservado
     </div>
     <div class="flex justify-center text-grey">
         jr76407900@gmail.com

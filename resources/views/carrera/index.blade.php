@@ -9,12 +9,12 @@
 <div class="py-10">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-1">
         <div class=" bg-white overflow-hidden shadow-xl sm:rounded-lg py-3">
-            
-            
-            <div class="py-12  bg-blue-100 overflow-hidden shadow-xl sm:rounded-lg">
-                <img src="https://www.tecnacional.edu.ni/media/uploads/2016/11/18/logo-inatec-2016.png" alt=""  class=" w-60 ">    
 
-            
+
+            <div class="py-12  bg-blue-100 overflow-hidden shadow-xl sm:rounded-lg">
+                <img src="https://www.tecnacional.edu.ni/media/uploads/2016/11/18/logo-inatec-2016.png" alt=""  class=" w-60 ">
+
+
                 <div class="flex flex-col">
                     @if ($errors->any())
                         <div class="alert alert-danger">
@@ -28,7 +28,7 @@
                                 }
                                 </style>
                                 @endforeach
-                            
+
                             </ul>
                         </div>
                     @endif
@@ -40,7 +40,7 @@
                             <div class="flex items-center py-2">
                                 <div class="w-full px-3">
                                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Código</label>
-                                </div>  
+                                </div>
                                 <input required type="text" id="codigoCarrera" name="codigoCarrera" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" tabindex="1">
                             </div>
 
@@ -60,17 +60,16 @@
 
             <!--p></p-->
 
-            <div class="py-12 bg-blue-100  overflow-hidden shadow-xl sm:rounded-lg">   
+            <div class="py-12 bg-blue-100  overflow-hidden shadow-xl sm:rounded-lg">
                 <a href="{{ route('prestamos-pdf') }}" class="bg-transparent mt-5 hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 m-6  border border-blue-500 hover:border-transparent rounded">Generar PDF</a>
                         <table class="min-w-full divide-y divide-gray-200 mt-3">
                             <thead class="bg-gray-50">
                                 <tr>
-                                    
+
                                     <th scope="col"  class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">Codigo carrera</th>
                                     <th scope="col"  class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">carrera</th>
-                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
-                                        <span class="sr-only">Acciones</span>
-                                    </th>                    
+                                    <th scope="col"  class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">Acciones</th>
+
                                 </tr>
                             </thead>
 
@@ -80,7 +79,7 @@
                                 <td class="px-6 py-4 whitespace-nowrap">{{ $carrer->codigoCarrera }}</td>
 
                                 <td class="px-6 py-4 whitespace-nowrap">{{ $carrer->carrera }}</td>
-                    
+
                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                 <form action="{{ route('Carreras.destroy', $carrer->id) }}" method="post">
                                     @csrf
@@ -95,7 +94,7 @@
                         </tbody>
                         </table>
             </div>
-            {{ $carreras->links() }} 
+            {{ $carreras->links() }}
 
 
 
@@ -110,7 +109,7 @@
 
 <div class="border-t border-smoke px-8 py-4 bg-white">
         <div class="flex justify-center text-grey">
-            Todos los derechos reservado 
+            Todos los derechos reservado
         </div>
         <div class="flex justify-center text-grey">
             jr76407900@gmail.com

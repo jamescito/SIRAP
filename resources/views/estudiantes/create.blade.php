@@ -9,21 +9,21 @@
         <!--div class="max-w-7xl mx-auto sm:px-6 lg:px-8 bg-red-200" -->
         <div class=" bg-black mx-auto">
 
-                
+
 <table class="min-w-full divide-y divide-gray-200 mx-auto">
         <thead class="bg-gray-50">
             <tr>
 
             <th scope="col"  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Codigo Carnet
+                Código Carnet
             </th>
 
             <th scope="col"  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Nombre
+                Nombres
             </th>
 
             <th scope="col"  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Apellido
+                Apellidos
             </th>
             <th scope="col"  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Carrera
@@ -42,7 +42,7 @@
                     <div class="alert alert-danger">
                         <ul>
                             @foreach ($errors->all() as $error)
-                            <h1>El codigo ya exite ingrese otro !!</h1>
+                            <h1>El código ya exite ingrese otro !!</h1>
                             <style>
                             h1{
                                 color: red;
@@ -50,7 +50,7 @@
                             }
                             </style>
                             @endforeach
-                            
+
                         </ul>
                     </div>
                     @endif
@@ -66,14 +66,14 @@
 
                         <div class="flex items-center py-2">
                             <div class="w-full px-3">
-                                <label for="nombre" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Nombre</label>
+                                <label for="nombre" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Nombres</label>
                             </div>
                             <input required type="text" id="nombre" name="nombre" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" tabindex="2">
                         </div>
 
                         <div class="flex items-center py-2">
                             <div class="w-full px-3">
-                                <label for="apellido" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Apellido</label>
+                                <label for="apellido" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Apellidos</label>
                             </div>
                             <input required type="text" id="apellido" name="apellido" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" tabindex="2">
                         </div>

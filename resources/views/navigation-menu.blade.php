@@ -17,7 +17,7 @@
                     </x-jet-nav-link>
 
                     <x-jet-nav-link style="color:white;" href="{{ route('prestamos.index')  }}">
-                        {{ ('Prestamos') }}
+                        {{ ('Préstamos') }}
                     </x-jet-nav-link>
 
                     <x-jet-nav-link style="color:white;" href="{{ route('libros.index')  }}">
@@ -33,8 +33,9 @@
                         {{ ('Otros') }}
                     </x-jet-nav-link>
 
-
-
+                    <x-jet-nav-link style="color:white;" href="{{ route('manual')  }}">
+                        {{ ('Manual de usuario') }}
+                    </x-jet-nav-link>
 
                 </div>
             </div>

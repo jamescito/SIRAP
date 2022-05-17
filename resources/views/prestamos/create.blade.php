@@ -14,7 +14,7 @@
                     <div class="alert alert-danger">
                         <ul>
                             @foreach ($errors->all() as $error)
-                            <h1>El codigo ya exite ingrese otro !!</h1>
+                            <h1>El código ya exite ingrese otro !!</h1>
                             <style>
                             h1{
                                 color: red;
@@ -22,7 +22,7 @@
                             }
                             </style>
                             @endforeach
-                            
+
                         </ul>
                     </div>
                     @endif
@@ -31,7 +31,7 @@
                         @csrf()
                         <div class="flex items-center py-2">
                             <div class="w-full px-3">
-                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Código de prestamos</label>
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Código de préstamos</label>
                             </div>
                             <input required type="text" id="codigoPrestamo" name="codigoPrestamo" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" tabindex="1">
                         </div>
@@ -53,21 +53,21 @@
 
                         <div class="flex items-center py-2">
                             <div class="w-full px-3">
-                                <label for="fechaprestamo" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">fecha de prestamo</label>
+                                <label for="fechaprestamo" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">fecha de préstamo</label>
                             </div>
                             <input required type="date" id="fechaprestamo" name="fechaprestamo" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" tabindex="2">
                         </div>
 
                         <div class="flex items-center py-2">
                             <div class="w-full px-3">
-                                <label for="fechadevolucion" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">fecha de volucion</label>
+                                <label for="fechadevolucion" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">fecha de volución</label>
                             </div>
                             <input required type="date" id="fechadevolucion" name="fechadevolucion" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" tabindex="2">
                         </div>
 
                         <div class="flex items-center py-2">
                             <div class="w-full px-3">
-                                <label for="fechaestadoprestamo" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">fecha de estado de prestamo</label>
+                                <label for="fechaestadoprestamo" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">fecha de estado de préstamo</label>
                             </div>
                             <input required type="date" id="fechaestadoprestamo" name="fechaestadoprestamo" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" tabindex="2">
                         </div>

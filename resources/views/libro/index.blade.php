@@ -11,8 +11,8 @@
 
 
             <div class="py-12  bg-blue-100 overflow-hidden shadow-xl sm:rounded-lg">
-                <img src="https://www.tecnacional.edu.ni/media/uploads/2016/11/18/logo-inatec-2016.png" alt=""  class=" w-60 ">    
-                
+                <img src="https://www.tecnacional.edu.ni/media/uploads/2016/11/18/logo-inatec-2016.png" alt=""  class=" w-60 ">
+
                 <div class="flex flex-col">
                 @if ($errors->any())
                     <div class="alert alert-danger">
@@ -32,7 +32,7 @@
                         </ul>
                     </div>
                     @endif
-            
+
                     <!--p></p-->
 
                     <form action="/libros"  class="p-3 w-full max-w-lg bg-gray-300  mx-auto  overflow-hidden shadow-xl sm:rounded-lg py-7 -mt-16" method="post">
@@ -52,7 +52,7 @@
                                 <option value="tipolibro">Monografía</option>
                             </select>
 
-                            
+
                         </div>
 
 
@@ -94,7 +94,7 @@
                         <div class=" flex items-center">
 
                             <div class="container font-bold mt-3">
-                                <label for="cantidadpaginas" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 ml-3  mt-3">Cantidad página</label>
+                                <label for="cantidadpaginas" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 ml-3  mt-3">Cantidad páginas</label>
                                 <input required type="number" id="cantidadpaginas" name="cantidadpaginas" class="bg-gray-200 border-collapse ml-2 space-y-1 hhover:bg-white border-transparent rounded" tabindex="3">
                             </div>
 
@@ -107,7 +107,7 @@
 
                         <div class="flex items-center">
                             <div class="container font-bold mt-3">
-                                <label for="aniopublicacion" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 ml-3  mt-3">Año publicación</label>                            
+                                <label for="aniopublicacion" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 ml-3  mt-3">Año publicación</label>
                                 <input required type="date" id="aniopublicacion" name="aniopublicacion" class=" bg-gray-200 border-collapse ml-2 space-y-6 hover:bg-white border-transparent rounded" tabindex="2">
                             </div>
 
@@ -126,7 +126,7 @@
                                 <label for="Areas" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 ml-3">áreas</label>
                             </div>
                             <select name="area_id" class=" bg-gray-200 border-collapse ml-2 space-y-1 hover:bg-white border-transparent rounded">
-                                <option value="">Seleccione una área</option>
+                                <option value="">Seleccione un área</option>
                                 @foreach($areas as $ar)
                                         <option class="bg-gray-200 border-collapse -ml-2 space-y-1 hover:bg-white border-transparent rounded" value="{{$ar->codigoArea}}">{{$ar->area}}</option>
                                 @endforeach
@@ -140,8 +140,8 @@
 
                         </div>
 
-                        
-                        
+
+
                 </div>
 
                         <div class="flex items-center ml-3 mt-6" style="width: 100%;">
@@ -162,13 +162,13 @@
         <!--p></p-->
 
 
-        <div class="py-12 bg-blue-100  overflow-hidden shadow-xl sm:rounded-lg" style="overflow:auto "> 
+        <div class="py-12 bg-blue-100  overflow-hidden shadow-xl sm:rounded-lg" style="overflow:auto ">
             <a href="{{ route('prestamos-pdf') }}" class="bg-transparent mt-4 hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 m-6  border border-blue-500 hover:border-transparent rounded">Generar PDF</a>
             <table class="min-w-full divide-y divide-gray-200 mt-4">
                         <thead class="bg-gray-50" >
                             <tr>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
-                                Tipo                             
+                                Tipo
                             </th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
                             Título
@@ -196,9 +196,9 @@
                             Editorial
                             </th>
 
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
-                                <span class="sr-only">Acciones</span>
-                            </th>
+                            <th scope="col" class=" px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
+                                Acciones
+                                </th>
                             </tr>
                         </thead>
 
@@ -212,7 +212,7 @@
                             <td class="px-6 py-4 whitespace-nowrap">
                                 {{ $libro->titulo }}
                             </td>
-                            
+
                             <td class="px-6 py-4 whitespace-nowrap">
                                 {{ $libro->cantidadpaginas }}
                             </td>
@@ -255,7 +255,7 @@
 
                 <!--FIN TABLA TAILWIND-->
 
-                {{ $libros->links() }}     
+                {{ $libros->links() }}
 
 
             </div>
@@ -269,7 +269,7 @@
 
 <div class="border-t border-smoke px-8 py-4 bg-white">
         <div class="flex justify-center text-grey">
-            Todos los derechos reservado 
+            Todos los derechos reservado
         </div>
         <div class="flex justify-center text-grey">
             jr76407900@gmail.com
@@ -285,7 +285,7 @@
         var id1=document.getElementById('id')
         var codigo=document.getElementById('autoresCodigo')
        // nombre.value=id
-        
+
         var nombres=document.getElementById('datos').innerHTML
         id1.value=id
         codigo.value=nombres
@@ -297,7 +297,7 @@
         var id1=document.getElementById('id1')
         var codigo=document.getElementById('editoriales_id')
        // nombre.value=id
-        
+
         var nombres=document.getElementById('datos').innerHTML
         id1.value=id
         codigo.value=nombres
