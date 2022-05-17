@@ -37,7 +37,7 @@
             
                     <!--p></p-->
 
-                    <form action="/libros\{{$libros->id}}"  class="w-full max-w-lg bg-gray-300  mx-auto  overflow-hidden shadow-xl sm:rounded-lg py-7 -mt-16" method="post">
+                    <form action="/libros\{{$libros->id}}"  class="p-5 w-full max-w-lg bg-gray-300  mx-auto  overflow-hidden shadow-xl sm:rounded-lg py-7 -mt-16" method="post">
                         @method('PUT')
                         @csrf()
                         <input value=" {{ $libros->autoresCodigo }}"  type="text" id="id"  name="autoresCodigo" style="display: none" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" tabindex="2">
@@ -129,8 +129,8 @@
                                 <div class="">
                                     <label for="Areas" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 ml-3">Areas</label>
                                 </div>
-                                <select name="area_id" class=" bg-gray-200 border-collapse -ml-2 space-y-1 hover:bg-white border-transparent rounded">
-                                    <option value="{{$libros->area_id}}">Area actual: {{$libros->area}}</option>
+                                <select name="area_id" class=" bg-gray-200 border-collapse ml-2 space-y-1 hover:bg-white border-transparent rounded">
+                                    <option value="{{$libros->area_id}}">{{$libros->area}}</option>
                                     <option disabled class="bg-blue-300" value="">Seleccione una area</option>
                                     @foreach($areas as $ar)
                                             <option class="bg-gray-200 border-collapse -ml-2 space-y-1 hover:bg-white border-transparent rounded" value="{{$ar->codigoArea}}">{{$ar->area}}</option>
@@ -148,10 +148,16 @@
                             
                     </div>
     
-                            <div class="flex items-center ml-3 mt-6" style="width: 100%;">
-                                <a href="/libros" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" tabindex="5">Cancelar</a>
-                                <button type="submit" class="ml-3 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" tabindex="4">Guardar</button>
-                            </div>
+                    <div class="flex items-center ml-3 mt-6" style="width: 100%;">
+                        <div class="mt-3">
+                            <label for=""class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-3 ml-2">libro disponible</label>
+                            <input required type="number" value=" {{$libros->librodisponible }}" id="librodisponible" name="librodisponible" class="bg-gray-200 border-collapse -ml-2 space-y-1 hover:bg-white border-transparent rounded " tabindex="2">
+                        </div>
+                        <div class="ml-12 mt-10">
+                        <a href="/libros" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" tabindex="5">Cancelar</a>
+                        <button type="submit" class="ml-3 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" tabindex="4">Guardar</button>
+                        </div>
+                    </div>
     
                     </div>
                 </form>

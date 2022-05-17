@@ -70,6 +70,7 @@ class LibroController extends Controller
         $libro->area_id = $request->get('area_id');
         $libro->editoriales_id = $request->get('editoriales_id');
         $libro->cantidadlibro = $request->get('cantidadlibro');
+        $libro->librodisponible = $request->get('librodisponible');
         $libro->save();
         var_dump($libro);
 
@@ -148,7 +149,7 @@ class LibroController extends Controller
         ->join('areas','areas.codigoArea', '=' ,'libros.area_id')
         ->join('editoriales','editoriales.codigoEditorial', '=' ,'libros.editoriales_id')
         ->join('autores','autores.codigo', '=' ,'detallelibros.autoresCodigo')
-        ->select('libros.id','detallelibros.tipolibro','autores.nombre','autores.apellido','detallelibros.autoresCodigo','libros.codigolibro','libros.titulo','detallelibros.cantidadpaginas','detallelibros.libroOriginal','detallelibros.aniopublicacion','detallelibros.idioma','areas.area','editoriales.editorial','libros.cantidadlibro','libros.area_id','libros.editoriales_id')
+        ->select('libros.id','libros.librodisponible','detallelibros.tipolibro','autores.nombre','autores.apellido','detallelibros.autoresCodigo','libros.codigolibro','libros.titulo','detallelibros.cantidadpaginas','detallelibros.libroOriginal','detallelibros.aniopublicacion','detallelibros.idioma','areas.area','editoriales.editorial','libros.cantidadlibro','libros.area_id','libros.editoriales_id')
         ->where('libros.id', $id)->first();
         return view('libro.edit')->with('libros',$libros)->with('areas',$areas)->with('autor',$autor);
         redirect('/libros');
@@ -164,13 +165,22 @@ class LibroController extends Controller
     public function update(Request $request, $id)
     {
         
-        $codigolibro = $request->get('codigolibro');
-        $titulo = $request->get('titulo');
-        $area_id = $request->get('area_id');
-        $editoriales_id = $request->get('editoriales_id');
-        $cantidadlibro = $request->get('cantidadlibro');
-        DB::update('update libros set  titulo=?, area_id=?, editoriales_id=?,cantidadlibro=? where codigolibro=?', [$titulo,$area_id,$editoriales_id,$cantidadlibro,$codigolibro]);
-        
+        // $codigolibro = $request->get('codigolibro');
+        // $titulo = $request->get('titulo');
+        // $area_id = $request->get('area_id');
+        // $editoriales_id = $request->get('editoriales_id');
+        // $cantidadlibro = $request->get('cantidadlibro');
+        // $librodisponible = $request->get('librodisponible');
+        // DB::update('update libros set  titulo=?, area_id=?, editoriales_id=?,cantidadlibro=?, librodisponible=? where codigolibro=?', [$titulo,$area_id,$editoriales_id,$cantidadlibro,$codigolibro,$librodisponible]);
+        $libro = Libros::find($id);
+        $libro->codigolibro = $request->get('codigolibro');
+        $libro->titulo = $request->get('titulo');
+        $libro->area_id = $request->get('area_id');
+        $libro->editoriales_id = $request->get('editoriales_id');
+        $libro->cantidadlibro = $request->get('cantidadlibro');
+        $libro->librodisponible = $request->get('librodisponible');
+        $libro->save();
+
         $tipolibro = $request->get('tipolibro');
         $autoresCodigo = $request->get('autoresCodigo');
         $codigolibro = $request->get('codigolibro');

@@ -15,8 +15,8 @@
             <form action="/prestamos\ {{ $prestamos->id}}"  class="p-5 w-full max-w-lg bg-gray-300  mx-auto  overflow-hidden shadow-xl sm:rounded-lg py-3 -mt-16" method="post">
             @method('PUT')
             @csrf()
-            <input  type="text" id="id" value=" {{ $prestamos->estudiante_id }}"  name="estudiante_id" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" tabindex="2">
-            <input  type="text" id="id1"  value=" {{ $prestamos->libro_id }}" name="libro_id"  class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" tabindex="2">
+            <input  type="text" id="id" value=" {{ $prestamos->estudiante_id }}" style="display: none"  name="estudiante_id" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" tabindex="2">
+            <input  type="text" id="id1"  value=" {{ $prestamos->libro_id }}" name="libro_id" style="display: none" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" tabindex="2">
 
             <div class="flex items-center py-2">
                 <div class="w-full px-3">

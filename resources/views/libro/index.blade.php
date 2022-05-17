@@ -65,8 +65,9 @@
                             </div>
 
                                 <div class="mt-3">
-                                    <label for=""class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-3 -ml-3">cantidad de libro</label>
-                                    <input required type="text" id="cantidadlibro" name="cantidadlibro" class="bg-gray-200 border-collapse -ml-2 space-y-1 hover:bg-white border-transparent rounded " tabindex="2">
+                                    <label for="" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-3 -ml-3">Editorial</label>
+                            <input required type="text" id="editoriales_id" class="bg-gray-200 border-collapse -ml-2 space-y-1 hover:bg-white border-transparent rounded" tabindex="4">
+
                                 </div>
 
 
@@ -77,12 +78,12 @@
                         <div class="flex items-center">
 
                             <div class="container font-bold mt-3">
-                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 ml-3  mt-3">Código</label>
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 ml-3  mt-3">Código libro</label>
                                 <input required type="text" id="codigolibro" name="codigolibro" class="bg-gray-200 border-collapse ml-2 space-y-1 hover:bg-white border-transparent rounded" tabindex="1">
                             </div>
 
                             <div class=" mt-3 ">
-                                <label for="titulo" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-3 -ml-3">Titulo</label>
+                                <label for="titulo" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-3 -ml-3">Título</label>
                                 <input required type="text" id="titulo" name="titulo" class="bg-gray-200 border-collapse -ml-2 space-y-1 hover:bg-white border-transparent rounded" tabindex="2">
                             </div>
 
@@ -93,8 +94,8 @@
                         <div class=" flex items-center">
 
                             <div class="container font-bold mt-3">
-                                <label for="cantidadpaginas" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 ml-3  mt-3">Cantidad pagina</label>
-                                <input required type="text" id="cantidadpaginas" name="cantidadpaginas" class="bg-gray-200 border-collapse ml-2 space-y-1 hhover:bg-white border-transparent rounded" tabindex="3">
+                                <label for="cantidadpaginas" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 ml-3  mt-3">Cantidad página</label>
+                                <input required type="number" id="cantidadpaginas" name="cantidadpaginas" class="bg-gray-200 border-collapse ml-2 space-y-1 hhover:bg-white border-transparent rounded" tabindex="3">
                             </div>
 
                             <div class="mt-3">
@@ -106,14 +107,14 @@
 
                         <div class="flex items-center">
                             <div class="container font-bold mt-3">
-                                <label for="aniopublicacion" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 ml-3  mt-3">Año publicacion</label>                            
-                                <input required type="date" id="aniopublicacion" name="aniopublicacion" class=" bg-gray-200 border-collapse ml-2 space-y-1 hover:bg-white border-transparent rounded" tabindex="2">
+                                <label for="aniopublicacion" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 ml-3  mt-3">Año publicación</label>                            
+                                <input required type="date" id="aniopublicacion" name="aniopublicacion" class=" bg-gray-200 border-collapse ml-2 space-y-6 hover:bg-white border-transparent rounded" tabindex="2">
                             </div>
 
 
                             <div class="mt-3">
                                 <label for="idioma" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-3 -ml-3">Idioma</label>
-                                <input required type="text" id="idioma" name="idioma" class="p-4 bg-gray-200 border-collapse ml-2 space-y-1 hover:bg-white border-transparent rounded" tabindex="4">
+                                <input required type="text" id="idioma" name="idioma" class="bg-gray-200 border-collapse -ml-2 space-y-1 hover:bg-white border-transparent rounded" tabindex="4">
                             </div>
 
                         </div>
@@ -122,10 +123,10 @@
 
                         <div class="container font-bold mt-3">
                             <div class="">
-                                <label for="Areas" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 ml-3">Areas</label>
+                                <label for="Areas" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 ml-3">áreas</label>
                             </div>
-                            <select name="area_id" class=" bg-gray-200 border-collapse -ml-2 space-y-1 hover:bg-white border-transparent rounded">
-                                <option value="">Seleccione una area</option>
+                            <select name="area_id" class=" bg-gray-200 border-collapse ml-2 space-y-1 hover:bg-white border-transparent rounded">
+                                <option value="">Seleccione una área</option>
                                 @foreach($areas as $ar)
                                         <option class="bg-gray-200 border-collapse -ml-2 space-y-1 hover:bg-white border-transparent rounded" value="{{$ar->codigoArea}}">{{$ar->area}}</option>
                                 @endforeach
@@ -133,18 +134,25 @@
                         </div>
 
                         <div class="mt-3">
-                            <label for="" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-3 -ml-3">Editorial</label>
-                            <input required type="text" id="editoriales_id" class="bg-gray-200 border-collapse -ml-2 space-y-1 hover:bg-white border-transparent rounded" tabindex="4">
+                            <label for=""class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-3 -ml-3">cantidad de libro</label>
+                            <input required type="number" id="cantidadlibro" name="cantidadlibro" class="bg-gray-200 border-collapse -ml-2 space-y-1 hover:bg-white border-transparent rounded " tabindex="2">
                         </div>
 
                         </div>
 
                         
+                        
                 </div>
 
                         <div class="flex items-center ml-3 mt-6" style="width: 100%;">
+                            <div class="mt-3">
+                                <label for=""class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-3 ml-2">libro disponible</label>
+                                <input required type="number" id="librodisponible" name="librodisponible" class="bg-gray-200 border-collapse -ml-2 space-y-1 hover:bg-white border-transparent rounded " tabindex="2">
+                            </div>
+                            <div class="ml-12 mt-10">
                             <a href="/libros" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" tabindex="5">Cancelar</a>
                             <button type="submit" class="ml-3 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" tabindex="4">Guardar</button>
+                            </div>
                         </div>
 
                 </div>
@@ -163,7 +171,7 @@
                                 Tipo                             
                             </th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
-                            Titulo
+                            Título
                             </th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
                             Cantidad Páginas
@@ -181,7 +189,7 @@
                             </th>
 
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
-                            Area
+                            área
                             </th>
 
                             <th scope="col" class=" px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
