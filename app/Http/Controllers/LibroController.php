@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\Areas;
-use App\Models\Autores;
 use App\Models\Libros;
+use App\Models\Autores;
 use App\Models\Comment;
 use App\Models\Detallelibro;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Cache;
 
 class LibroController extends Controller
 {
@@ -18,6 +19,15 @@ class LibroController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function contador($id)
+    {
+        $contador=Libros::find($id);
+        if(Cache::has($id)==true)
+        {
+            Cache::add('$id', $value, $ttl);
+        }
+    }
     public function index(Request $request)
     {
         //

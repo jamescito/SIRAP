@@ -18,13 +18,13 @@
                 <!--h2 class=" font-bold mx-auto ml-60 -mt-10">Registrar autores</h2-->
 
             <div class="flex flex-col">
+                
+            <div>
                 @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>
                             @foreach ($errors->all() as $error)
-                            <script>
-                            alert("El código ya exite, ingrese otro !!");
-                            </script>
+                            <br><br><h1>El codigo ya exite ingrese otro !!</h1>
                             <style>
                                 h1 {
                                     color: red;
@@ -40,6 +40,7 @@
 
                     </div>
                     @endif
+                </div>
                     <form action="/autores" class="p-5 w-full max-w-lg bg-gray-300  mx-auto  overflow-hidden shadow-xl sm:rounded-lg py-3 -mt-16" method="post">
                         @csrf()
                         <div class="flex items-center py-2">

@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-app-layout >
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Prestamos') }}
@@ -6,7 +6,7 @@
 
     </x-slot>
 
-    <div class="py-10">
+    <div class="py-10" >
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-1">
             <div class=" bg-white overflow-hidden shadow-xl sm:rounded-lg py-3">
             
@@ -35,15 +35,16 @@
 
                     <!--p></p-->
 
-                    <form action="/prestamos" class="p-5 w-full max-w-lg bg-gray-300  mx-auto  overflow-hidden shadow-xl sm:rounded-lg py-3 -mt-16" method="post">
+                    <form  onload="fecha()" action="/prestamos" class="p-5 w-full max-w-lg bg-gray-300  mx-auto  overflow-hidden shadow-xl sm:rounded-lg py-3 -mt-16" method="post">
                         @csrf()
+
                         <input  type="text" id="id" style="display: none" name="estudiante_id" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" tabindex="2">
                         <input  type="text" id="id1"  name="libro_id" style="display: none" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" tabindex="2">
                         <div class="flex items-center py-2">
                             <div class="w-full px-3">
                                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Código de préstamos</label>
                             </div>
-                            <input required type="text" id="codigoPrestamo" name="codigoPrestamo" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" tabindex="1">
+                            <input onclick="fecha()" required type="text" id="codigoPrestamo" name="codigoPrestamo" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" tabindex="1">
                         </div>
 
                         <div class="flex items-center py-2">
@@ -67,14 +68,16 @@
                             <div class="w-full px-3">
                                 <label for="fechaprestamo" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Fecha de préstamo</label>
                             </div>
-                            <input required type="date" id="fechaprestamo" name="fechaprestamo" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" tabindex="2">
+                            <input readonly  required type="text" id="fechaprestamo" name="fechaprestamo" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" tabindex="2">
+                            
                         </div>
+                        <label id="fechaSS" style="color:red;"></label>
 
                         <div class="flex items-center py-2">
                             <div class="w-full px-3">
                                 <label for="fechadevolucion" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Fecha de devolución</label>
                             </div>
-                            <input required type="date" id="fechadevolucion" name="fechadevolucion" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" tabindex="2">
+                            <input onchange="validarFecha()"  required type="date" id="fechadevolucion" name="fechadevolucion" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" tabindex="2">
                         </div>
 
                         <div class="flex items-center py-2">
@@ -93,7 +96,7 @@
                         </div>
 
                         <a href="/prestamos" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" tabindex="5">Cancelar</a>
-                        <button type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" tabindex="4">Guardar</button>
+                        <button type="submit"  class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" tabindex="4">Guardar</button>
                 </div>
                 </form>
                 
@@ -209,6 +212,40 @@
         var nombres=document.getElementById('titulo').innerHTML
         id1.value=id
         codigolibros.value=nombres
+
+    }
+    function fecha(){
+        
+    var fecha_de_prestamo = document.getElementById('fechaprestamo');
+    let fecha = new Date();
+    var fecha_actual = fecha.toISOString().split('T')[0];
+    // var anio_actual = fecha_actual.substring(0,4);
+    // var mes_actual =  fecha_actual.substring(5,7);
+    // var dia_actual =  (fecha_actual.substring(8,10))-1;
+    fecha_de_prestamo.value = fecha_actual
+    }
+
+    function validarFecha(){
+        var fe= document.getElementById('fechaSS')
+   
+        var anio = fecha_de_prestamo.substring(0,4);
+        var mes =  fecha_de_prestamo.substring(5,7);
+        var dia =  fecha_de_prestamo.substring(8,10);
+
+       
+      
+
+        if(anio < anio_actual || anio > anio_actual ){
+            fe.innerHTML='locomans'
+        }
+        else if (mes < mes_actual || mes > mes_actual){
+            fe.innerHTML='locomans'
+        }
+        else if (dia < dia_actual || dia > dia_actual){
+            
+            fe.innerHTML='locomans'
+        }
+
 
     }
 </script>

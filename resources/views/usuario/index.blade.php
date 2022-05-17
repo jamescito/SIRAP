@@ -7,10 +7,10 @@
     
     <div class="py-10">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-1">
-            <div class="flex bg-white overflow-hidden shadow-xl sm:rounded-lg py-3">
+            <div class="flex bg-blue-100 overflow-hidden shadow-xl sm:rounded-lg py-3">
     @foreach($users as $users)
     <div class="max-w-sm rounded overflow-hidden shadow-lg mx-4">
-   <img class="w-full" src="https://styde.net/wp-content/uploads/2020/09/news-laravel8.jpg" alt="Sunset in the mountains">
+   <img class="w-full" src="image/use.jpg" alt="Sunset in the mountains">
    <div class="px-6 py-4">
     <div class="font-bold text-xl mb-2">{{$users->name}}</div>
     <p class="text-gray-700 text-base">
@@ -19,9 +19,9 @@
 
     </div>
    <div class="px-6 pt-4 pb-2">
-    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
-    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
-    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
+    <span class="inline-block bg-white rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#Desarrollador</span>
+    <span class="inline-block bg-white rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
+    <span class="inline-block bg-white rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
    </div>
 </div>
 @endforeach
