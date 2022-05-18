@@ -68,7 +68,7 @@ class PrestamoController extends Controller
         return $pdf->setPaper('a4','landscape')->stream();
     }
 
-    public function pdf_Estudiantes()
+    public function pdf_Estudiantes()   
     {
         $est = '18';
         //$prestamos=DB::select('select * from prestamos');

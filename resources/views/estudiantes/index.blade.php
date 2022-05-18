@@ -89,90 +89,89 @@
 
                 <div class="py-12 bg-blue-100  overflow-hidden shadow-xl sm:rounded-lg">
 
-                    <div style="border-bottom: solid 1px black; width:90%; margin-left:auto; margin-right:auto;">
+                    <div style="border-bottom: solid 1px black; width:95%; margin-left:auto; margin-right:auto;">
                         <label style="" for="">Obtener reportes filtrados</label>
                     </div>
-                    <div class="mt-4 ml-6">
+                    <div class="mt-4 ml-8">
                         <a href="{{ route('estudiantes-pdf') }}"
                             class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4  border border-blue-500 hover:border-transparent rounded">Todos
                             los estudiantes</a>
                         </div>
 
+                        <table class="min-w-full divide-y divide-gray-200 mt-4">
+                            <thead class="bg-gray-50">
+                                <tr>
+
+                                    <th scope="col"
+                                        class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
+                                        Código Carnet
+                                    </th>
+
+                                    <th scope="col"
+                                        class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
+                                        Nombres
+                                    </th>
+
+                                    <th scope="col"
+                                        class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
+                                        Apellidos
+                                    </th>
+
+                                    <th scope="col"
+                                        class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
+                                        Carrera
+                                    </th>
+
+                                    <th scope="col"
+                                        class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
+                                        Correo
+                                    </th>
+
+                                    <th scope="col"
+                                        class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
+
+                                    </th>
+
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                @foreach ($estudiantes as $estudiante)
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            {{ $estudiante->codigoCarnet }}
+                                        </td>
+
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            {{ $estudiante->nombre }}
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            {{ $estudiante->apellido }}
+                                        </td>
+
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            {{ $estudiante->carrera }}
+                                        </td>
+
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            {{ $estudiante->correo }}
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                            <form action="{{ route('estudiantes.destroy', $estudiante->id) }}" method="post">
+                                                @csrf
+                                                @method('DELETE')
+                                                <a href="/estudiantes/{{ $estudiante->id }}/edit"
+                                                    class="text-indigo-900 hover:text-indigo-900 mr-4"> Editar </a>
+                                                <button type="submit" class="text-red-500 hover:text-indigo-900">Eliminar</a>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+
+                        {{ $estudiantes->links() }}
+
                 </div>
-
-                <table class="min-w-full divide-y divide-gray-200 mt-4">
-                    <thead class="bg-gray-50">
-                        <tr>
-
-                            <th scope="col"
-                                class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
-                                Código Carnet
-                            </th>
-
-                            <th scope="col"
-                                class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
-                                Nombres
-                            </th>
-
-                            <th scope="col"
-                                class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
-                                Apellidos
-                            </th>
-
-                            <th scope="col"
-                                class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
-                                Carrera
-                            </th>
-
-                            <th scope="col"
-                                class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
-                                Correo
-                            </th>
-
-                            <th scope="col"
-                                class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
-
-                            </th>
-
-                        </tr>
-                    </thead>
-                    <tbody class="bg-white divide-y divide-gray-200">
-                        @foreach ($estudiantes as $estudiante)
-                            <tr>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    {{ $estudiante->codigoCarnet }}
-                                </td>
-
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    {{ $estudiante->nombre }}
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    {{ $estudiante->apellido }}
-                                </td>
-
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    {{ $estudiante->carrera }}
-                                </td>
-
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    {{ $estudiante->correo }}
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                    <form action="{{ route('estudiantes.destroy', $estudiante->id) }}" method="post">
-                                        @csrf
-                                        @method('DELETE')
-                                        <a href="/estudiantes/{{ $estudiante->id }}/edit"
-                                            class="text-indigo-900 hover:text-indigo-900 mr-4"> Editar </a>
-                                        <button type="submit" class="text-red-500 hover:text-indigo-900">Eliminar</a>
-                                    </form>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-
-                {{ $estudiantes->links() }}
-
             </div>
         </div>
     </div>
