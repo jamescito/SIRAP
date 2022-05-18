@@ -52,18 +52,66 @@ class PrestamoController extends Controller
 
     public function pdf()
     {
+
+        $fecha = date('m-d-Y h:i:s a', time());
+        $clasificacion = "Todos los préstamos";
+        $cantidad = DB::table('prestamos')->count();
+        $datos = array($fecha,$clasificacion,$cantidad);
         //$prestamos=DB::select('select * from prestamos');
         $prestamos=DB::table('prestamos')
         ->join('estudiantes','estudiantes.codigoCarnet', '=' ,'prestamos.estudiante_id')
         ->join('libros','libros.codigolibro', '=' ,'prestamos.libro_id')
         ->select('prestamos.id','libros.titulo','estudiantes.nombre','estudiantes.apellido','prestamos.fechaprestamo','prestamos.fechadevolucion','prestamos.fechaestadoprestamo','prestamos.disponible')
         ->paginate(12);
-        $pdf = PDF::loadView('prestamos.pdf', ['prestamos' => $prestamos]);
+        $pdf = PDF::loadView('prestamos.pdf', ['prestamos' => $prestamos],['datos'=>$datos]);
+        //return $pdf->download('prestamos.pdf');
+        return $pdf->setPaper('a4','landscape')->stream();
+    }
+
+    public function pdf_Estudiantes()
+    {
+        $est = '18';
+        //$prestamos=DB::select('select * from prestamos');
+        $fecha = date('m-d-Y h:i:s a', time());
+        $clasificacion = "Estudiantes";
+        $cantidad = DB::table('prestamos')->where('estudiante_id','like','%'.$est.'%')->count();
+
+        $datos = array($fecha,$clasificacion,$cantidad);
+
+        $prestamos=DB::table('prestamos')
+        ->join('estudiantes','estudiantes.codigoCarnet', '=' ,'prestamos.estudiante_id')
+        ->join('libros','libros.codigolibro', '=' ,'prestamos.libro_id')
+        ->select('prestamos.id','libros.titulo','estudiantes.nombre','estudiantes.apellido','prestamos.fechaprestamo','prestamos.fechadevolucion','prestamos.fechaestadoprestamo','prestamos.disponible')
+        ->WHERE('prestamos.estudiante_id','like','%'.$est.'%')
+        ->paginate(12);
+        $pdf = PDF::loadView('prestamos.pdf', ['prestamos' => $prestamos],['datos'=>$datos]);
         //return $pdf->download('prestamos.pdf');
         return $pdf->setPaper('a4','landscape')->stream();
 
     }
+    public function pdf_Publico()
+    {
+        //$prestamos=DB::select('select * from prestamos');
+        $est = '610';
 
+        //$prestamos=DB::select('select * from prestamos');
+        $fecha = date('m-d-Y h:i:s a', time());
+        $clasificacion = "Población en general";
+        $cantidad = DB::table('prestamos')->where('estudiante_id','like','%'.$est.'%')->count();
+
+        $datos = array($fecha,$clasificacion,$cantidad);
+
+        $prestamos=DB::table('prestamos')
+        ->join('estudiantes','estudiantes.codigoCarnet', '=' ,'prestamos.estudiante_id')
+        ->join('libros','libros.codigolibro', '=' ,'prestamos.libro_id')
+        ->select('prestamos.id','libros.titulo','estudiantes.nombre','estudiantes.apellido','prestamos.fechaprestamo','prestamos.fechadevolucion','prestamos.fechaestadoprestamo','prestamos.disponible')
+        ->WHERE('prestamos.estudiante_id','like','%'.$est.'%')
+        ->paginate(12);
+        $pdf = PDF::loadView('prestamos.pdf', ['prestamos' => $prestamos],['datos'=>$datos]);
+        //return $pdf->download('prestamos.pdf');
+        return $pdf->setPaper('a4','landscape')->stream();
+
+    }
     /**
      * Show the form for creating a new resource.
      *

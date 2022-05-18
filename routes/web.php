@@ -34,6 +34,8 @@ Route::resource('areas', 'App\Http\Controllers\AreaController')->middleware('aut
 Route::resource('prestamos', 'App\Http\Controllers\PrestamoController')->middleware('auth');
 
 Route::get('download-pdf', [App\Http\Controllers\PrestamoController::class, 'pdf'])->name('prestamos-pdf');
+Route::get('download-pdf1', [App\Http\Controllers\PrestamoController::class, 'pdf_Estudiantes'])->name('prestamos-Estudiantes-pdf');
+Route::get('download-pdf2', [App\Http\Controllers\PrestamoController::class, 'pdf_Publico'])->name('prestamos-Publico-pdf');
 Route::get('descarga-pdf', [App\Http\Controllers\EstudianteController::class, 'pdf'])->name('estudiantes-pdf');
 
 Route::resource('usuario', 'App\Http\Controllers\UserController')->middleware('auth');
