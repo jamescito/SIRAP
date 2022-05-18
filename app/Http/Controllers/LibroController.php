@@ -7,6 +7,7 @@ use App\Models\Areas;
 use App\Models\Libros;
 use App\Models\Autores;
 use App\Models\Comment;
+use Barryvdh\DomPDF\PDF;
 use App\Models\Detallelibro;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -22,23 +23,17 @@ class LibroController extends Controller
 
     public function contador($id)
     {
-        $contador=Libros::find($id);
-        if(Cache::has($id)==true)
-        {
-            Cache::add('$id', $value, $ttl);
-        }
+
     }
     public function index(Request $request)
     {
         //
        // $libro=DB::select('select * from libros');
         //return view('libro.index', ['libro'=> $libro]);
-        
+
         $autores_id=trim($request->get('autores_id'));
         $autor=DB::table('autores')->select('nombre','apellido')->where('apellido','LIKE','%'.$autores_id.'%')->orderBy('apellido','asc')
                                     ->paginate(10);
-
-
         $areas=Areas::all();
 
         $libro=DB::table('libros')
@@ -50,6 +45,25 @@ class LibroController extends Controller
 
         return view('libro.index',compact('autores_id'))->with('libros',$libro)->with('areas',$areas)->with('autor',$autor);
 
+    }
+
+    public function pdf()
+    {
+        $fecha = date('m-d-Y h:i:s a', time());
+        $clasificacion = "Todos los libros";
+        $cantidad = DB::table('libros')->count();
+        $datos = array($fecha,$clasificacion,$cantidad);
+
+        //$prestamos=DB::select('select * from prestamos');
+        $libros=DB::table('libros')
+        ->join('detallelibros','detallelibros.codigolibro', '=' ,'libros.codigolibro')
+        ->join('areas','areas.codigoArea', '=' ,'libros.area_id')
+        ->join('editoriales','editoriales.codigoEditorial', '=' ,'libros.editoriales_id')
+        ->select('libros.id','detallelibros.tipolibro','detallelibros.autoresCodigo','libros.codigolibro','libros.titulo','detallelibros.cantidadpaginas','detallelibros.libroOriginal','detallelibros.aniopublicacion','detallelibros.idioma','areas.area','editoriales.editorial','libros.cantidadlibro')
+        ->paginate(10);
+        $pdf = PDF::loadView('libro.pdf', ['libros' => $libros],['datos'=>$datos]);
+        //return $pdf->download('prestamos.pdf');
+        return $pdf->setPaper('a4','landscape')->stream();
     }
 
     /**
@@ -106,7 +120,7 @@ class LibroController extends Controller
      */
     public function show(Request $request)
     {
-        
+
         $data = trim($request->valor);
         $result=DB::table('autores')
         ->where('nombre','like','%'.$data.'%')
@@ -116,13 +130,13 @@ class LibroController extends Controller
 
         return response()->json([
             "estado"=>1,
-            "result"=>$result 
+            "result"=>$result
         ]);
     }
 
     public function showeditorial(Request $request)
     {
-        
+
         $data = trim($request->valor);
         $result=DB::table('editoriales')
         ->where('editorial','like','%'.$data.'%')
@@ -132,7 +146,7 @@ class LibroController extends Controller
 
         return response()->json([
             "estado"=>1,
-            "result"=>$result 
+            "result"=>$result
         ]);
     }
 
@@ -146,14 +160,14 @@ class LibroController extends Controller
     {
         // $libro = Libros::find($id);
         // $librodetalle = DetalleLibro::where('codigolibro', $id)->get();
-        
+
         // return view('libro.edit')->with('libro', $libro)->with('librodetalle', $librodetalle);
         // $autores_id=trim($request->get('autores_id'));
         // $autor=DB::table('autores')->select('nombre','apellido')->where('apellido','LIKE','%'.$autores_id.'%')->orderBy('apellido','asc')
         //                             ->paginate(10);
         $autor=Autores::all();
         $areas=Areas::all();
-        
+
         $libros=DB::table('libros')
         ->join('detallelibros','detallelibros.codigolibro', '=' ,'libros.codigolibro')
         ->join('areas','areas.codigoArea', '=' ,'libros.area_id')
@@ -174,7 +188,7 @@ class LibroController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+
         // $codigolibro = $request->get('codigolibro');
         // $titulo = $request->get('titulo');
         // $area_id = $request->get('area_id');
@@ -228,5 +242,4 @@ class LibroController extends Controller
     $autor = Autores::where('nombre', 'LIKE', '%'.$request->search.'%')->get();
     return \response()->json($autor);
 }
-
 }

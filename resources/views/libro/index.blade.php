@@ -55,9 +55,6 @@
 
                         </div>
 
-
-
-
                         <div class="flex items-center">
                             <div class="container font-bold mt-3">
                                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 ml-3  mt-3">Autores</label>
@@ -163,7 +160,22 @@
 
 
         <div class="py-12 bg-blue-100  overflow-hidden shadow-xl sm:rounded-lg" style="overflow:auto ">
-            <a href="{{ route('prestamos-pdf') }}" class="bg-transparent mt-4 hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 m-6  border border-blue-500 hover:border-transparent rounded">Generar PDF</a>
+
+            <div style="border-bottom: solid 1px black; width:95%; margin-left:auto; margin-right:auto;">
+                <label style="" for="">Obtener reportes filtrados</label>
+            </div>
+            <div class="mt-4 ml-8">
+                <a href="{{ route('libros-pdf') }}"
+                    class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4  border border-blue-500 hover:border-transparent rounded">Todos los libros</a>
+                <a href="{{ route('libros-pdf') }}"
+                    class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4  border border-blue-500 hover:border-transparent rounded">Libros disponibles</a>
+                <a href="{{ route('prestamos-Estudiantes-pdf') }}"
+                    class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4  border border-blue-500 hover:border-transparent rounded">Libros agotados</a>
+                <a href="{{ route('prestamos-Publico-pdf') }}"
+                    class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4  border border-blue-500 hover:border-transparent rounded">Libros prestados</a>
+            </div>
+
+
             <table class="min-w-full divide-y divide-gray-200 mt-4">
                         <thead class="bg-gray-50" >
                             <tr>

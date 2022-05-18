@@ -230,7 +230,8 @@
                                             @method('DELETE')
                                             <a href="/prestamos/{{ $presta->id }}/edit"
                                                 class="text-indigo-900 hover:text-indigo-900 mr-4">Editar</a>
-                                            <button type="submit" class="text-red-500 hover:text-indigo-900">Eliminar</a>
+                                            <button type="submit"
+                                                class="text-red-500 hover:text-indigo-900">Eliminar</a>
                                         </form>
                                     </td>
                                 </tr>
@@ -243,8 +244,7 @@
 
                 {{ $prestamos->links() }}
 
-
-                </div>
+            </div>
         </div>
     </div>
     </div>
