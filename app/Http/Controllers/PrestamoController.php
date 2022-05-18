@@ -70,9 +70,8 @@ class PrestamoController extends Controller
 
     public function pdf_Estudiantes()
     {
-        //$prestamos=DB::select('select * from prestamos');
         $est = '18';
-
+        //$prestamos=DB::select('select * from prestamos');
         $fecha = date('m-d-Y h:i:s a', time());
         $clasificacion = "Estudiantes";
         $cantidad = DB::table('prestamos')->where('estudiante_id','like','%'.$est.'%')->count();
@@ -95,9 +94,11 @@ class PrestamoController extends Controller
         //$prestamos=DB::select('select * from prestamos');
         $est = '610';
 
+        //$prestamos=DB::select('select * from prestamos');
         $fecha = date('m-d-Y h:i:s a', time());
         $clasificacion = "Población en general";
         $cantidad = DB::table('prestamos')->where('estudiante_id','like','%'.$est.'%')->count();
+
         $datos = array($fecha,$clasificacion,$cantidad);
 
         $prestamos=DB::table('prestamos')

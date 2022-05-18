@@ -38,14 +38,19 @@ class EstudianteController extends Controller
 
     public function pdf()
     {
+        $fecha = date('m-d-Y h:i:s a', time());
+        $clasificacion = "Todos los registros";
+        $cantidad = DB::table('estudiantes')->count();
+        $datos = array($fecha,$clasificacion,$cantidad);
+
         $estudiantes=DB::table('estudiantes')
         ->join('carreras','carreras.codigoCarrera', '=' ,'estudiantes.carrera_id')
         ->select('estudiantes.id','estudiantes.codigoCarnet','estudiantes.nombre','estudiantes.apellido','estudiantes.carrera_id','carreras.carrera','estudiantes.correo')
         ->paginate(10);
-        $pdf= PDF::loadView('estudiantes.pdf',['estudiantes' => $estudiantes]);
+        $pdf= PDF::loadView('estudiantes.pdf',['estudiantes' => $estudiantes],['datos'=>$datos]);
         return $pdf->setPaper('a4','landscape')->stream();
 
-        // $prestamos=DB::select('select * from prestamos');      
+        // $prestamos=DB::select('select * from prestamos');
         // $pdf = PDF::loadView('prestamos.pdf', ['prestamos' => $prestamos]);
         // //return $pdf->download('prestamos.pdf');
         // return $pdf->stream();
@@ -137,7 +142,7 @@ class EstudianteController extends Controller
         $carrera_id = $request->get('carrera_id');
         $correo = $request->get('correo');
         DB::update('update estudiantes Set codigoCarnet=?, nombre=?, apellido=?, carrera_id=?, correo=? where id=?', [$codigoCarnet,$nombre,$apellido,$carrera_id,$correo,$id]);
-        return redirect('/estudiantes');   
+        return redirect('/estudiantes');
     }
 
     /**
