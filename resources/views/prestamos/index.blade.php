@@ -147,107 +147,100 @@
 
                 <div class="py-12 bg-blue-100  overflow-hidden shadow-xl sm:rounded-lg">
 
-                    <div style="border-bottom: solid 1px black; width:90%; margin-left:auto; margin-right:auto;">
+                    <div style="border-bottom: solid 1px black; width:95%; margin-left:auto; margin-right:auto;">
                         <label style="" for="">Obtener reportes filtrados</label>
                     </div>
-                    <div class="mt-4 ml-6">
+                    <div class="mt-4 ml-8">
                         <a href="{{ route('prestamos-pdf') }}"
                             class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4  border border-blue-500 hover:border-transparent rounded">Todos
                             los préstamos</a>
-
                         <a href="{{ route('prestamos-Estudiantes-pdf') }}"
                             class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4  border border-blue-500 hover:border-transparent rounded">Préstamos
                             a estudiantes</a>
-
                         <a href="{{ route('prestamos-Publico-pdf') }}"
                             class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4  border border-blue-500 hover:border-transparent rounded">Préstamos
                             a público general</a>
                     </div>
 
+                    <table class="min-w-full divide-y divide-gray-200 mt-4">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
+                                    título del libro
+                                </th>
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
+                                    estudiante
+                                </th>
+
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
+                                    Fecha Préstamo
+                                </th>
+
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
+                                    Fecha Devolución
+                                </th>
+
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
+                                    Estado préstamo
+                                </th>
+
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
+                                    Acciones
+                                </th>
+                            </tr>
+                        </thead>
+
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            @foreach ($prestamos as $presta)
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        {{ $presta->titulo }}
+                                    </td>
+
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        {{ $presta->nombre }}
+                                        {{ $presta->apellido }}
+                                    </td>
+
+
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        {{ $presta->fechaprestamo }}
+                                    </td>
+
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        {{ $presta->fechadevolucion }}
+                                    </td>
+
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        {{ $presta->fechaestadoprestamo }}
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                        <form action="{{ route('prestamos.destroy', $presta->id) }}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <a href="/prestamos/{{ $presta->id }}/edit"
+                                                class="text-indigo-900 hover:text-indigo-900 mr-4">Editar</a>
+                                            <button type="submit" class="text-red-500 hover:text-indigo-900">Eliminar</a>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @endforeach
+
+                        </tbody>
+                    </table>
+
                 </div>
 
-                <table class="min-w-full divide-y divide-gray-200">
-                    <thead class="bg-gray-50">
-                        <tr>
-                            <th scope="col"
-                                class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
-                                título del libro
-                            </th>
-                            <th scope="col"
-                                class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
-                                estudiante
-                            </th>
-
-                            <th scope="col"
-                                class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
-                                Fecha Préstamo
-                            </th>
-
-                            <th scope="col"
-                                class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
-                                Fecha Devolución
-                            </th>
-
-                            <th scope="col"
-                                class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
-                                Estado préstamo
-                            </th>
-
-                            <th scope="col"
-                                class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
-                                Acciones
-                            </th>
-                        </tr>
-                    </thead>
-
-                    <tbody class="bg-white divide-y divide-gray-200">
-                        @foreach ($prestamos as $presta)
-                            <tr>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    {{ $presta->titulo }}
-                                </td>
-
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    {{ $presta->nombre }}
-                                    {{ $presta->apellido }}
-                                </td>
+                {{ $prestamos->links() }}
 
 
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    {{ $presta->fechaprestamo }}
-                                </td>
-
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    {{ $presta->fechadevolucion }}
-                                </td>
-
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    {{ $presta->fechaestadoprestamo }}
-                                </td>
-
-
-
-
-                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                    <form action="{{ route('prestamos.destroy', $presta->id) }}" method="post">
-                                        @csrf
-                                        @method('DELETE')
-                                        <a href="/prestamos/{{ $presta->id }}/edit"
-                                            class="text-indigo-900 hover:text-indigo-900 mr-4">Editar</a>
-                                        <button type="submit" class="text-red-500 hover:text-indigo-900">Eliminar</a>
-                                    </form>
-                                </td>
-                            </tr>
-                        @endforeach
-
-                    </tbody>
-                </table>
-
-            </div>
-
-            {{ $prestamos->links() }}
-
-
+                </div>
         </div>
     </div>
     </div>

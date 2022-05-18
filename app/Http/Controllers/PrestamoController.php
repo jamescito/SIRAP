@@ -68,7 +68,7 @@ class PrestamoController extends Controller
 
     }
 
-    public function pdf_Estudiantes()
+    public function pdf_Estudiantes()   
     {
         $est = '18';
         //$prestamos=DB::select('select * from prestamos');
