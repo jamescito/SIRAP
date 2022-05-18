@@ -41,7 +41,7 @@ class PrestamoController extends Controller
         ->join('estudiantes','estudiantes.codigoCarnet', '=' ,'prestamos.estudiante_id')
         ->join('libros','libros.codigolibro', '=' ,'prestamos.libro_id')
         ->select('prestamos.id','libros.titulo','prestamos.estudiante_id','estudiantes.nombre','estudiantes.apellido','prestamos.fechaprestamo','prestamos.fechadevolucion','prestamos.fechaestadoprestamo','prestamos.disponible')
-        ->paginate(2);
+        ->paginate(10);
         //->get();
 
         return view('prestamos.index')->with('prestamos',$prestamos)->with('estudLis',$estudLis);
