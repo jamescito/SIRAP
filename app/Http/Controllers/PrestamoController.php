@@ -45,14 +45,14 @@ class PrestamoController extends Controller
         //->get();
 
         return view('prestamos.index')->with('prestamos',$prestamos)->with('estudLis',$estudLis);
-        
+
     }
 
-    
+
 
     public function pdf()
     {
-        //$prestamos=DB::select('select * from prestamos');      
+        //$prestamos=DB::select('select * from prestamos');
         $prestamos=DB::table('prestamos')
         ->join('estudiantes','estudiantes.codigoCarnet', '=' ,'prestamos.estudiante_id')
         ->join('libros','libros.codigolibro', '=' ,'prestamos.libro_id')
@@ -61,7 +61,7 @@ class PrestamoController extends Controller
         $pdf = PDF::loadView('prestamos.pdf', ['prestamos' => $prestamos]);
         //return $pdf->download('prestamos.pdf');
         return $pdf->setPaper('a4','landscape')->stream();
-        
+
     }
 
     /**
@@ -86,6 +86,7 @@ class PrestamoController extends Controller
             'codigoPrestamo'    => 'required|unique:prestamos',
         ]);
 
+
         $prestamos=new Prestamos();
         $prestamos->codigoPrestamo = $request->get('codigoPrestamo');
         $prestamos->estudiante_id = $request->get('estudiante_id');
@@ -95,16 +96,15 @@ class PrestamoController extends Controller
         $prestamos->fechaestadoprestamo = $request->get('fechaestadoprestamo');
         $prestamos->disponible = $request->get('disponible');
         $prestamos->save();
+
+        // $libro = Libros::find($id);
+        // $libro->librodisponible = $request->get('librodisponible');
+        // $libro->save();
+
+      // $codigolibro = $request->get('codigolibro');
+        $librodisponible = $request->get('librodisponible');
+        DB::update('update libros set librodisponible=? where id=?', [$librodisponible,$id]);
         return redirect('/prestamos');
-        
-        $libro = Libros::find($id);
-        $libro->codigolibro = $request->get('codigolibro');
-        $libro->titulo = $request->get('titulo');
-        $libro->area_id = $request->get('area_id');
-        $libro->editoriales_id = $request->get('editoriales_id');
-        $libro->cantidadlibro = $request->get('cantidadlibro');
-        $libro->librodisponible = $request->get('librodisponible');
-        $libro->save();
     }
 
     /**
@@ -124,7 +124,7 @@ class PrestamoController extends Controller
 
         return response()->json([
             "estado"=>1,
-            "result"=>$result 
+            "result"=>$result
         ]);
     }
 
@@ -140,7 +140,7 @@ class PrestamoController extends Controller
 
         return response()->json([
             "estado"=>1,
-            "result"=>$result 
+            "result"=>$result
         ]);
     }
     /**

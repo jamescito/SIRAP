@@ -44,9 +44,13 @@
                             <input type="text" id="id" style="display: none" name="estudiante_id"
                                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                 tabindex="2">
+
                             <input type="text" id="id1" name="libro_id" style="display: none"
                                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                 tabindex="2">
+
+                                <input type="text" id="id2" name="librodisponible" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" tabindex="2">
+
                             <div class="flex items-center py-2">
                                 <div class="w-full px-3">
                                     <label
@@ -261,13 +265,21 @@
         function libro() {
             var id = document.getElementById('codigolibro').innerHTML
             var id1 = document.getElementById('id1')
+            var id2 = document.getElementById('id2')
             var codigolibros = document.getElementById('libro_id')
             // nombre.value=id
 
             var nombres = document.getElementById('titulo').innerHTML
+            var cant=document.getElementById('librodisponible').innerHTML
             id1.value = id
+            id2.value=cant-1
             codigolibros.value = nombres
 
+        }
+
+        function Obtenercantidadlibro(){
+            var cant=document.getElementById('librodisponible').innerHTML
+            alert(cant)
         }
 
         function fecha() {
