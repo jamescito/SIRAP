@@ -150,12 +150,20 @@
                     <div style="border-bottom: solid 1px black; width:90%; margin-left:auto; margin-right:auto;">
                         <label style="" for="">Obtener reportes filtrados</label>
                     </div>
-                     <a href="{{ route('prestamos-pdf') }}"
-                        class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 m-6  border border-blue-500 hover:border-transparent rounded">Generar
-                        PDF</a>
+                    <div class="mt-4 ml-6">
+                        <a href="{{ route('prestamos-pdf') }}"
+                        class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4  border border-blue-500 hover:border-transparent rounded">Todos los préstamos</a>
+
+                        <a href="{{ route('prestamos-pdf') }}"
+                        class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4  border border-blue-500 hover:border-transparent rounded">Préstamos a estudiantes</a>
+
+                        <a href="{{ route('prestamos-pdf') }}"
+                        class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4  border border-blue-500 hover:border-transparent rounded">Préstamos a público general</a>
+                    </div>
+
                 </div>
 
-                <table class="min-w-full divide-y divide-gray-200 mt-4">
+                <table class="min-w-full divide-y divide-gray-200">
                     <thead class="bg-gray-50">
                         <tr>
                             <th scope="col"

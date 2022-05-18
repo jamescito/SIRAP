@@ -12,8 +12,14 @@
 </head>
 <body>
 
-    <img src="image/logo-inatec-2016.png" alt=""  class=" mt-3" style="width: 20%">
+    <div style="width:100%">
+        <div style="width:50%; background:orange">
 
+        </div>
+        <div style="width:50%; background:red">
+
+        </div>
+    </div>
     <div class="flex flex-col mt-4">
         <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div class="py-4 inline-block min-w-full sm:px-6 lg:px-8">
