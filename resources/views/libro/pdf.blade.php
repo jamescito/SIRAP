@@ -27,13 +27,9 @@
     </div>
 
     <div style="width: 100%; margin-top:200px; border-top:solid 1px black">
-        <table class="min-w-full divide-y divide-gray-200 mt-4">
-            <thead class="bg-gray-50">
+        <table class="min-w-full text-center mt-4" style="background-color: rgb(241, 236, 236)">
+            <thead class="border-b bg-gray-800" style="background-color: rgb(90, 198, 244)">
                 <tr>
-                    <th scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
-                        Tipo
-                    </th>
                     <th scope="col"
                         class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
                         Título
@@ -59,7 +55,7 @@
 
                     <th scope="col"
                         class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
-                        área
+                        Área
                     </th>
 
                     <th scope="col"
@@ -67,19 +63,12 @@
                         Editorial
                     </th>
 
-                    <th scope="col"
-                        class=" px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
-                        Acciones
-                    </th>
                 </tr>
             </thead>
 
             <tbody class="bg-white divide-y divide-gray-200">
                 @foreach ($libros as $libro)
                     <tr>
-                        <td class="px-6 py-4 whitespace-nowrap ">
-                            {{ $libro->tipolibro }}
-                        </td>
 
                         <td class="px-6 py-4 whitespace-nowrap">
                             {{ $libro->titulo }}
@@ -108,7 +97,6 @@
                         <td class="px-6 py-4 whitespace-nowrap">
                             {{ $libro->editorial }}
                         </td>
-
                     </tr>
                 @endforeach
 

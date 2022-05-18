@@ -7,11 +7,11 @@ use App\Models\Areas;
 use App\Models\Libros;
 use App\Models\Autores;
 use App\Models\Comment;
-use Barryvdh\DomPDF\PDF;
 use App\Models\Detallelibro;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class LibroController extends Controller
 {
@@ -59,7 +59,7 @@ class LibroController extends Controller
         ->join('detallelibros','detallelibros.codigolibro', '=' ,'libros.codigolibro')
         ->join('areas','areas.codigoArea', '=' ,'libros.area_id')
         ->join('editoriales','editoriales.codigoEditorial', '=' ,'libros.editoriales_id')
-        ->select('libros.id','detallelibros.tipolibro','detallelibros.autoresCodigo','libros.codigolibro','libros.titulo','detallelibros.cantidadpaginas','detallelibros.libroOriginal','detallelibros.aniopublicacion','detallelibros.idioma','areas.area','editoriales.editorial','libros.cantidadlibro')
+        ->select('detallelibros.autoresCodigo','libros.titulo','detallelibros.cantidadpaginas','detallelibros.libroOriginal','detallelibros.aniopublicacion','detallelibros.idioma','areas.area','editoriales.editorial','libros.cantidadlibro')
         ->paginate(10);
         $pdf = PDF::loadView('libro.pdf', ['libros' => $libros],['datos'=>$datos]);
         //return $pdf->download('prestamos.pdf');
