@@ -167,14 +167,7 @@
             <div class="mt-4 ml-8">
                 <a href="{{ route('libros-pdf') }}"
                     class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4  border border-blue-500 hover:border-transparent rounded">Todos los libros</a>
-                <a href="{{ route('libros-pdf') }}"
-                    class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4  border border-blue-500 hover:border-transparent rounded">Libros disponibles</a>
-                <a href="{{ route('prestamos-Estudiantes-pdf') }}"
-                    class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4  border border-blue-500 hover:border-transparent rounded">Libros agotados</a>
-                <a href="{{ route('prestamos-Publico-pdf') }}"
-                    class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4  border border-blue-500 hover:border-transparent rounded">Libros prestados</a>
             </div>
-
 
             <table class="min-w-full divide-y divide-gray-200 mt-4">
                         <thead class="bg-gray-50" >
