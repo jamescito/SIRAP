@@ -12,11 +12,12 @@
         <img src="image/logo-inatec-2016.png" alt="">
         <h2 style="color:white">BIBLIOTECA VIRTUAL</h2>
         <h3 style="color:rgb(255, 255, 255)">INATEC - Siuna,Nicaragua</h3>
+
         <input  type="text" name="" id="libro_id" style="margin-top:5px;border-radius:10px;width:90%; font-size:20px;padding:15px" placeholder="Buscar libro por nombre o título">
-        <ul id="nombre" style="background-color: white;"></ul>
+        <ul id="nombre" style="background-color: transparent; width:40%; margin:10px;"></ul>
+
     </div>
-    
-    <script src="{{ asset('/js/searchConsulta.js') }}" type="module"></script>    
+    <script src="{{ asset('/js/searchConsulta.js') }}" type="module"></script>
 </body>
 
 </html>
