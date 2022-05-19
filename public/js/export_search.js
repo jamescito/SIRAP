@@ -70,11 +70,6 @@ export class search {
 
     }
 
-
-
-
-
-
     show_list_each_data(arrayp, valor, n) {
         for (let item of arrayp) {
             n++;
