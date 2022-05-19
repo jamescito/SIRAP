@@ -38,7 +38,7 @@ class EstudianteController extends Controller
 
     public function pdf()
     {
-        $fecha = date('m-d-Y h:i:s a', time());
+        $fecha = date('m-d-Y', time());
         $clasificacion = "Todos los registros";
         $cantidad = DB::table('estudiantes')->count();
         $datos = array($fecha,$clasificacion,$cantidad);

@@ -38,6 +38,8 @@ Route::get('download-pdf1', [App\Http\Controllers\PrestamoController::class, 'pd
 Route::get('download-pdf2', [App\Http\Controllers\PrestamoController::class, 'pdf_Publico'])->name('prestamos-Publico-pdf');
 Route::get('descarga-pdf', [App\Http\Controllers\EstudianteController::class, 'pdf'])->name('estudiantes-pdf');
 
+Route::get('descarga-pdf1', [App\Http\Controllers\LibroController::class, 'pdf'])->name('libros-pdf');
+
 Route::resource('usuario', 'App\Http\Controllers\UserController')->middleware('auth');
 Route::resource('otros', 'App\Http\Controllers\OtrosController')->middleware('auth');
 
@@ -58,6 +60,11 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/manual', function () {
     return view('manual');
 })->name('manual');
+
+Route::get('/publico', function () {
+    return view('publica');
+});

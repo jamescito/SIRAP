@@ -53,7 +53,7 @@ class PrestamoController extends Controller
     public function pdf()
     {
 
-        $fecha = date('m-d-Y h:i:s a', time());
+        $fecha = date('m-d-Y', time());
         $clasificacion = "Todos los préstamos";
         $cantidad = DB::table('prestamos')->count();
         $datos = array($fecha,$clasificacion,$cantidad);
@@ -68,11 +68,11 @@ class PrestamoController extends Controller
         return $pdf->setPaper('a4','landscape')->stream();
     }
 
-    public function pdf_Estudiantes()   
+    public function pdf_Estudiantes()
     {
         $est = '18';
         //$prestamos=DB::select('select * from prestamos');
-        $fecha = date('m-d-Y h:i:s a', time());
+        $fecha = date('m-d-Y', time());
         $clasificacion = "Estudiantes";
         $cantidad = DB::table('prestamos')->where('estudiante_id','like','%'.$est.'%')->count();
 
@@ -95,7 +95,7 @@ class PrestamoController extends Controller
         $est = '610';
 
         //$prestamos=DB::select('select * from prestamos');
-        $fecha = date('m-d-Y h:i:s a', time());
+        $fecha = date('m-d-Y', time());
         $clasificacion = "Población en general";
         $cantidad = DB::table('prestamos')->where('estudiante_id','like','%'.$est.'%')->count();
 
