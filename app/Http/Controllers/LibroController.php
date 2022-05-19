@@ -49,7 +49,7 @@ class LibroController extends Controller
 
     public function pdf()
     {
-        $fecha = date('m-d-Y h:i:s a', time());
+        $fecha = date('m-d-Y', time());
         $clasificacion = "Todos los libros";
         $cantidad = DB::table('libros')->count();
         $datos = array($fecha,$clasificacion,$cantidad);
