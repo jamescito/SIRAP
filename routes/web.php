@@ -47,6 +47,7 @@ Route::post('myurls',[LibroController::class, 'show']);
 Route::post('myurlseditorial',[LibroController::class, 'showeditorial']);
 
 Route::post('autocompletelibro',[PrestamoController::class, 'autocomplete']);
+Route::post('obtener',[PrestamoController::class, 'edit1'])->name('obtener');
 //Route::get('autocompletelibro',[PrestamoController::class, 'autocompletes'])->name('autocomplete');
 //Route::get('myurl',[PrestamoController::class, 'show'])->name('search');
 

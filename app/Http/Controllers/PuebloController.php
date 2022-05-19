@@ -45,7 +45,7 @@ class PuebloController extends Controller
         $estudiantes->carrera_id = $request->get('carrera_id');
         $estudiantes->correo = $request->get('correo');
         $estudiantes->save();
-        //return redirect('/estudiantes');
+        return redirect('/pueblo');
     }
 
     /**

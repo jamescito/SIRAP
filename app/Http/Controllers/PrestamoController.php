@@ -128,7 +128,14 @@ class PrestamoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $id)
+
+    public function edit1($id)
+    {
+        
+        $libro=Libros::find($id);
+        return view('prestamos.index')->with('libros',$libro);
+    }
+    public function store(Request $request)
     {
         $request->validate([
             'codigoPrestamo'    => 'required|unique:prestamos',
@@ -149,9 +156,9 @@ class PrestamoController extends Controller
         // $libro->librodisponible = $request->get('librodisponible');
         // $libro->save();
 
-      // $codigolibro = $request->get('codigolibro');
+        $codigolibro = $request->get('codigolibro');
         $librodisponible = $request->get('librodisponible');
-        DB::update('update libros set librodisponible=? where id=?', [$librodisponible,$id]);
+        DB::update('update libros set librodisponible=? where codigolibro=?', [$librodisponible,$codigolibro]);
         return redirect('/prestamos');
     }
 
@@ -215,6 +222,13 @@ class PrestamoController extends Controller
 
     }
 
+
+    // public function updat()
+    // {
+    //     $libro=Libros::find($id);
+    //     $libro->librodisponible = $request->get('librodisponible');
+    //     $libro->save();
+    // }
     /**
      * Update the specified resource in storage.
      *
