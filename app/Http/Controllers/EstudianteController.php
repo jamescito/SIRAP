@@ -26,13 +26,15 @@ class EstudianteController extends Controller
         //$estudiantes=DB::select('select * from estudiantes');
         //$estudiantes=Estudiantes::paginate(3);
         //return view('estudiantes.index', ['estudiantes'=> $estudiantes]);
-
+        $est = '18';
         $carrerasLista = Carrera::All();
 
         $estudiantes=DB::table('estudiantes')
         ->join('carreras','carreras.codigoCarrera', '=' ,'estudiantes.carrera_id')
         ->select('estudiantes.id','estudiantes.codigoCarnet','estudiantes.nombre','estudiantes.apellido','estudiantes.carrera_id','carreras.carrera','estudiantes.correo')
+        ->where('estudiantes.codigoCarnet','like','%'.$est.'%')
         ->paginate(10);
+    
         return view('estudiantes.index')->with('estudiantes',$estudiantes)->with('carrerasLista',$carrerasLista);
     }
 
