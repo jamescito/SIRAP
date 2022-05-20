@@ -38,12 +38,20 @@
             </div>
 
 
+            <div class="flex items-center py-2">
+                <div class="w-full px-3">
+                    <label for="correo" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Correo</label>
+                </div>
+                <input value=" {{ $estudiantes->correo }}" type="text" id="correo" name="correo" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" tabindex="2">
+            </div>
 
             <div wire:ignore class=" ml-6 mx-auto">
                             <div class="">
-                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Carrera</label>
+                                <label  class="mt-5 block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Carrera</label>
                             </div>
-                            <select  name="carrera_id" class="appearance-none w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 -ml-4" >
+                            <select  name="carrera_id"  style="float: right"
+                            class=" -mt-8 bg-gray-200 border-collapse ml-2 space-y-1 hover:bg-white border-transparent rounded">
+                                >
                             <option value="{{$estudiantes->carrera_id}}">Carrera actual: {{$estudiantes->carrera}}</option>
                             <option disabled class="bg-blue-300">Seleccionar nueva carrera</option>
                                 @foreach($carreras as $carrera)
@@ -53,14 +61,8 @@
 
                         </div>
 
-            <div class="flex items-center py-2">
-                <div class="w-full px-3">
-                    <label for="correo" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Correo</label>
-                </div>
-                <input value=" {{ $estudiantes->correo }}" type="text" id="correo" name="correo" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" tabindex="2">
-            </div>
 
-
+                <div class="mt-10" >
                 <a href="/estudiantes" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" tabindex="5">Cancelar</a>
                 <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" tabindex="4">Guardar</button>
                 </div>

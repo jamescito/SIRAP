@@ -28,6 +28,28 @@
                                 tabindex="1">
                         </div>
 
+
+                        <div class="flex flex-col">
+
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <h1>El código ya exite ingrese otro !!</h1>
+                                            <style>
+                                                h1 {
+                                                    color: red;
+                                                    text-align: center;
+                                                }
+    
+                                            </style>
+                                        @endforeach
+    
+                                    </ul>
+                                </div>
+                            @endif
+                        </div>
+
                         <div class="flex items-center py-2">
                             <div class="w-full px-3">
                                 <label for="nombre"
@@ -48,23 +70,6 @@
                                 tabindex="2">
                         </div>
 
-                        <div wire:ignore class=" ml-6 mx-auto">
-                            <div class="">
-                                <label
-                                    class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Seleccione
-                                    el tipo</label>
-                            </div>
-                            <select name="carrera_id"
-                                class="appearance-none w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 -ml-4">
-                                <option value="">Seleccione una carrera</option>
-                                @foreach ($carrerasLista as $lsc)
-                                    <option class="text-gray-70" value="{{ $lsc->codigoCarrera }}">{{ $lsc->carrera }}
-                                    </option>
-                                @endforeach
-                            </select>
-
-                        </div>
-
                         <div class="flex items-center py-2">
                             <div class="w-full px-3">
                                 <label for="correo"
@@ -75,12 +80,32 @@
                                 tabindex="2">
                         </div>
 
-                        <a href="/estudiantes"
-                            class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+                        <div wire:ignore class=" ml-6 mx-auto">
+                            <div class="">
+                                <label
+                                    class="mt-5 block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Seleccione
+                                    </label>
+                            </div>
+                            <select name="carrera_id" style="float: right"
+                            class=" -mt-8 bg-gray-200 border-collapse ml-2 space-y-1 hover:bg-white border-transparent rounded">
+                                <option value="">Seleccione una carrera</option>
+                                @foreach ($carrerasLista as $lsc)
+                                    <option class="text-gray-70" value="{{ $lsc->codigoCarrera }}">{{ $lsc->carrera }}
+                                    </option>
+                                @endforeach
+                            </select>
+
+                        </div>
+
+
+                        <div class="mt-10" >
+                        <a href="/estudiantes" 
+                            class=" bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
                             tabindex="5">Cancelar</a>
                         <button type="submit"
                             class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
                             tabindex="4">Guardar</button>
+                        </div>
                         <!--/div-->
                     </form>
 

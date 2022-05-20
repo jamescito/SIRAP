@@ -14,26 +14,7 @@
                 <div class="py-12  bg-blue-100 overflow-hidden shadow-xl sm:rounded-lg">
                     <img src="image/logo-inatec-2016.png" alt="" class=" w-60">
 
-                    <div class="flex flex-col">
-
-                        @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <h1>El codigo ya exite ingrese otro !!</h1>
-                                        <style>
-                                            h1 {
-                                                color: red;
-                                                text-align: center;
-                                            }
-
-                                        </style>
-                                    @endforeach
-
-                                </ul>
-                            </div>
-                        @endif
-
+                    
                         <!--p></p-->
 
                         <form onload="fecha()" action="/prestamos"
@@ -60,6 +41,29 @@
                                 <input onclick="fecha()" required type="text" id="codigoPrestamo" name="codigoPrestamo"
                                     class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                     tabindex="1">
+
+                            </div>
+
+
+                            <div class="flex flex-col">
+
+                                @if ($errors->any())
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                                <h1>El código ya exite ingrese otro !!</h1>
+                                                <style>
+                                                    h1 {
+                                                        color: red;
+                                                        text-align: center;
+                                                    }
+        
+                                                </style>
+                                            @endforeach
+        
+                                        </ul>
+                                    </div>
+                                @endif
                             </div>
 
                             <div class="flex items-center py-2">
@@ -119,17 +123,17 @@
                                         class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Descripción
                                         del préstamo</label>
                                 </div>
-                                <input required type="text" id="fechaestadoprestamo" name="fechaestadoprestamo"
+                                <input value="Activo" readonly required type="text" id="fechaestadoprestamo" name="fechaestadoprestamo"
                                     class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                     tabindex="2">
                             </div>
 
-                            <div class="flex items-center py-2">
+                            <div style="display: none" class="flex items-center py-2">
                                 <div class="w-full px-3">
                                     <label for="disponible"
                                         class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Disponibilidad</label>
                                 </div>
-                                <input required type="text" id="disponible" name="disponible"
+                                <input required  type="text" value="Disponible"  id="disponible" name="disponible"
                                     class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                     tabindex="2">
 

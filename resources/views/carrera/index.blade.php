@@ -15,23 +15,6 @@
                 <img src="https://www.tecnacional.edu.ni/media/uploads/2016/11/18/logo-inatec-2016.png" alt=""  class=" w-60 ">
 
 
-                <div class="flex flex-col">
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                <h1>El codigo ya exite ingrese otro !!</h1>
-                                <style>
-                                h1{
-                                    color: red;
-                                    text-align: center;
-                                }
-                                </style>
-                                @endforeach
-
-                            </ul>
-                        </div>
-                    @endif
 
                 <!--p></p-->
 
@@ -42,6 +25,28 @@
                                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Código</label>
                                 </div>
                                 <input required type="text" id="codigoCarrera" name="codigoCarrera" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" tabindex="1">
+                            </div>
+
+
+                            <div class="flex flex-col">
+
+                                @if ($errors->any())
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                                <h1>El código ya exite ingrese otro !!</h1>
+                                                <style>
+                                                    h1 {
+                                                        color: red;
+                                                        text-align: center;
+                                                    }
+        
+                                                </style>
+                                            @endforeach
+        
+                                        </ul>
+                                    </div>
+                                @endif
                             </div>
 
                             <div class="flex items-center py-2">

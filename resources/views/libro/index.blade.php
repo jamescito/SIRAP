@@ -13,25 +13,6 @@
             <div class="py-12  bg-blue-100 overflow-hidden shadow-xl sm:rounded-lg">
                 <img src="https://www.tecnacional.edu.ni/media/uploads/2016/11/18/logo-inatec-2016.png" alt=""  class=" w-60 ">
 
-                <div class="flex flex-col">
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                            <h1>El código ya exite, ingrese otro !!</h1>
-                            <style>
-                                h1 {
-                                    color: red;
-                                    text-align: center;
-                                    font-family: Bahnschrift, SemiBold;
-                                    font-size: 100%;
-                                }
-                            </style>
-                            @endforeach
-
-                        </ul>
-                    </div>
-                    @endif
 
                     <!--p></p-->
 
@@ -51,8 +32,27 @@
                                 <option value="tipolibro">Revista</option>
                                 <option value="tipolibro">Monografía</option>
                             </select>
+                        </div>
 
+                        <div class="flex flex-col">
 
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <h1>El código ya exite ingrese otro !!</h1>
+                                            <style>
+                                                h1 {
+                                                    color: red;
+                                                    text-align: center;
+                                                }
+    
+                                            </style>
+                                        @endforeach
+    
+                                    </ul>
+                                </div>
+                            @endif
                         </div>
 
                         <div class="flex items-center">
@@ -78,6 +78,9 @@
                                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 ml-3  mt-3">Código libro</label>
                                 <input required type="text" id="codigolibro" name="codigolibro" class="bg-gray-200 border-collapse ml-2 space-y-1 hover:bg-white border-transparent rounded" tabindex="1">
                             </div>
+
+
+
 
                             <div class=" mt-3 ">
                                 <label for="titulo" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-3 -ml-3">Título</label>
