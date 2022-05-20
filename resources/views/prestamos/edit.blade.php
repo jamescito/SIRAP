@@ -57,13 +57,13 @@
 
             <div class="flex items-center py-2">
                 <div class="w-full px-3">
-                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">fecha estado préstamo</label>
+                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Descripcion de préstamo</label>
                 </div>
                 <input value="{{ $prestamos->fechaestadoprestamo }}" type="text" id="fechaestadoprestamo" name="fechaestadoprestamo" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" tabindex="1">
             </div>
             <div class="flex items-center py-2">
                 <div class="w-full px-3">
-                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">fecha estado préstamo</label>
+                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">disponible</label>
                 </div>
                 <input value="{{ $prestamos->disponible }}" type="text" id="disponible" name="disponible" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" tabindex="1">
             </div>
