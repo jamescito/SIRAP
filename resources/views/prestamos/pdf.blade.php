@@ -33,7 +33,7 @@
                         LIBRO
                     </th>
                     <th scope="col" class="text-sm font-medium text-white px-6 py-4">
-                        ESTUDIANTE
+                        USUARIO
                     </th>
                     <th scope="col" class="text-sm font-medium text-white px-6 py-4">
                         FECHA DEL PRÉSTAMO
