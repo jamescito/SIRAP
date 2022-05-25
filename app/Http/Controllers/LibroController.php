@@ -84,6 +84,8 @@ class LibroController extends Controller
      */
     public function store(Request $request)
     {
+        $fechaHoy = date('Y-m-d', time());
+
         $request->validate([
             'codigolibro'    => 'required|unique:libros',
         ]);
@@ -98,17 +100,24 @@ class LibroController extends Controller
         $libro->save();
         var_dump($libro);
 
-
         $librodetalle= new Detallelibro();
         $librodetalle->tipolibro = $request->get('tipolibro');
         $librodetalle->autoresCodigo = $request->get('autoresCodigo');
         $librodetalle->codigolibro = $request->get('codigolibro');
         $librodetalle->cantidadpaginas = $request->get('cantidadpaginas');
         $librodetalle->libroOriginal = $request->get('libroOriginal');
-        $librodetalle->aniopublicacion = $request->get('aniopublicacion');
+        $fecha = $librodetalle->aniopublicacion = $request->get('aniopublicacion');
         $librodetalle->idioma = $request->get('idioma');
-        $librodetalle->save();
-        return redirect('/libros');
+
+        if($fecha < $fechaHoy){
+            $librodetalle->save();
+            return redirect('/libros');
+        }
+        else
+        {
+            //AQUÍ PONES EL MENSAJE QUE DIGA QUE NO PUEDE REGISTRAR DEBIDO A AL FECHA BLABLABLA
+            return redirect('/libros');
+        }
 
     }
 
