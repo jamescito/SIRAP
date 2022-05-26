@@ -137,15 +137,25 @@ class PrestamoController extends Controller
     }
     public function store(Request $request)
     {
+
+        $DesdeLetra = "d";
+        $HastaLetra = "y";
+
+        $primero = (random_int(10, 50));
+        $segundo = (random_int(1000, 8892));
+        $letraAleatoria = chr(rand(ord($DesdeLetra), ord($HastaLetra)));
+
+        $fecha = date('Y-m-d', time());
+
         $request->validate([
             'codigoPrestamo'    => 'required|unique:prestamos',
         ]);
 
         $prestamos=new Prestamos();
-        $prestamos->codigoPrestamo = $request->get('codigoPrestamo');
+        $prestamos->codigoPrestamo = ($primero."-".$segundo.$letraAleatoria);
         $prestamos->estudiante_id = $request->get('estudiante_id');
         $codigolibro = $prestamos->libro_id = $request->get('libro_id');
-        $prestamos->fechaprestamo = $request->get('fechaprestamo');
+        $prestamos->fechaprestamo = $fecha;
         $prestamos->fechadevolucion = $request->get('fechadevolucion');
         $prestamos->fechaestadoprestamo = $request->get('fechaestadoprestamo');
         $prestamos->disponible = $request->get('disponible');
