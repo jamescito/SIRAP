@@ -40,7 +40,7 @@ class LibroController extends Controller
         ->join('detallelibros','detallelibros.codigolibro', '=' ,'libros.codigolibro')
         ->join('areas','areas.codigoArea', '=' ,'libros.area_id')
         ->join('editoriales','editoriales.codigoEditorial', '=' ,'libros.editoriales_id')
-        ->select('libros.id','detallelibros.tipolibro','detallelibros.autoresCodigo','libros.codigolibro','libros.titulo','detallelibros.cantidadpaginas','detallelibros.libroOriginal','detallelibros.aniopublicacion','detallelibros.idioma','areas.area','editoriales.editorial','libros.cantidadlibro')
+        ->select('libros.id','detallelibros.tipolibro','detallelibros.autoresCodigo','libros.codigolibro','libros.titulo','detallelibros.cantidadpaginas','detallelibros.libroOriginal','detallelibros.aniopublicacion','detallelibros.idioma','areas.area','editoriales.editorial','libros.cantidadlibro','libros.librodisponible')
         ->paginate(10);
 
         return view('libro.index',compact('autores_id'))->with('libros',$libro)->with('areas',$areas)->with('autor',$autor);
@@ -50,6 +50,7 @@ class LibroController extends Controller
     public function pdf()
     {
         $fecha = date('m-d-Y', time());
+        
         $clasificacion = "Todos los libros";
         $cantidad = DB::table('libros')->count();
         $datos = array($fecha,$clasificacion,$cantidad);

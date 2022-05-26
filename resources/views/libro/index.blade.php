@@ -97,9 +97,6 @@
                                         tabindex="1">
                                 </div>
 
-
-
-
                                 <div class=" mt-3 ">
                                     <label for="titulo"
                                         class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-3 -ml-3">Título</label>
@@ -109,8 +106,6 @@
                                 </div>
 
                             </div>
-
-
 
                             <div class=" flex items-center">
 
@@ -127,12 +122,12 @@
                                     <label for="libroOriginal"
                                         class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-3 -ml-3">Libro
                                         Original</label>
+
                                     <input required type="text" id="libroOriginal" name="libroOriginal"
                                         class="bg-gray-200 border-collapse -ml-2 space-y-1 hover:bg-white border-transparent rounded"
                                         tabindex="4">
                                 </div>
                             </div>
-
 
                             <div class="flex items-center">
                                 <div class="container font-bold mt-3">
@@ -230,19 +225,15 @@
                         <tr>
                             <th scope="col"
                                 class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
-                                Tipo
-                            </th>
-                            <th scope="col"
-                                class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
                                 Título
                             </th>
                             <th scope="col"
-                                class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
-                                Cantidad Páginas
-                            </th>
+                            class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
+                            Tipo
+                        </th>
                             <th scope="col"
                                 class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
-                                Libro Original
+                                Cantidad Páginas
                             </th>
 
                             <th scope="col"
@@ -252,18 +243,14 @@
 
                             <th scope="col"
                                 class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
-                                Idioma
+                                Cantidad total
                             </th>
-
                             <th scope="col"
                                 class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
-                                área
+                                Cantidad disponible
                             </th>
 
-                            <th scope="col"
-                                class=" px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
-                                Editorial
-                            </th>
+
 
                             <th scope="col"
                                 class=" px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
@@ -275,38 +262,28 @@
                     <tbody class="bg-white divide-y divide-gray-200">
                         @foreach ($libros as $libro)
                             <tr>
-                                <td class="px-6 py-4 whitespace-nowrap ">
-                                    {{ $libro->tipolibro }}
-                                </td>
 
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     {{ $libro->titulo }}
                                 </td>
-
-                                <td class="px-6 py-4 whitespace-nowrap">
+                                <td class="px-6 py-4 whitespace-nowrap ">
+                                    {{ $libro->tipolibro }}
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap" style="text-align:center;">
                                     {{ $libro->cantidadpaginas }}
                                 </td>
 
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    {{ $libro->libroOriginal }}
-                                </td>
 
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     {{ $libro->aniopublicacion }}
                                 </td>
 
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    {{ $libro->idioma }}
+                                <td class="px-6 py-4 whitespace-nowrap" style="text-align:center;">
+                                    {{ $libro->cantidadlibro }}
                                 </td>
-
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    {{ $libro->area }}
+                                <td class="px-6 py-4 whitespace-nowrap" style="text-align:center;">
+                                    {{ $libro->librodisponible }}
                                 </td>
-
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    {{ $libro->editorial }}
-                                </td>
-
                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                     <form action="{{ route('libros.destroy', $libro->id) }}" method="post">
                                         @csrf
