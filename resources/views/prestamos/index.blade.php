@@ -14,7 +14,7 @@
                 <div class="py-12  bg-blue-100 overflow-hidden shadow-xl sm:rounded-lg">
                     <img src="image/logo-inatec-2016.png" alt="" class=" w-60">
 
-                    
+
                         <!--p></p-->
 
                         <form onload="fecha()" action="/prestamos"
@@ -31,7 +31,7 @@
                                 tabindex="2">
 
                                 <input type="text" id="id2" style="display: none" name="librodisponible" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" tabindex="2">
-                            
+
                             <div class="flex items-center py-2">
                                 <div class="w-full px-3">
                                     <label
@@ -41,10 +41,7 @@
                                 <input onclick="fecha()" required type="text" id="codigoPrestamo" name="codigoPrestamo"
                                     class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                     tabindex="1">
-
                             </div>
-
-
                             <div class="flex flex-col">
 
                                 @if ($errors->any())
@@ -57,10 +54,10 @@
                                                         color: red;
                                                         text-align: center;
                                                     }
-        
+
                                                 </style>
                                             @endforeach
-        
+
                                         </ul>
                                     </div>
                                 @endif
