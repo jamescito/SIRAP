@@ -131,7 +131,7 @@ class PrestamoController extends Controller
 
     public function edit1($id)
     {
-        
+
         $libro=Libros::find($id);
         return view('prestamos.index')->with('libros',$libro);
     }
@@ -141,24 +141,24 @@ class PrestamoController extends Controller
             'codigoPrestamo'    => 'required|unique:prestamos',
         ]);
 
-
         $prestamos=new Prestamos();
         $prestamos->codigoPrestamo = $request->get('codigoPrestamo');
         $prestamos->estudiante_id = $request->get('estudiante_id');
-        $prestamos->libro_id = $request->get('libro_id');
+        $codigolibro = $prestamos->libro_id = $request->get('libro_id');
         $prestamos->fechaprestamo = $request->get('fechaprestamo');
         $prestamos->fechadevolucion = $request->get('fechadevolucion');
         $prestamos->fechaestadoprestamo = $request->get('fechaestadoprestamo');
         $prestamos->disponible = $request->get('disponible');
         $prestamos->save();
 
-        // $libro = Libros::find($id);
-        // $libro->librodisponible = $request->get('librodisponible');
-        // $libro->save();
+        //OBTENEMOS EL ID Y HACEMOS UPDATE,
 
-        $codigolibro = $request->get('codigolibro');
-        $librodisponible = $request->get('librodisponible');
-        DB::update('update libros set librodisponible=? where codigolibro=?', [$librodisponible,$codigolibro]);
+        $disponibles = DB::table('libros')->where('codigolibro', $codigolibro)->value('librodisponible');
+
+        $nuevo=intval($disponibles) - 1;
+
+        DB::update('update libros set librodisponible=? where codigolibro=?', [$nuevo,$codigolibro]);
+
         return redirect('/prestamos');
     }
 
