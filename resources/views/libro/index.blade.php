@@ -118,15 +118,23 @@
                                         tabindex="3">
                                 </div>
 
+
+
                                 <div class="mt-3">
                                     <label for="libroOriginal"
                                         class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-3 -ml-3">Libro
                                         Original</label>
 
-                                    <input required type="text" id="libroOriginal" name="libroOriginal"
-                                        class="bg-gray-200 border-collapse -ml-2 space-y-1 hover:bg-white border-transparent rounded"
-                                        tabindex="4">
+
+
+                                        <select style="width:13rem;" class="bg-gray-200 border-collapse -ml-2 space-y-1 hover:bg-white border-transparent rounded" name="libroOriginal" id="" >
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option></select>
+
+
                                 </div>
+
+
                             </div>
 
                             <div class="flex items-center">
@@ -171,8 +179,8 @@
                                 <div class="mt-3">
                                     <label for=""
                                         class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-3 -ml-3">cantidad
-                                        de libro</label>
-                                    <input required type="number" id="cantidadlibro" name="cantidadlibro"
+                                        de libros</label>
+                                    <input  onchange="pasarCantidad()" required type="number" id="cantidadlibro" name="cantidadlibro"
                                         class="bg-gray-200 border-collapse -ml-2 space-y-1 hover:bg-white border-transparent rounded "
                                         tabindex="2">
                                 </div>
@@ -188,7 +196,7 @@
                                 <label for=""
                                     class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-3 ml-2">libro
                                     disponible</label>
-                                <input required type="number" id="librodisponible" name="librodisponible"
+                                <input readonly required type="number" id="librodisponible" name="librodisponible"
                                     class="bg-gray-200 border-collapse -ml-2 space-y-1 hover:bg-white border-transparent rounded "
                                     tabindex="2">
                             </div>
@@ -339,6 +347,13 @@
             codigo.value = nombres
         }
 
+        function pasarCantidad(){
+
+            var total_libros = document.getElementById('cantidadlibro').value
+            //alert(total_libros)
+            var cantidad_libros_disponibles = document.getElementById('librodisponible')
+            cantidad_libros_disponibles.value = total_libros;
+        }
 
         function editorial() {
             var id = document.getElementById('codigoEditorial').innerHTML
