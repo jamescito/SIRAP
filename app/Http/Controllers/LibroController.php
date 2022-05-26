@@ -47,10 +47,13 @@ class LibroController extends Controller
 
     }
 
+
+
+
     public function pdf()
     {
         $fecha = date('m-d-Y', time());
-        
+
         $clasificacion = "Todos los libros";
         $cantidad = DB::table('libros')->count();
         $datos = array($fecha,$clasificacion,$cantidad);
@@ -60,11 +63,11 @@ class LibroController extends Controller
         ->join('detallelibros','detallelibros.codigolibro', '=' ,'libros.codigolibro')
         ->join('areas','areas.codigoArea', '=' ,'libros.area_id')
         ->join('editoriales','editoriales.codigoEditorial', '=' ,'libros.editoriales_id')
-        ->select('detallelibros.autoresCodigo','libros.titulo','detallelibros.cantidadpaginas','detallelibros.libroOriginal','detallelibros.aniopublicacion','detallelibros.idioma','areas.area','editoriales.editorial','libros.cantidadlibro')
+        ->select('detallelibros.autoresCodigo','libros.codigolibro','libros.titulo','detallelibros.cantidadpaginas','detallelibros.libroOriginal','detallelibros.aniopublicacion','detallelibros.idioma','areas.area','editoriales.editorial','libros.cantidadlibro')
         ->paginate(10);
         $pdf = PDF::loadView('libro.pdf', ['libros' => $libros],['datos'=>$datos]);
         //return $pdf->download('prestamos.pdf');
-        return $pdf->setPaper('a4','landscape')->stream();
+        return $pdf->setPaper('a4','vertical')->stream();
     }
 
     /**
