@@ -6,9 +6,9 @@
     </x-slot>
     <div class="py-10">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-1">
-            <div class=" bg-white overflow-hidden shadow-xl sm:rounded-lg py-3">
+            <div class=" bg-white overflow-hidden shadow-xl sm:rounded-lg py-3 mt-3">
                 <div class="py-12  bg-blue-100 overflow-hidden shadow-xl sm:rounded-lg">
-                    <img src="https://www.tecnacional.edu.ni/media/uploads/2016/11/18/logo-inatec-2016.png" alt=""
+                    <img src="image/logo-inatec-2016.png" alt=""
                         class=" w-60 ">
 
 
@@ -24,17 +24,17 @@
                         <input type="text" id="id1" name="editoriales_id" style="display: none"
                             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                             tabindex="2">
-                        <div>
+                        <div clas>
                             <div class=" ml-6 mx-auto p-3">
                                 <div class="">
                                     <label
                                         class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Seleccione
-                                        el tipo</label>
+                                        el tipo de documento</label>
                                 </div>
                                 <select required type="text" id="tipolibro" name="tipolibro"
                                     class="appearance-none w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 -ml-4">
                                     <option value="tipolibro">Seleccione</option>
-                                    <option value="tipolibro">Libros</option>
+                                    <option value="tipolibro">Libro</option>
                                     <option value="tipolibro">Revista</option>
                                     <option value="tipolibro">Monografía</option>
                                 </select>
@@ -72,9 +72,9 @@
 
                                 <div class="mt-3">
                                     <label for=""
-                                        class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-3 -ml-3">Editorial</label>
+                                        class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 ml-1">Editorial</label>
                                     <input required type="text" id="editoriales_id"
-                                        class="bg-gray-200 border-collapse -ml-2 space-y-1 hover:bg-white border-transparent rounded"
+                                        class="bg-gray-200 border-collapse mr-2 hover:bg-white border-transparent rounded"
                                         tabindex="4">
 
                                 </div>
@@ -99,9 +99,9 @@
 
                                 <div class=" mt-3 ">
                                     <label for="titulo"
-                                        class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-3 -ml-3">Título</label>
+                                        class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-3 ml-1">Título</label>
                                     <input required type="text" id="titulo" name="titulo"
-                                        class="bg-gray-200 border-collapse -ml-2 space-y-1 hover:bg-white border-transparent rounded"
+                                        class="bg-gray-200 border-collapse mr-2 space-y-1 hover:bg-white border-transparent rounded"
                                         tabindex="2">
                                 </div>
 
@@ -122,19 +122,15 @@
 
                                 <div class="mt-3">
                                     <label for="libroOriginal"
-                                        class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-3 -ml-3">Libro
+                                        class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-3 ml-1">Libro
                                         Original</label>
-
-
-
-                                        <select style="width:13rem;" class="bg-gray-200 border-collapse -ml-2 space-y-1 hover:bg-white border-transparent rounded" name="libroOriginal" id="" >
+                                    <select style="width:13rem;"
+                                        class="bg-gray-200 border-collapse mr-2 space-y-1 hover:bg-white border-transparent rounded"
+                                        name="libroOriginal" id="">
                                         <option value="Si">Si</option>
-                                        <option value="No">No</option></select>
-
-
+                                        <option value="No">No</option>
+                                    </select>
                                 </div>
-
-
                             </div>
 
                             <div class="flex items-center">
@@ -143,17 +139,24 @@
                                         class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 ml-3  mt-3">Año
                                         publicación</label>
                                     <input required type="date" id="aniopublicacion" name="aniopublicacion"
-                                        class=" bg-gray-200 border-collapse ml-2 space-y-6 hover:bg-white border-transparent rounded"
-                                        tabindex="2">
+                                        class=" ml-2 bg-gray-200 border-collapse hover:bg-white border-transparent rounded"
+                                        tabindex="2"  style="width:13rem; margin-top:8px;">
                                 </div>
 
 
                                 <div class="mt-3">
                                     <label for="idioma"
-                                        class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-3 -ml-3">Idioma</label>
-                                    <input required type="text" id="idioma" name="idioma"
-                                        class="bg-gray-200 border-collapse -ml-2 space-y-1 hover:bg-white border-transparent rounded"
-                                        tabindex="4">
+                                        class="block uppercase tracking-wide text-gray-700 text-xs font-bold mt-4 ml-2">Idioma</label>
+                                    <select style="width:13rem; margin-top:8px;"
+                                        class="bg-gray-200 border-collapse mr-2 space-y-1 hover:bg-white border-transparent rounded"
+                                        name="idioma" id="">
+                                        <option value="Español">Español</option>
+                                        <option value="Inglés">Inglés</option>
+                                        <option value="Mayangna">Mayangna</option>
+                                        <option value="Miskitu">Miskitu</option>
+                                        <option value="Garífuna">Garífuna</option>
+                                        <option value="Creollo">Creollo</option>
+                                    </select>
                                 </div>
 
                             </div>
@@ -166,7 +169,8 @@
                                             class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 ml-3">áreas</label>
                                     </div>
                                     <select name="area_id"
-                                        class=" bg-gray-200 border-collapse ml-2 space-y-1 hover:bg-white border-transparent rounded">
+                                        class=" bg-gray-200 ml-2 border-collapse hover:bg-white border-transparent rounded"
+                                        style="width:13rem;">
                                         <option value="">Seleccione un área</option>
                                         @foreach ($areas as $ar)
                                             <option
@@ -178,17 +182,15 @@
 
                                 <div class="mt-3">
                                     <label for=""
-                                        class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-3 -ml-3">cantidad
+                                        class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-3 ml-1">cantidad
                                         de libros</label>
-                                    <input  onchange="pasarCantidad()" required type="number" id="cantidadlibro" name="cantidadlibro"
-                                        class="bg-gray-200 border-collapse -ml-2 space-y-1 hover:bg-white border-transparent rounded "
-                                        tabindex="2">
+                                    <input onchange="pasarCantidad()" required type="number" id="cantidadlibro"
+                                        name="cantidadlibro"
+                                        class="bg-gray-200 border-collapse mr-2 space-y-1 hover:bg-white border-transparent rounded "
+                                        tabindex="2" style="13rem;">
                                 </div>
 
                             </div>
-
-
-
                         </div>
 
                         <div class="flex items-center ml-3 mt-6" style="width: 100%;">
@@ -236,9 +238,9 @@
                                 Título
                             </th>
                             <th scope="col"
-                            class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
-                            Tipo
-                        </th>
+                                class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
+                                Tipo
+                            </th>
                             <th scope="col"
                                 class="px-6 py-3 text-left text-xs font-medium text-blue-700 uppercase tracking-wider bg-gray-300">
                                 Cantidad Páginas
@@ -347,7 +349,7 @@
             codigo.value = nombres
         }
 
-        function pasarCantidad(){
+        function pasarCantidad() {
 
             var total_libros = document.getElementById('cantidadlibro').value
             //alert(total_libros)

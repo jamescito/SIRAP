@@ -33,7 +33,7 @@
                 <div class="mt-2"
                     style="border-bottom: solid 1px rgb(67, 66, 66); border-radius:5px; padding:10px;">
                     <div style="background: skyblue; padding:8px;">
-                        <h4> {{ $libro->titulo }}</h4>
+                        <label style="font-size: 20px;" for="">{{ $libro->titulo }}</label>
                     </div>
                     <label for=""> <span style="color:rgb(2, 80, 113);font-weight:bold;font-size:18px;">Id del libro:
                         </span> {{ $libro->codigolibro }}</label> <br>
