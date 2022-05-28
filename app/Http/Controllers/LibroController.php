@@ -95,16 +95,18 @@ class LibroController extends Controller
         ]);
 
         $libro = new Libros();
+        $librodetalle= new Detallelibro();
+
         $libro->codigolibro = $request->get('codigolibro');
         $libro->titulo = $request->get('titulo');
         $libro->area_id = $request->get('area_id');
         $libro->editoriales_id = $request->get('editoriales_id');
         $libro->cantidadlibro = $request->get('cantidadlibro');
         $libro->librodisponible = $request->get('librodisponible');
-        $libro->save();
-        var_dump($libro);
 
-        $librodetalle= new Detallelibro();
+        //var_dump($libro);
+
+
         $librodetalle->tipolibro = $request->get('tipolibro');
         $librodetalle->autoresCodigo = $request->get('autoresCodigo');
         $librodetalle->codigolibro = $request->get('codigolibro');
@@ -114,6 +116,7 @@ class LibroController extends Controller
         $librodetalle->idioma = $request->get('idioma');
 
         if($fecha < $fechaHoy){
+            $libro->save();
             $librodetalle->save();
             return redirect('/libros');
         }

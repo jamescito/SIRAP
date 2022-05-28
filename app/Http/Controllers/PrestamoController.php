@@ -119,7 +119,7 @@ class PrestamoController extends Controller
      */
     public function create()
     {
-        return view('prestamos.create');
+        //return view('prestamos.create');
     }
 
     /**
@@ -141,15 +141,11 @@ class PrestamoController extends Controller
         $DesdeLetra = "d";
         $HastaLetra = "y";
 
-        $primero = (random_int(10, 50));
+        $primero = (random_int(20, 500));
         $segundo = (random_int(1000, 8892));
         $letraAleatoria = chr(rand(ord($DesdeLetra), ord($HastaLetra)));
 
         $fecha = date('Y-m-d', time());
-
-        $request->validate([
-            'codigoPrestamo'    => 'required|unique:prestamos',
-        ]);
 
         $prestamos=new Prestamos();
         $prestamos->codigoPrestamo = ($primero."-".$segundo.$letraAleatoria);
@@ -159,16 +155,11 @@ class PrestamoController extends Controller
         $prestamos->fechadevolucion = $request->get('fechadevolucion');
         $prestamos->fechaestadoprestamo = $request->get('fechaestadoprestamo');
         $prestamos->disponible = $request->get('disponible');
-        $prestamos->save();
-
         //OBTENEMOS EL ID Y HACEMOS UPDATE,
-
         $disponibles = DB::table('libros')->where('codigolibro', $codigolibro)->value('librodisponible');
-
         $nuevo=intval($disponibles) - 1;
-
         DB::update('update libros set librodisponible=? where codigolibro=?', [$nuevo,$codigolibro]);
-
+        $prestamos->save();
         return redirect('/prestamos');
     }
 
