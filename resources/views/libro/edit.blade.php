@@ -70,8 +70,9 @@
                                 </div>
 
                                     <div class="mt-3">
-                                        <label for=""class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-3 -ml-3">cantidad de libro</label>
-                                        <input required value=" {{ $libros->cantidadlibro }}" type="text" id="cantidadlibro" name="cantidadlibro" class="bg-gray-200 border-collapse -ml-2 space-y-1 hover:bg-white border-transparent rounded " tabindex="2">
+                                        <label for=""class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-3 -ml-3">editorial</label>
+                                        
+                                        <input value=" {{ $libros->editorial }}" required type="text" id="editoriales_id" class="bg-gray-200 border-collapse -ml-2 space-y-1 hover:bg-white border-transparent rounded" tabindex="4">
                                     </div>
 
 
@@ -83,7 +84,7 @@
 
                                 <div class="container font-bold mt-3">
                                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 ml-3  mt-3">Código</label>
-                                    <input value=" {{ $libros->codigolibro }}" required type="text" id="codigolibro" name="codigolibro" class="bg-gray-200 border-collapse ml-2 space-y-1 hover:bg-white border-transparent rounded" tabindex="1">
+                                    <input readonly value=" {{ $libros->codigolibro }}" required type="text" id="codigolibro" name="codigolibro" class="bg-gray-200 border-collapse ml-2 space-y-1 hover:bg-white border-transparent rounded" tabindex="1">
                                 </div>
 
                                 <div class=" mt-3 ">
@@ -104,7 +105,12 @@
 
                                 <div class="mt-3">
                                     <label for="libroOriginal" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-3 -ml-3">Libro Original</label>
-                                    <input value=" {{ $libros->libroOriginal }}" required type="text" id="libroOriginal" name="libroOriginal" class="bg-gray-200 border-collapse -ml-2 space-y-1 hover:bg-white border-transparent rounded" tabindex="4">
+                                    <select style="width:13rem;"
+                                    class="bg-gray-200 border-collapse mr-2 space-y-1 hover:bg-white border-transparent rounded"
+                                    name="libroOriginal" id="">
+                                    <option value="{{$libros->libroOriginal}}">Si</option>
+                                    <option value="{{$libros->libroOriginal}}">No</option>
+                                </select>
                                 </div>
                             </div>
 
@@ -139,8 +145,8 @@
                             </div>
 
                             <div class="mt-3">
-                                <label for="" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-3 -ml-3">Editorial</label>
-                                <input value=" {{ $libros->editorial }}" required type="text" id="editoriales_id" class="bg-gray-200 border-collapse -ml-2 space-y-1 hover:bg-white border-transparent rounded" tabindex="4">
+                                <label for="" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-3 -ml-3">cantidad de libro</label>
+                                <input required value=" {{ $libros->cantidadlibro }}" type="text" id="cantidadlibro" name="cantidadlibro" class="bg-gray-200 border-collapse -ml-2 space-y-1 hover:bg-white border-transparent rounded " tabindex="2">
                             </div>
 
                             </div>
@@ -151,7 +157,7 @@
                     <div class="flex items-center ml-3 mt-6" style="width: 100%;">
                         <div class="mt-3">
                             <label for=""class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-3 ml-2">libro disponible</label>
-                            <input required type="number" value=" {{$libros->librodisponible }}" id="librodisponible" name="librodisponible" class="bg-gray-200 border-collapse -ml-2 space-y-1 hover:bg-white border-transparent rounded " tabindex="2">
+                            <input required type="number" value="{{$libros->librodisponible }}" id="librodisponible" name="librodisponible" class="bg-gray-200 border-collapse -ml-2 space-y-1 hover:bg-white border-transparent rounded " tabindex="2">
                         </div>
                         <div class="ml-12 mt-10">
                         <a href="/libros" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" tabindex="5">Cancelar</a>

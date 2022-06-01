@@ -189,7 +189,7 @@ class LibroController extends Controller
         ->join('areas','areas.codigoArea', '=' ,'libros.area_id')
         ->join('editoriales','editoriales.codigoEditorial', '=' ,'libros.editoriales_id')
         ->join('autores','autores.codigo', '=' ,'detallelibros.autoresCodigo')
-        ->select('libros.id','libros.librodisponible','detallelibros.tipolibro','autores.nombre','autores.apellido','detallelibros.autoresCodigo','libros.codigolibro','libros.titulo','detallelibros.cantidadpaginas','detallelibros.libroOriginal','detallelibros.aniopublicacion','detallelibros.idioma','areas.area','editoriales.editorial','libros.cantidadlibro','libros.area_id','libros.editoriales_id')
+        ->select('libros.id','detallelibros.tipolibro','autores.nombre','autores.apellido','detallelibros.autoresCodigo','libros.codigolibro','libros.titulo','detallelibros.cantidadpaginas','detallelibros.libroOriginal','detallelibros.aniopublicacion','detallelibros.idioma','areas.area','editoriales.editorial','libros.cantidadlibro','libros.area_id','libros.editoriales_id','libros.librodisponible')
         ->where('libros.id', $id)->first();
         return view('libro.edit')->with('libros',$libros)->with('areas',$areas)->with('autor',$autor);
         redirect('/libros');
