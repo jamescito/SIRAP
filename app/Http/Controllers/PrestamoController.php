@@ -130,7 +130,6 @@ class PrestamoController extends Controller
 
     public function edit1($id)
     {
-
         $libro=Libros::find($id);
         return view('prestamos.index')->with('libros',$libro);
     }
@@ -249,8 +248,11 @@ class PrestamoController extends Controller
         $prestamos->fechadevolucion = $request->get('fechadevolucion');
         $estado_del_prestamo = $prestamos->fechaestadoprestamo = $request->get('fechaestadoprestamo');
         $prestamos->disponible = $request->get('disponible');
-        $disponibles = DB::table('libros')->where('codigolibro', $codigolibro)->value('librodisponible');
+
         if($estado_del_prestamo == "Regresado"){
+            $disponibles = DB::table('libros')->where('codigolibro', $codigolibro)->value('librodisponible');
+
+            //echo(""+$estado_del_prestamo);
             $nuevo=intval($disponibles) + 1;
             DB::update('update libros set librodisponible=? where codigolibro=?', [$nuevo,$codigolibro]);
             $prestamos->save();
