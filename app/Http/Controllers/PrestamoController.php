@@ -157,10 +157,17 @@ class PrestamoController extends Controller
 
         if($fecha_devolucion >= $fecha){
             $disponibles = DB::table('libros')->where('codigolibro', $codigolibro)->value('librodisponible');
-            $nuevo=intval($disponibles) - 1;
-            DB::update('update libros set librodisponible=? where codigolibro=?', [$nuevo,$codigolibro]);
-            $prestamos->save();
-            return redirect('/prestamos');
+            if($disponibles > 0){
+                $nuevo=intval($disponibles) - 1;
+                DB::update('update libros set librodisponible=? where codigolibro=?', [$nuevo,$codigolibro]);
+                $prestamos->save();
+                return redirect('/prestamos');
+            }
+            else{
+                //POR AHORA ESTÁ QUE REGRESE A LA MISMA VISTA, SE DEBE PONER UN MENSAJE CLARO
+                echo("NO SE PUEDE REGISTRAR EL PRÉSTAMO, YA QUE NO HAY LIBROS SUFICIENTES");
+                //return redirect('/prestamos');
+            }
         }
         else
         {
@@ -240,6 +247,7 @@ class PrestamoController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         $prestamos= Prestamos:: find($id);
         $prestamos->codigoPrestamo = $request->get('codigoPrestamo');
         $prestamos->estudiante_id = $request->get('estudiante_id');
@@ -249,14 +257,21 @@ class PrestamoController extends Controller
         $estado_del_prestamo = $prestamos->fechaestadoprestamo = $request->get('fechaestadoprestamo');
         $prestamos->disponible = $request->get('disponible');
 
-        if($estado_del_prestamo == "Regresado"){
-            $disponibles = DB::table('libros')->where('codigolibro', $codigolibro)->value('librodisponible');
 
-            //echo(""+$estado_del_prestamo);
-            $nuevo=intval($disponibles) + 1;
-            DB::update('update libros set librodisponible=? where codigolibro=?', [$nuevo,$codigolibro]);
-            $prestamos->save();
-            return redirect('/prestamos');
+        if($estado_del_prestamo == "Regresado"){
+            $totales = DB::table('libros')->where('codigolibro', $codigolibro)->value('cantidadlibro');
+            $disponibles = DB::table('libros')->where('codigolibro', $codigolibro)->value('librodisponible');
+            if($disponibles >= 0 && $disponibles < $totales)
+            {
+                //echo(""+$estado_del_prestamo);
+                $nuevo=intval($disponibles) + 1;
+                DB::update('update libros set librodisponible=? where codigolibro=?', [$nuevo,$codigolibro]);
+                $prestamos->save();
+                return redirect('/prestamos');
+            }
+            else{
+                echo("YA ESTÁN LOS LIBROS COMPLETOS. HAGA UNA REVISIÓN");
+            }
         }
         else{
             $prestamos->save();
