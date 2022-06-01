@@ -215,7 +215,7 @@
                 </div>
                 </form>
 
-            </div>
+
             <!--p></p-->
 
 
@@ -309,6 +309,7 @@
 
                     </tbody>
                 </table>
+            </div>
             </div>
 
             <!--FIN TABLA TAILWIND-->

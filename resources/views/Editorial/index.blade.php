@@ -74,7 +74,7 @@
                 </div>
                 </form>
 
-            </div>
+            
 
 
             <!--p></p-->
@@ -131,6 +131,7 @@
                             @endforeach
                         </tbody>
                         </table>
+                    </div>
                 </div>
                 {{ $editoriales->links() }}
 

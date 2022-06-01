@@ -126,7 +126,7 @@
                     </div>
                     </form>
 
-                </div>
+                
 
                 <!--p></p-->
 
@@ -221,7 +221,7 @@
 
                         </tbody>
                     </table>
-
+                </div>
                 </div>
 
                 {{ $prestamos->links() }}
