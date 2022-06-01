@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Estudiantes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -14,7 +15,7 @@ class PuebloController extends Controller
      */
     public function index()
     {
-        
+
         return view('pueblo.index');
     }
 
@@ -36,7 +37,7 @@ class PuebloController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate(['codigoCarnet'    => 'required|unique:estudiantes']);
+        //$request->validate(['codigoCarnet'    => 'required|unique:estudiantes']);
 
         $estudiantes = new Estudiantes();
         $estudiantes->codigoCarnet = $request->get('codigoCarnet');
