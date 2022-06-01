@@ -137,7 +137,6 @@ class PrestamoController extends Controller
     }
     public function store(Request $request)
     {
-
         $DesdeLetra = "d";
         $HastaLetra = "y";
 
@@ -152,15 +151,26 @@ class PrestamoController extends Controller
         $prestamos->estudiante_id = $request->get('estudiante_id');
         $codigolibro = $prestamos->libro_id = $request->get('libro_id');
         $prestamos->fechaprestamo = $fecha;
-        $prestamos->fechadevolucion = $request->get('fechadevolucion');
+        $fecha_devolucion = $prestamos->fechadevolucion = $request->get('fechadevolucion');
         $prestamos->fechaestadoprestamo = $request->get('fechaestadoprestamo');
         $prestamos->disponible = $request->get('disponible');
         //OBTENEMOS EL ID Y HACEMOS UPDATE,
-        $disponibles = DB::table('libros')->where('codigolibro', $codigolibro)->value('librodisponible');
-        $nuevo=intval($disponibles) - 1;
-        DB::update('update libros set librodisponible=? where codigolibro=?', [$nuevo,$codigolibro]);
-        $prestamos->save();
-        return redirect('/prestamos');
+
+        if($fecha_devolucion >= $fecha){
+            $disponibles = DB::table('libros')->where('codigolibro', $codigolibro)->value('librodisponible');
+            $nuevo=intval($disponibles) - 1;
+            DB::update('update libros set librodisponible=? where codigolibro=?', [$nuevo,$codigolibro]);
+            $prestamos->save();
+            return redirect('/prestamos');
+        }
+        else
+        {
+            //AQUÍ PONES EL MENSAJE QUE DIGA QUE NO PUEDE REGISTRAR DEBIDO A AL FECHA BLABLABLA
+            return redirect('/prestamos');
+            // O NO SÉ SI PONDRÁN MENSAJE
+        }
+
+
     }
 
     /**
@@ -242,13 +252,22 @@ class PrestamoController extends Controller
         $prestamos= Prestamos:: find($id);
         $prestamos->codigoPrestamo = $request->get('codigoPrestamo');
         $prestamos->estudiante_id = $request->get('estudiante_id');
-        $prestamos->libro_id = $request->get('libro_id');
+        $codigolibro = $prestamos->libro_id = $request->get('libro_id');
         $prestamos->fechaprestamo = $request->get('fechaprestamo');
         $prestamos->fechadevolucion = $request->get('fechadevolucion');
-        $prestamos->fechaestadoprestamo = $request->get('fechaestadoprestamo');
+        $estado_del_prestamo = $prestamos->fechaestadoprestamo = $request->get('fechaestadoprestamo');
         $prestamos->disponible = $request->get('disponible');
-        $prestamos->save();
-        return redirect('/prestamos');
+        $disponibles = DB::table('libros')->where('codigolibro', $codigolibro)->value('librodisponible');
+        if($estado_del_prestamo == "Regresado"){
+            $nuevo=intval($disponibles) + 1;
+            DB::update('update libros set librodisponible=? where codigolibro=?', [$nuevo,$codigolibro]);
+            $prestamos->save();
+            return redirect('/prestamos');
+        }
+        else{
+            $prestamos->save();
+            return redirect('/prestamos');
+        }
     }
 
     /**
