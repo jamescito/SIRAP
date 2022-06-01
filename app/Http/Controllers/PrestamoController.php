@@ -87,7 +87,6 @@ class PrestamoController extends Controller
         $pdf = PDF::loadView('prestamos.pdf', ['prestamos' => $prestamos],['datos'=>$datos]);
         //return $pdf->download('prestamos.pdf');
         return $pdf->setPaper('a4','landscape')->stream();
-
     }
     public function pdf_Publico()
     {
@@ -154,6 +153,7 @@ class PrestamoController extends Controller
         $fecha_devolucion = $prestamos->fechadevolucion = $request->get('fechadevolucion');
         $prestamos->fechaestadoprestamo = $request->get('fechaestadoprestamo');
         $prestamos->disponible = $request->get('disponible');
+
         //OBTENEMOS EL ID Y HACEMOS UPDATE,
 
         if($fecha_devolucion >= $fecha){
@@ -169,10 +169,7 @@ class PrestamoController extends Controller
             return redirect('/prestamos');
             // O NO SÉ SI PONDRÁN MENSAJE
         }
-
-
     }
-
     /**
      * Display the specified resource.
      *
@@ -193,7 +190,6 @@ class PrestamoController extends Controller
             "result"=>$result
         ]);
     }
-
     public function autocomplete(Request $request)
     {
         $data = trim($request->valor);
@@ -229,11 +225,7 @@ class PrestamoController extends Controller
         ->select('prestamos.id','prestamos.codigoPrestamo','prestamos.estudiante_id','prestamos.libro_id','estudiantes.nombre','libros.titulo','prestamos.fechaprestamo','prestamos.fechadevolucion','prestamos.fechaestadoprestamo','prestamos.disponible')
         ->where('prestamos.id',$id)->first();
         return view('prestamos.edit')->with('prestamos',$prestamos)->with('estudLis',$estudLis);
-
-
     }
-
-
     // public function updat()
     // {
     //     $libro=Libros::find($id);
@@ -269,7 +261,6 @@ class PrestamoController extends Controller
             return redirect('/prestamos');
         }
     }
-
     /**
      * Remove the specified resource from storage.
      *
