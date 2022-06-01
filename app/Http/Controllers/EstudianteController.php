@@ -40,15 +40,16 @@ class EstudianteController extends Controller
 
     public function pdf()
     {
+
         $fecha = date('m-d-Y', time());
         $clasificacion = "Todos los registros";
-        $cantidad = DB::table('estudiantes')->count();
+        $cantidad = DB::table('estudiantes')->where('estudiantes.clasificacion','estudiante')->count();
         $datos = array($fecha,$clasificacion,$cantidad);
 
         $estudiantes=DB::table('estudiantes')
         ->join('carreras','carreras.codigoCarrera', '=' ,'estudiantes.carrera_id')
         ->select('estudiantes.id','estudiantes.codigoCarnet','estudiantes.nombre','estudiantes.apellido','estudiantes.carrera_id','carreras.carrera','estudiantes.correo')
-        ->paginate(10);
+        ->where('estudiantes.clasificacion','estudiante');
         $pdf= PDF::loadView('estudiantes.pdf',['estudiantes' => $estudiantes],['datos'=>$datos]);
         return $pdf->setPaper('a4','landscape')->stream();
 
