@@ -34,7 +34,7 @@ class EstudianteController extends Controller
         ->select('estudiantes.id','estudiantes.codigoCarnet','estudiantes.nombre','estudiantes.apellido','estudiantes.carrera_id','carreras.carrera','estudiantes.correo')
         ->where('estudiantes.codigoCarnet','like','%'.$est.'%')
         ->paginate(10);
-    
+
         return view('estudiantes.index')->with('estudiantes',$estudiantes)->with('carrerasLista',$carrerasLista);
     }
 
@@ -84,6 +84,7 @@ class EstudianteController extends Controller
         $estudiantes->apellido = $request->get('apellido');
         $estudiantes->carrera_id = $request->get('carrera_id');
         $estudiantes->correo = $request->get('correo');
+        $estudiantes->clasificacion = $request->get('clasificacion');
         $estudiantes->save();
         return redirect('/estudiantes');
     }
