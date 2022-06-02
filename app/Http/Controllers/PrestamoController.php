@@ -175,6 +175,7 @@ class PrestamoController extends Controller
             return redirect('/prestamos');
             // O NO SÉ SI PONDRÁN MENSAJE
         }
+        
     }
     /**
      * Display the specified resource.

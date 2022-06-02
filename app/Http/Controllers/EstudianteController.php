@@ -49,7 +49,8 @@ class EstudianteController extends Controller
         $estudiantes=DB::table('estudiantes')
         ->join('carreras','carreras.codigoCarrera', '=' ,'estudiantes.carrera_id')
         ->select('estudiantes.id','estudiantes.codigoCarnet','estudiantes.nombre','estudiantes.apellido','estudiantes.carrera_id','carreras.carrera','estudiantes.correo')
-        ->where('estudiantes.clasificacion','estudiante');
+        ->WHERE('estudiantes.clasificacion','estudiante')
+        ->paginate(12);
         $pdf= PDF::loadView('estudiantes.pdf',['estudiantes' => $estudiantes],['datos'=>$datos]);
         return $pdf->setPaper('a4','landscape')->stream();
 
