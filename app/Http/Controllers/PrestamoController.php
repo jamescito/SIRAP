@@ -53,7 +53,9 @@ class PrestamoController extends Controller
     public function pdf()
     {
 
+        date_default_timezone_set("America/Managua");
         $fecha = date('m-d-Y', time());
+
         $clasificacion = "Todos los préstamos";
         $cantidad = DB::table('prestamos')->count();
         $datos = array($fecha,$clasificacion,$cantidad);
