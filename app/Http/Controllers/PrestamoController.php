@@ -165,14 +165,19 @@ class PrestamoController extends Controller
             }
             else{
                 //POR AHORA ESTÁ QUE REGRESE A LA MISMA VISTA, SE DEBE PONER UN MENSAJE CLARO
-                echo("NO SE PUEDE REGISTRAR EL PRÉSTAMO, YA QUE NO HAY LIBROS SUFICIENTES");
+               // echo("NO SE PUEDE REGISTRAR EL PRÉSTAMO, YA QUE NO HAY LIBROS SUFICIENTES");
+                
+                echo('<h1 style="color:red; margin-top: 20%; text-align: center "> ¡¡ NO SE PUEDE REGISTRAR EL PRÉSTAMO </h1>');
+                echo('<h1 style="color:red; margin-top: 2%; text-align: center "> NO HAY LIBROS SUFICIENTES !!  </h1>');
+                echo('<a href="/prestamos" style="color:black; margin-top: 2%; text-align: center; margin-left:48% "> REGRESAR  </a>');
                 //return redirect('/prestamos');
             }
         }
         else
         {
             //AQUÍ PONES EL MENSAJE QUE DIGA QUE NO PUEDE REGISTRAR DEBIDO A AL FECHA BLABLABLA
-            return redirect('/prestamos');
+            echo('<h1 style="color:red; margin-top: 20%; text-align: center "> ¡¡ NO SE PUEDE REGISTRAR, LA FECHA ES INDEBIDA !! </h1>');
+            echo('<a href="/prestamos" style="color:black; margin-top: 2%; text-align: center; margin-left:48% "> REGRESAR  </a>');
             // O NO SÉ SI PONDRÁN MENSAJE
         }
         
@@ -271,7 +276,9 @@ class PrestamoController extends Controller
                 return redirect('/prestamos');
             }
             else{
-                echo("YA ESTÁN LOS LIBROS COMPLETOS. HAGA UNA REVISIÓN");
+                echo('<h1 style="color:red; margin-top: 20%; text-align: center "> ¡¡ YA ESTÁN LOS LIBROS COMPLETOS  </h1>');
+                echo('<h1 style="color:red; margin-top: 2%; text-align: center "> REVISE SUS DATOS !!  </h1>');
+                echo('<a href="/prestamos" style="color:black; margin-top: 2%; text-align: center; margin-left:48% "> REGRESAR  </a>');
             }
         }
         else{
