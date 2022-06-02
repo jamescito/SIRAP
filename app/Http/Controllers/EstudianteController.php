@@ -34,21 +34,22 @@ class EstudianteController extends Controller
         ->select('estudiantes.id','estudiantes.codigoCarnet','estudiantes.nombre','estudiantes.apellido','estudiantes.carrera_id','carreras.carrera','estudiantes.correo')
         ->where('estudiantes.codigoCarnet','like','%'.$est.'%')
         ->paginate(10);
-    
+
         return view('estudiantes.index')->with('estudiantes',$estudiantes)->with('carrerasLista',$carrerasLista);
     }
 
     public function pdf()
     {
+
         $fecha = date('m-d-Y', time());
         $clasificacion = "Todos los registros";
-        $cantidad = DB::table('estudiantes')->count();
+        $cantidad = DB::table('estudiantes')->where('estudiantes.clasificacion','estudiante')->count();
         $datos = array($fecha,$clasificacion,$cantidad);
 
         $estudiantes=DB::table('estudiantes')
         ->join('carreras','carreras.codigoCarrera', '=' ,'estudiantes.carrera_id')
         ->select('estudiantes.id','estudiantes.codigoCarnet','estudiantes.nombre','estudiantes.apellido','estudiantes.carrera_id','carreras.carrera','estudiantes.correo')
-        ->paginate(10);
+        ->where('estudiantes.clasificacion','estudiante');
         $pdf= PDF::loadView('estudiantes.pdf',['estudiantes' => $estudiantes],['datos'=>$datos]);
         return $pdf->setPaper('a4','landscape')->stream();
 
@@ -84,6 +85,7 @@ class EstudianteController extends Controller
         $estudiantes->apellido = $request->get('apellido');
         $estudiantes->carrera_id = $request->get('carrera_id');
         $estudiantes->correo = $request->get('correo');
+        $estudiantes->clasificacion = $request->get('clasificacion');
         $estudiantes->save();
         return redirect('/estudiantes');
     }

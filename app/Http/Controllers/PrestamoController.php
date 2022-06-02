@@ -87,7 +87,6 @@ class PrestamoController extends Controller
         $pdf = PDF::loadView('prestamos.pdf', ['prestamos' => $prestamos],['datos'=>$datos]);
         //return $pdf->download('prestamos.pdf');
         return $pdf->setPaper('a4','landscape')->stream();
-
     }
     public function pdf_Publico()
     {
@@ -131,7 +130,6 @@ class PrestamoController extends Controller
 
     public function edit1($id)
     {
-
         $libro=Libros::find($id);
         return view('prestamos.index')->with('libros',$libro);
     }
@@ -154,14 +152,22 @@ class PrestamoController extends Controller
         $fecha_devolucion = $prestamos->fechadevolucion = $request->get('fechadevolucion');
         $prestamos->fechaestadoprestamo = $request->get('fechaestadoprestamo');
         $prestamos->disponible = $request->get('disponible');
+
         //OBTENEMOS EL ID Y HACEMOS UPDATE,
 
         if($fecha_devolucion >= $fecha){
             $disponibles = DB::table('libros')->where('codigolibro', $codigolibro)->value('librodisponible');
-            $nuevo=intval($disponibles) - 1;
-            DB::update('update libros set librodisponible=? where codigolibro=?', [$nuevo,$codigolibro]);
-            $prestamos->save();
-            return redirect('/prestamos');
+            if($disponibles > 0){
+                $nuevo=intval($disponibles) - 1;
+                DB::update('update libros set librodisponible=? where codigolibro=?', [$nuevo,$codigolibro]);
+                $prestamos->save();
+                return redirect('/prestamos');
+            }
+            else{
+                //POR AHORA ESTÁ QUE REGRESE A LA MISMA VISTA, SE DEBE PONER UN MENSAJE CLARO
+                echo("NO SE PUEDE REGISTRAR EL PRÉSTAMO, YA QUE NO HAY LIBROS SUFICIENTES");
+                //return redirect('/prestamos');
+            }
         }
         else
         {
@@ -169,10 +175,7 @@ class PrestamoController extends Controller
             return redirect('/prestamos');
             // O NO SÉ SI PONDRÁN MENSAJE
         }
-
-
     }
-
     /**
      * Display the specified resource.
      *
@@ -193,7 +196,6 @@ class PrestamoController extends Controller
             "result"=>$result
         ]);
     }
-
     public function autocomplete(Request $request)
     {
         $data = trim($request->valor);
@@ -229,11 +231,7 @@ class PrestamoController extends Controller
         ->select('prestamos.id','prestamos.codigoPrestamo','prestamos.estudiante_id','prestamos.libro_id','estudiantes.nombre','libros.titulo','prestamos.fechaprestamo','prestamos.fechadevolucion','prestamos.fechaestadoprestamo','prestamos.disponible')
         ->where('prestamos.id',$id)->first();
         return view('prestamos.edit')->with('prestamos',$prestamos)->with('estudLis',$estudLis);
-
-
     }
-
-
     // public function updat()
     // {
     //     $libro=Libros::find($id);
@@ -249,6 +247,7 @@ class PrestamoController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         $prestamos= Prestamos:: find($id);
         $prestamos->codigoPrestamo = $request->get('codigoPrestamo');
         $prestamos->estudiante_id = $request->get('estudiante_id');
@@ -257,19 +256,28 @@ class PrestamoController extends Controller
         $prestamos->fechadevolucion = $request->get('fechadevolucion');
         $estado_del_prestamo = $prestamos->fechaestadoprestamo = $request->get('fechaestadoprestamo');
         $prestamos->disponible = $request->get('disponible');
-        $disponibles = DB::table('libros')->where('codigolibro', $codigolibro)->value('librodisponible');
+
+
         if($estado_del_prestamo == "Regresado"){
-            $nuevo=intval($disponibles) + 1;
-            DB::update('update libros set librodisponible=? where codigolibro=?', [$nuevo,$codigolibro]);
-            $prestamos->save();
-            return redirect('/prestamos');
+            $totales = DB::table('libros')->where('codigolibro', $codigolibro)->value('cantidadlibro');
+            $disponibles = DB::table('libros')->where('codigolibro', $codigolibro)->value('librodisponible');
+            if($disponibles >= 0 && $disponibles < $totales)
+            {
+                //echo(""+$estado_del_prestamo);
+                $nuevo=intval($disponibles) + 1;
+                DB::update('update libros set librodisponible=? where codigolibro=?', [$nuevo,$codigolibro]);
+                $prestamos->save();
+                return redirect('/prestamos');
+            }
+            else{
+                echo("YA ESTÁN LOS LIBROS COMPLETOS. HAGA UNA REVISIÓN");
+            }
         }
         else{
             $prestamos->save();
             return redirect('/prestamos');
         }
     }
-
     /**
      * Remove the specified resource from storage.
      *

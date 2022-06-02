@@ -14,17 +14,18 @@ class CreateEstudiantesTable extends Migration
     public function up()
     {
         Schema::create('estudiantes', function (Blueprint $table) {
-            
+
             $table->id();
             $table->string('codigoCarnet',50)->unique();
             $table->string('nombre',50);
             $table->string('apellido',50);
             $table->string('carrera_id',50);
-            $table->string('correo')->unique();;
+            $table->string('correo')->unique();
             $table->foreign('carrera_id')-> references('codigoCarrera')->on('carreras');
+            $table->string('clasificacion',10);
             $table->timestamps();
         });
-    
+
     }
 
     /**

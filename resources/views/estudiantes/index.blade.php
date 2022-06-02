@@ -41,10 +41,10 @@
                                                     color: red;
                                                     text-align: center;
                                                 }
-    
+
                                             </style>
                                         @endforeach
-    
+
                                     </ul>
                                 </div>
                             @endif
@@ -59,6 +59,13 @@
                                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                 tabindex="2">
                         </div>
+
+                        <div class="flex items-center py-2" style="display: none">
+                            <input type="text" id="clasificacion" name="clasificacion"
+                                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                tabindex="2" value="estudiante">
+                        </div>
+
 
                         <div class="flex items-center py-2">
                             <div class="w-full px-3">
@@ -99,7 +106,7 @@
 
 
                         <div class="mt-10" >
-                        <a href="/estudiantes" 
+                        <a href="/estudiantes"
                             class=" bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
                             tabindex="5">Cancelar</a>
                         <button type="submit"
