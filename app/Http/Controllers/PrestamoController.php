@@ -137,6 +137,7 @@ class PrestamoController extends Controller
     }
     public function store(Request $request)
     {
+        date_default_timezone_set("America/Managua");
         $DesdeLetra = "d";
         $HastaLetra = "y";
 
