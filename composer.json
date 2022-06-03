@@ -5,6 +5,7 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "require": {
+        "ext-gd": "*",
         "php": "^7.3|^8.0",
         "barryvdh/laravel-dompdf": "^1.0",
         "doctrine/dbal": "^3.1",
@@ -62,4 +63,5 @@
     },
     "minimum-stability": "dev",
     "prefer-stable": true
+
 }
